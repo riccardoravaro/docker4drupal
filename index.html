@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Drupal-compose : Docker-based environment for Drupal">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Drupal-compose</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Wodby/drupal-compose">View on GitHub</a>
+
+          <h1 id="project_title">Drupal-compose</h1>
+          <h2 id="project_tagline">Docker-based environment for Drupal</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Wodby/drupal-compose/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Wodby/drupal-compose/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="docker-based-environment-for-drupal" class="anchor" href="#docker-based-environment-for-drupal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Docker-based environment for Drupal</h1>
+
+<p>Use this Docker compose file to spin up local environment for Drupal with a <em>native Docker app</em> on Linux, Mac OS X and Windows. </p>
+
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li><a href="#drush">Drush</a></li>
+<li><a href="#composer">Composer</a></li>
+<li><a href="#xdebug">Xdebug</a></li>
+<li><a href="#database">Database</a></li>
+<li><a href="#cache">Cache</a></li>
+<li><a href="#accessing-containers">Accessing containers</a></li>
+<li><a href="#logs">Logs</a></li>
+<li><a href="#updating">Updating</a></li>
+<li><a href="#status">Status</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+<li><a href="#going-beyond-local-machine">Going beyound local machine</a></li>
+</ul>
+
+<h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h2>
+
+<p>The Drupal bundle consist of the following containers:</p>
+
+<table>
+<thead>
+<tr>
+<th>Container</th>
+<th>Service name</th>
+<th>Image</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nginx</td>
+<td>web</td>
+<td><a href="https://hub.docker.com/r/wodby/drupal-nginx/">wodby/drupal-nginx</a></td>
+</tr>
+<tr>
+<td>PHP 7, 5.6</td>
+<td>app</td>
+<td><a href="https://hub.docker.com/r/wodby/drupal-php/">wodby/drupal-php</a></td>
+</tr>
+<tr>
+<td>MariaDB</td>
+<td>db</td>
+<td><a href="https://hub.docker.com/r/wodby/drupal-mariadb/">wodby/drupal-mariadb</a></td>
+</tr>
+<tr>
+<td>Redis</td>
+<td>cache</td>
+<td><a href="https://hub.docker.com/_/redis/">redis:3.2-alpine</a></td>
+</tr>
+<tr>
+<td>Memcached</td>
+<td>cache</td>
+<td><a href="https://hub.docker.com/_/memcached/">memcached:1.4-alpine</a></td>
+</tr>
+</tbody>
+</table>
+
+<p>PHP, Nginx and MariaDB configs are optimized to be used with Drupal. We regularly update this bundle with performance improvements, bug fixes and newer version of Nginx/PHP/MariaDB.</p>
+
+<h2>
+<a id="instructions" class="anchor" href="#instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Instructions</h2>
+
+<p>Supported Drupal versions: 7 and 8</p>
+
+<p>Supported PHP versions: 7.0 and 5.6</p>
+
+<p>1. Install docker for <a href="https://docs.docker.com/engine/installation/">Linux</a>, <a href="https://docs.docker.com/engine/installation/mac">Mac OS X</a> or <a href="https://docs.docker.com/engine/installation/windows">Windows</a>. You need to install docker 1.12, not docker toolbox. </p>
+
+<p>For Linux additionally install <a href="https://docs.docker.com/compose/install/">docker compose</a></p>
+
+<p>2. Download <a href="https://raw.githubusercontent.com/Wodby/drupal-compose/master/docker-compose.yml">the compose file</a> from this repository</p>
+
+<p>3. Since containers <a href="https://docs.docker.com/engine/tutorials/dockervolumes/">do not have a permanent storage</a>, directories from the host machine (volumes) should be mounted: one with your Drupal project and another with database files. By default <code>docroot</code> and <code>mariadb</code> directories will be automatically created in the same directory as the compose file. </p>
+
+<p>First, let's edit the path to volume with your Drupal project for the PHP container. Find the following line in the downloaded <code>drupal-compose.yml</code> file</p>
+
+<div class="highlight highlight-source-yaml"><pre><span class="pl-s">- <span class="pl-s">./docroot:/var/www/html</span></span></pre></div>
+
+<p>and replace it with your path:</p>
+
+<div class="highlight highlight-source-yaml"><pre><span class="pl-s">- <span class="pl-s">/path/to/my/drupal/docroot:/var/www/html</span></span></pre></div>
+
+<p>Additionally, you can adjust path to the database files directory (<code>- ./mariadb:/var/lib/mysql</code>). </p>
+
+<p><strong>Linux only</strong>: fix permissions for your files directory with:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ sudo chgrp -R 82 sites/default/files
+$ sudo chmod -R 775 sites/default/files</pre></div>
+
+<p>4. Choose Drupal version by modifying the following environment variable (could be 7 or 8) in the compose file:</p>
+
+<div class="highlight highlight-source-yaml"><pre><span class="pl-c1"><span class="pl-ent">DRUPAL_VERSION:</span> 8</span></pre></div>
+
+<p>5. Update database credentials in your settings.php file:</p>
+
+<pre><code>database: drupal
+username: drupal
+password: drupal
+host: db
+</code></pre>
+
+<p>6. If you want to import your database, uncomment the following line in the compose file:</p>
+
+<div class="highlight highlight-source-yaml"><pre><span class="pl-c">#    - ./mariadb-init:/docker-entrypoint-initdb.d</span></pre></div>
+
+<p>Create the volume directory <code>mariadb-init</code> in the same directory as the compose file and put there your SQL file(s). All SQL files will be automatically imported once MariaDB container has started.</p>
+
+<p>7. Now, let's run the compose file. It will download the images and run the containers:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ docker-compose up -d</pre></div>
+
+<p>8. Make sure all containers are running by executing:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ docker-compose ps</pre></div>
+
+<p>9. That's it! You drupal website should be up and running at http://localhost:8000. </p>
+
+<h2>
+<a id="drush" class="anchor" href="#drush" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Drush</h2>
+
+<p>PHP container has installed drush, connect to the container to use drush.</p>
+
+<h2>
+<a id="composer" class="anchor" href="#composer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Composer</h2>
+
+<p>PHP container has installed composer, connect to the container to use composer.</p>
+
+<h2>
+<a id="xdebug" class="anchor" href="#xdebug" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Xdebug</h2>
+
+<p>If you want to debug your project, uncomment the following line in the compose file:</p>
+
+<div class="highlight highlight-source-yaml"><pre><span class="pl-c">#    XDEBUG_CONFIG: xdebug.remote_autostart=1</span></pre></div>
+
+<p>See the <a href="https://github.com/Wodby/drupal-php/issues/1">known issue</a> with Xdebug in Mac OS.</p>
+
+<h2>
+<a id="database" class="anchor" href="#database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Database</h2>
+
+<h3>
+<a id="making-a-dump" class="anchor" href="#making-a-dump" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Making a dump</h3>
+
+<p>Dump all databases:</p>
+
+<div class="highlight highlight-source-shell"><pre>docker-compose <span class="pl-c1">exec</span> db sh -c <span class="pl-s"><span class="pl-pds">'</span>exec mysqldump --all-databases -uroot -p"root-password"<span class="pl-pds">'</span></span> <span class="pl-k">&gt;</span> databases.sql</pre></div>
+
+<p>Dump a specific one:</p>
+
+<div class="highlight highlight-source-shell"><pre>docker-compose <span class="pl-c1">exec</span> db sh -c <span class="pl-s"><span class="pl-pds">'</span>exec mysqldump -uroot -p"root-password" my-db<span class="pl-pds">'</span></span> <span class="pl-k">&gt;</span> my-db.sql</pre></div>
+
+<h2>
+<a id="cache" class="anchor" href="#cache" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cache</h2>
+
+<h3>
+<a id="redis" class="anchor" href="#redis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Redis</h3>
+
+<p>If you want to use redis, install <a href="https://www.drupal.org/project/redis">redis module</a> in your project and add following lines to the settings.php file:</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$conf</span>[<span class="pl-s"><span class="pl-pds">'</span>redis_client_host<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>redis<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"><span class="pl-smi">$conf</span>[<span class="pl-s"><span class="pl-pds">'</span>redis_client_interface<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>PhpRedis<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"><span class="pl-smi">$conf</span>[<span class="pl-s"><span class="pl-pds">'</span>lock_inc<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-smi">$contrib_path</span> <span class="pl-k">.</span> <span class="pl-s"><span class="pl-pds">'</span>/redis/redis.lock.inc<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"><span class="pl-smi">$conf</span>[<span class="pl-s"><span class="pl-pds">'</span>path_inc<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-smi">$contrib_path</span> <span class="pl-k">.</span> <span class="pl-s"><span class="pl-pds">'</span>/redis/redis.path.inc<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"><span class="pl-smi">$conf</span>[<span class="pl-s"><span class="pl-pds">'</span>cache_backends<span class="pl-pds">'</span></span>][] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>sites/all/modules/redis/redis.autoload.inc<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"><span class="pl-smi">$conf</span>[<span class="pl-s"><span class="pl-pds">'</span>cache_default_class<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Redis_Cache<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"><span class="pl-smi">$conf</span>[<span class="pl-s"><span class="pl-pds">'</span>cache_class_cache_form<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>DrupalDatabaseCache<span class="pl-pds">'</span></span>;</span></pre></div>
+
+<h3>
+<a id="memcached" class="anchor" href="#memcached" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Memcached</h3>
+
+<p>If you want to use redis, install <a href="https://www.drupal.org/project/memcache">memcache module</a> in your project and add following lines to the settings.php file:</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$conf</span>[<span class="pl-s"><span class="pl-pds">'</span>cache_backends<span class="pl-pds">'</span></span>][] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>sites/all/modules/memcache/memcache.inc<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"><span class="pl-smi">$conf</span>[<span class="pl-s"><span class="pl-pds">'</span>lock_inc<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>sites/all/modules/memcache/memcache-lock.inc<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"><span class="pl-smi">$conf</span>[<span class="pl-s"><span class="pl-pds">'</span>memcache_stampede_protection<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-c1">TRUE</span>;</span>
+<span class="pl-s1"><span class="pl-smi">$conf</span>[<span class="pl-s"><span class="pl-pds">'</span>cache_default_class<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>MemCacheDrupal<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"><span class="pl-smi">$conf</span>[<span class="pl-s"><span class="pl-pds">'</span>cache_class_cache_form<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>DrupalDatabaseCache<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"><span class="pl-smi">$conf</span>[<span class="pl-s"><span class="pl-pds">'</span>memcache_servers<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-c1">array</span>(<span class="pl-s"><span class="pl-pds">'</span>cache:11211<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>default<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<p>Also, don't forget to uncomment th following line in the compose file:</p>
+
+<div class="highlight highlight-source-yaml"><pre><span class="pl-c">#  image: memcached:1.4-alpine</span></pre></div>
+
+<p>And comment the following one:</p>
+
+<div class="highlight highlight-source-yaml"><pre>  <span class="pl-s"><span class="pl-ent">image:</span> <span class="pl-s">redis:3.2-alpine</span></span></pre></div>
+
+<h2>
+<a id="accessing-containers" class="anchor" href="#accessing-containers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Accessing containers</h2>
+
+<p>You can connect to any container by executing the following command (example for PHP container):</p>
+
+<div class="highlight highlight-source-shell"><pre>$ docker-compose <span class="pl-c1">exec</span> app sh</pre></div>
+
+<p>Replace <code>app</code> with the name of your service: <code>db</code> (mariadb) or <code>web</code> (nginx).</p>
+
+<h2>
+<a id="logs" class="anchor" href="#logs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Logs</h2>
+
+<p>To get logs from a container simply run (skip the last param to get logs form all the containers):</p>
+
+<pre><code>$ docker-compose logs [service]
+</code></pre>
+
+<p>Example: real-time logs of php container:</p>
+
+<pre><code>$ docker-compose logs -f app
+</code></pre>
+
+<h2>
+<a id="updating" class="anchor" href="#updating" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Updating</h2>
+
+<p>We update containers from time to time, to get the lastest changes simply run again:</p>
+
+<pre><code>$ docker-compose up -d
+</code></pre>
+
+<h2>
+<a id="status" class="anchor" href="#status" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Status</h2>
+
+<p>We're actively working on this instructions and containers. More options will be added soon. If you have a feature request or found a bug please sumbit an issue.</p>
+
+<h2>
+<a id="troubleshooting" class="anchor" href="#troubleshooting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Troubleshooting</h2>
+
+<p>In case you have any problems submit an issue or contact us at hello [at] wodby.com.</p>
+
+<h2>
+<a id="going-beyond-local-machine" class="anchor" href="#going-beyond-local-machine" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Going beyond local machine</h2>
+
+<p>Check out <a href="https://wodby.com">Wodby</a> if you need optimized consistent docker-based environment for Drupal on your dev/staging or production servers. </p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Drupal-compose maintained by <a href="https://github.com/Wodby">Wodby</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
