@@ -157,17 +157,17 @@ host: db
 <h2>
 <a id="drush" class="anchor" href="#drush" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Drush</h2>
 
-<p>PHP container has installed drush, connect to the container to use drush.</p>
+<p>PHP container has installed drush, <a href="#accessing-containers">connect to the app container</a> to use drush.</p>
 
 <h2>
 <a id="composer" class="anchor" href="#composer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Composer</h2>
 
-<p>PHP container has installed composer, connect to the container to use composer.</p>
+<p>PHP container has installed composer, <a href="#accessing-containers">connect to the app container</a> to use composer.</p>
 
 <h2>
 <a id="xdebug" class="anchor" href="#xdebug" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Xdebug</h2>
 
-<p>If you want to debug your project, uncomment the following line in the compose file:</p>
+<p>If you want to use xdebug, uncomment the following line in the compose file:</p>
 
 <div class="highlight highlight-source-yaml"><pre><span class="pl-c">#    XDEBUG_CONFIG: xdebug.remote_autostart=1</span></pre></div>
 
@@ -177,13 +177,13 @@ host: db
 <a id="database" class="anchor" href="#database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Database</h2>
 
 <h3>
-<a id="making-a-dump" class="anchor" href="#making-a-dump" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Making a dump</h3>
+<a id="export" class="anchor" href="#export" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Export</h3>
 
-<p>Dump all databases:</p>
+<p>Exporting all databases:</p>
 
 <div class="highlight highlight-source-shell"><pre>docker-compose <span class="pl-c1">exec</span> db sh -c <span class="pl-s"><span class="pl-pds">'</span>exec mysqldump --all-databases -uroot -p"root-password"<span class="pl-pds">'</span></span> <span class="pl-k">&gt;</span> databases.sql</pre></div>
 
-<p>Dump a specific one:</p>
+<p>Exporting a specific database:</p>
 
 <div class="highlight highlight-source-shell"><pre>docker-compose <span class="pl-c1">exec</span> db sh -c <span class="pl-s"><span class="pl-pds">'</span>exec mysqldump -uroot -p"root-password" my-db<span class="pl-pds">'</span></span> <span class="pl-k">&gt;</span> my-db.sql</pre></div>
 
@@ -215,7 +215,7 @@ host: db
 <span class="pl-s1"><span class="pl-smi">$conf</span>[<span class="pl-s"><span class="pl-pds">'</span>cache_class_cache_form<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>DrupalDatabaseCache<span class="pl-pds">'</span></span>;</span>
 <span class="pl-s1"><span class="pl-smi">$conf</span>[<span class="pl-s"><span class="pl-pds">'</span>memcache_servers<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-c1">array</span>(<span class="pl-s"><span class="pl-pds">'</span>cache:11211<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>default<span class="pl-pds">'</span></span>);</span></pre></div>
 
-<p>Also, don't forget to uncomment th following line in the compose file:</p>
+<p>Also, do not forget to uncomment the following line in the compose file:</p>
 
 <div class="highlight highlight-source-yaml"><pre><span class="pl-c">#  image: memcached:1.4-alpine</span></pre></div>
 
@@ -240,7 +240,7 @@ host: db
 <pre><code>$ docker-compose logs [service]
 </code></pre>
 
-<p>Example: real-time logs of php container:</p>
+<p>Example: real-time logs of the PHP (app) container:</p>
 
 <pre><code>$ docker-compose logs -f app
 </code></pre>
