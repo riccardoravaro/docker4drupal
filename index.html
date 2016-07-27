@@ -179,12 +179,16 @@ host: mariadb
 <h2>
 <a id="drush" class="anchor" href="#drush" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Drush</h2>
 
-<p>PHP container has installed drush, <a href="#accessing-containers">connect to the php container</a> to use drush.</p>
+<p>PHP container has installed drush. When running drush make sure to open the shell as user 82 (www-data) to avoid access problems in the web server, which is running as user 82, too:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ docker-compose <span class="pl-c1">exec</span> --user 82 php drush</pre></div>
 
 <h2>
 <a id="composer" class="anchor" href="#composer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Composer</h2>
 
-<p>PHP container has installed composer, <a href="#accessing-containers">connect to the php container</a> to use composer.</p>
+<p>PHP container has installed composer. Example:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ docker-compose <span class="pl-c1">exec</span> --user 82 php composer update</pre></div>
 
 <h2>
 <a id="xdebug" class="anchor" href="#xdebug" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Xdebug</h2>
