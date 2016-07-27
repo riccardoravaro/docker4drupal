@@ -12,7 +12,7 @@
   <body>
     <section class="page-header">
       <h1 class="project-name">Docker4Drupal</h1>
-      <h2 class="project-tagline">Docker-based environment for Drupal</h2>
+      <h2 class="project-tagline">Docker-based local environment for Drupal</h2>
       <a href="https://github.com/Wodby/drupal-compose" class="btn">View on GitHub</a>
       <a href="https://github.com/Wodby/drupal-compose/zipball/master" class="btn">Download .zip</a>
       <a href="https://github.com/Wodby/drupal-compose/tarball/master" class="btn">Download .tar.gz</a>
@@ -32,7 +32,7 @@
 <li><a href="#xdebug">Xdebug</a></li>
 <li><a href="#database">Database</a></li>
 <li><a href="#cache">Cache</a></li>
-<li><a href="#smtp">SMTP</a></li>
+<li><a href="#mailhog">Mailhog</a></li>
 <li><a href="#phpmyadmin">phpMyAdmin</a></li>
 <li><a href="#apache-solr">Apache Solr</a></li>
 <li><a href="#accessing-containers">Accessing containers</a></li>
@@ -88,8 +88,8 @@
 <td>✓</td>
 </tr>
 <tr>
-<td><a href="https://hub.docker.com/r/junxy/docker-mailcatcher">Mail catcher</a></td>
-<td>smtp</td>
+<td><a href="https://hub.docker.com/r/mailhog/mailhog">Mailhog</a></td>
+<td>mailhog</td>
 <td></td>
 <td>8002</td>
 <td>✓</td>
@@ -112,7 +112,7 @@
 <td><a href="https://hub.docker.com/_/solr">Apache Solr</a></td>
 <td>solr</td>
 <td><code>./docker-runtime/solr</code></td>
-<td></td>
+<td>8003</td>
 <td></td>
 </tr>
 </tbody>
@@ -129,7 +129,7 @@
 
 <p>Supported PHP versions: 7.x and 5.6.x.</p>
 
-<p>1. Install docker for <a href="https://docs.docker.com/engine/installation/">Linux</a>, <a href="https://docs.docker.com/engine/installation/mac">Mac OS X</a> or <a href="https://docs.docker.com/engine/installation/windows">Windows</a>. For Mac and Windows make sure you're installing native docker app version 1.12, not docker toolbox. </p>
+<p>1. Install docker for <a href="https://docs.docker.com/engine/installation/">Linux</a>, <a href="https://docs.docker.com/engine/installation/mac">Mac OS X</a> or <a href="https://docs.docker.com/engine/installation/windows">Windows</a>. <strong>For Mac and Windows make sure you're installing native docker app version 1.12, not docker toolbox.</strong> </p>
 
 <p>For Linux additionally install <a href="https://docs.docker.com/compose/install/">docker compose</a></p>
 
@@ -250,9 +250,9 @@ host: mariadb
 <span class="pl-s1"><span class="pl-smi">$conf</span>[<span class="pl-s"><span class="pl-pds">'</span>memcache_servers<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-c1">array</span>(<span class="pl-s"><span class="pl-pds">'</span>memcached:11211<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>default<span class="pl-pds">'</span></span>);</span></pre></div>
 
 <h2>
-<a id="smtp" class="anchor" href="#smtp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SMTP</h2>
+<a id="mailhog" class="anchor" href="#mailhog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mailhog</h2>
 
-<p>By default, container with mail catcher included in the bundle. It will catch all email sent from PHP container. You can view emails by visiting localhost:8002.</p>
+<p>By default, container with mailhog included in the bundle. It will catch all email sent from the PHP container. You can view emails by visiting its admin UI on localhost:8002.</p>
 
 <h2>
 <a id="phpmyadmin" class="anchor" href="#phpmyadmin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>phpMyAdmin</h2>
