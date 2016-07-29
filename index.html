@@ -12,10 +12,10 @@
   <body>
     <section class="page-header">
       <h1 class="project-name">Docker4Drupal</h1>
-      <h2 class="project-tagline">Docker-based local environment for Drupal</h2>
-      <a href="https://github.com/Wodby/drupal-compose" class="btn">View on GitHub</a>
-      <a href="https://github.com/Wodby/drupal-compose/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/Wodby/drupal-compose/tarball/master" class="btn">Download .tar.gz</a>
+      <h2 class="project-tagline">Native docker-based local environment for Drupal</h2>
+      <a href="https://github.com/Wodby/docker4drupal" class="btn">View on GitHub</a>
+      <a href="https://github.com/Wodby/docker4drupal/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/Wodby/docker4drupal/tarball/master" class="btn">Download .tar.gz</a>
     </section>
 
     <section class="main-content">
@@ -27,19 +27,40 @@
 <ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#instructions">Instructions</a></li>
+<li>
+<a href="#containers">Containers</a>
+
+<ul>
+<li><a href="#accessing-containers">Accessing containers</a></li>
+<li>
+<a href="#php">PHP</a>
+
+<ul>
 <li><a href="#drush">Drush</a></li>
 <li><a href="#composer">Composer</a></li>
-<li><a href="#xdebug">Xdebug</a></li>
-<li><a href="#database">Database</a></li>
-<li><a href="#cache">Cache</a></li>
+<li><a href="#drupal-console">Drupal Console</a></li>
+<li>
+<a href="#xdebug">Xdebug</a><br>
+</li>
+</ul>
+</li>
+<li>
+<a href="#mariadb">MariaDB</a>
+
+<ul>
+<li><a href="#import">Import</a></li>
+<li><a href="#export">Export</a></li>
+</ul>
+</li>
+<li><a href="#redis">Redis</a></li>
+<li><a href="#memcached">Memcached</a></li>
 <li><a href="#mailhog">Mailhog</a></li>
 <li><a href="#phpmyadmin">phpMyAdmin</a></li>
 <li><a href="#apache-solr">Apache Solr</a></li>
-<li><a href="#accessing-containers">Accessing containers</a></li>
+</ul>
+</li>
 <li><a href="#logs">Logs</a></li>
-<li><a href="#updating">Updating</a></li>
 <li><a href="#status">Status</a></li>
-<li><a href="#troubleshooting">Troubleshooting</a></li>
 <li><a href="#going-beyond-local-machine">Going beyond local machine</a></li>
 </ul>
 
@@ -148,11 +169,11 @@ $ sudo chmod -R 775 sites/default/files</pre></div>
 
 <div class="highlight highlight-source-yaml"><pre><span class="pl-c1"><span class="pl-ent">DRUPAL_VERSION:</span> 8</span></pre></div>
 
-<p>Choose PHP version by modifying the name of the image:</p>
+<p>5. Choose PHP version by modifying the name of the image:</p>
 
 <div class="highlight highlight-source-yaml"><pre><span class="pl-s"><span class="pl-ent">image:</span> <span class="pl-s">wodby/drupal-php:7.0 </span></span><span class="pl-c"># Allowed: 7.0, 5.6</span></pre></div>
 
-<p>5. Update database credentials in your settings.php file:</p>
+<p>6. Update database credentials in your settings.php file:</p>
 
 <pre><code>database: drupal
 username: drupal
@@ -160,38 +181,64 @@ password: drupal
 host: mariadb
 </code></pre>
 
-<p>6. If you want to import your database, uncomment the following line in the compose file:</p>
+<p>7. If you want to import your database, uncomment the following line in the compose file:</p>
 
 <div class="highlight highlight-source-yaml"><pre><span class="pl-c">#      - ./docker-runtime/mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) her</span></pre></div>
 
 <p>Create the volume directory <code>./docker-runtime/mariadb-init</code> in the same directory as the compose file and put there your SQL file(s). All SQL files will be automatically imported once MariaDB container has started.</p>
 
-<p>7. Now, let's run the compose file. It will download the images and run the containers:</p>
+<p>8. If you need to deploy one of the optional containers (<a href="#redis">Redis</a>, <a href="#memcached">Memcached</a>, <a href="#apache-solr">Apache Solr</a>) uncomment the corresponding lines in the compose file.</p>
+
+<p>9. Now, let's run the compose file. It will download the images and run the containers:</p>
 
 <div class="highlight highlight-source-shell"><pre>$ docker-compose up -d</pre></div>
 
-<p>8. Make sure all containers are running by executing:</p>
+<p>10. Make sure all containers are running by executing:</p>
 
 <div class="highlight highlight-source-shell"><pre>$ docker-compose ps</pre></div>
 
-<p>9. That's it! You drupal website should be up and running at http://localhost:8000. </p>
+<p>11. That's it! You drupal website should be up and running at http://localhost:8000. </p>
 
 <h2>
-<a id="drush" class="anchor" href="#drush" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Drush</h2>
+<a id="containers" class="anchor" href="#containers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Containers</h2>
+
+<h3>
+<a id="accessing-containers" class="anchor" href="#accessing-containers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Accessing containers</h3>
+
+<p>You can connect to any container by executing the following command:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ docker-compose <span class="pl-c1">exec</span> php sh</pre></div>
+
+<p>Replace <code>php</code> with the name of your service (e.g. <code>mariadb</code>, <code>nginx</code>, etc).</p>
+
+<h3>
+<a id="php" class="anchor" href="#php" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PHP</h3>
+
+<p>Currently PHP version 5.6 and 7 are provided. Check out <a href="#instructions">the instructions (step 5)</a> to learn how to switch the version.</p>
+
+<h4>
+<a id="drush" class="anchor" href="#drush" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Drush</h4>
 
 <p>PHP container has installed drush. When running drush make sure to open the shell as user 82 (www-data) to avoid access problems in the web server, which is running as user 82, too:</p>
 
 <div class="highlight highlight-source-shell"><pre>$ docker-compose <span class="pl-c1">exec</span> --user 82 php drush</pre></div>
 
-<h2>
-<a id="composer" class="anchor" href="#composer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Composer</h2>
+<h4>
+<a id="composer" class="anchor" href="#composer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Composer</h4>
 
 <p>PHP container has installed composer. Example:</p>
 
 <div class="highlight highlight-source-shell"><pre>$ docker-compose <span class="pl-c1">exec</span> --user 82 php composer update</pre></div>
 
-<h2>
-<a id="xdebug" class="anchor" href="#xdebug" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Xdebug</h2>
+<h4>
+<a id="drupal-console" class="anchor" href="#drupal-console" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Drupal Console</h4>
+
+<p>PHP container has installed drupal console. Example:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ docker-compose <span class="pl-c1">exec</span> --user 82 php drupal list</pre></div>
+
+<h4>
+<a id="xdebug" class="anchor" href="#xdebug" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Xdebug</h4>
 
 <p>If you want to use xdebug, uncomment the following line in the compose file:</p>
 
@@ -199,11 +246,16 @@ host: mariadb
 
 <p>See the <a href="https://github.com/Wodby/drupal-php/issues/1">known issue</a> with Xdebug in Mac OS.</p>
 
-<h2>
-<a id="database" class="anchor" href="#database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Database</h2>
-
 <h3>
-<a id="export" class="anchor" href="#export" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Export</h3>
+<a id="mariadb" class="anchor" href="#mariadb" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>MariaDB</h3>
+
+<h4>
+<a id="import" class="anchor" href="#import" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Import</h4>
+
+<p>Check out <a href="#instructions">the instructions (step 7)</a> to learn how to import your existing database. </p>
+
+<h4>
+<a id="export" class="anchor" href="#export" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Export</h4>
 
 <p>Exporting all databases:</p>
 
@@ -212,9 +264,6 @@ host: mariadb
 <p>Exporting a specific database:</p>
 
 <div class="highlight highlight-source-shell"><pre>docker-compose <span class="pl-c1">exec</span> mariadb sh -c <span class="pl-s"><span class="pl-pds">'</span>exec mysqldump -uroot -p"root-password" my-db<span class="pl-pds">'</span></span> <span class="pl-k">&gt;</span> my-db.sql</pre></div>
-
-<h2>
-<a id="cache" class="anchor" href="#cache" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cache</h2>
 
 <h3>
 <a id="redis" class="anchor" href="#redis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Redis</h3>
@@ -253,29 +302,20 @@ host: mariadb
 <span class="pl-s1"><span class="pl-smi">$conf</span>[<span class="pl-s"><span class="pl-pds">'</span>cache_class_cache_form<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>DrupalDatabaseCache<span class="pl-pds">'</span></span>;</span>
 <span class="pl-s1"><span class="pl-smi">$conf</span>[<span class="pl-s"><span class="pl-pds">'</span>memcache_servers<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-c1">array</span>(<span class="pl-s"><span class="pl-pds">'</span>memcached:11211<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>default<span class="pl-pds">'</span></span>);</span></pre></div>
 
-<h2>
-<a id="mailhog" class="anchor" href="#mailhog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mailhog</h2>
+<h3>
+<a id="mailhog" class="anchor" href="#mailhog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mailhog</h3>
 
 <p>By default, container with mailhog included in the bundle. It will catch all email sent from the PHP container. You can view emails by visiting its admin UI on localhost:8002.</p>
 
-<h2>
-<a id="phpmyadmin" class="anchor" href="#phpmyadmin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>phpMyAdmin</h2>
+<h3>
+<a id="phpmyadmin" class="anchor" href="#phpmyadmin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>phpMyAdmin</h3>
 
 <p>By default, container with phpMyAdmin included in the bundle. You can accessit by localhost:8001</p>
 
-<h2>
-<a id="apache-solr" class="anchor" href="#apache-solr" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Apache Solr</h2>
+<h3>
+<a id="apache-solr" class="anchor" href="#apache-solr" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Apache Solr</h3>
 
 <p>To spin up a container with Apache Solr search engine uncomment lines with solr service definition in the compose file. Use  volume directory <code>./docker-runtime/solr</code> to access configuration files. Solr admin UI can be accessed by localhost:8003</p>
-
-<h2>
-<a id="accessing-containers" class="anchor" href="#accessing-containers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Accessing containers</h2>
-
-<p>You can connect to any container by executing the following command:</p>
-
-<div class="highlight highlight-source-shell"><pre>$ docker-compose <span class="pl-c1">exec</span> php sh</pre></div>
-
-<p>Replace <code>php</code> with the name of your service (e.g. <code>mariadb</code>, <code>nginx</code>).</p>
 
 <h2>
 <a id="logs" class="anchor" href="#logs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Logs</h2>
@@ -291,7 +331,9 @@ host: mariadb
 </code></pre>
 
 <h2>
-<a id="updating" class="anchor" href="#updating" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Updating</h2>
+<a id="status" class="anchor" href="#status" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Status</h2>
+
+<p>We're actively working on this instructions and containers. More options will be added soon. If you have a feature request or found a bug please submit an issue.</p>
 
 <p>We update containers from time to time, to get the lastest changes simply run again:</p>
 
@@ -299,22 +341,12 @@ host: mariadb
 </code></pre>
 
 <h2>
-<a id="status" class="anchor" href="#status" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Status</h2>
-
-<p>We're actively working on this instructions and containers. More options will be added soon. If you have a feature request or found a bug please sumbit an issue.</p>
-
-<h2>
-<a id="troubleshooting" class="anchor" href="#troubleshooting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Troubleshooting</h2>
-
-<p>In case you have any problems submit an issue or contact us at hello [at] wodby.com.</p>
-
-<h2>
 <a id="going-beyond-local-machine" class="anchor" href="#going-beyond-local-machine" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Going beyond local machine</h2>
 
 <p>Check out <a href="https://wodby.com">Wodby</a> if you need optimized consistent docker-based environment for Drupal on your dev/staging or production servers. </p>
 
       <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/Wodby/drupal-compose">Docker4Drupal</a> is maintained by <a href="https://github.com/Wodby">Wodby</a>.</span>
+        <span class="site-footer-owner"><a href="https://github.com/Wodby/docker4drupal">Docker4Drupal</a> is maintained by <a href="https://github.com/Wodby">Wodby</a>.</span>
 
         <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
