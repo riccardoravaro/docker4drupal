@@ -20,7 +20,7 @@
 
     <section class="main-content">
       <h1>
-<a id="docker-based-environment-for-drupal" class="anchor" href="#docker-based-environment-for-drupal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Docker-based environment for Drupal</h1>
+<a id="native-docker-based-local-environment-for-drupal" class="anchor" href="#native-docker-based-local-environment-for-drupal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Native docker-based local environment for Drupal</h1>
 
 <p>Use this Docker compose file to spin up local environment for Drupal with a <em>native Docker app</em> on Linux, Mac OS X and Windows. </p>
 
@@ -57,6 +57,7 @@
 <li><a href="#mailhog">Mailhog</a></li>
 <li><a href="#phpmyadmin">phpMyAdmin</a></li>
 <li><a href="#apache-solr">Apache Solr</a></li>
+<li><a href="#varnish">Varnish</a></li>
 </ul>
 </li>
 <li><a href="#logs">Logs</a></li>
@@ -136,10 +137,17 @@
 <td>8003</td>
 <td></td>
 </tr>
+<tr>
+<td><a href="https://hub.docker.com/r/wodby/drupal-varnish">Varnish 4.1</a></td>
+<td>varnish</td>
+<td></td>
+<td>8004</td>
+<td></td>
+</tr>
 </tbody>
 </table>
 
-<p>PHP, Nginx and MariaDB configs are optimized to be used with Drupal. We regularly update this bundle with performance improvements, bug fixes and newer version of Nginx/PHP/MariaDB.</p>
+<p>PHP, Nginx, MariaDB and Varnish configs are optimized to be used with Drupal. We regularly update this bundle with performance improvements, bug fixes and newer version of Nginx/PHP/MariaDB.</p>
 
 <h2>
 <a id="instructions" class="anchor" href="#instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Instructions</h2>
@@ -222,6 +230,10 @@ host: mariadb
 <p>PHP container has installed drush. When running drush make sure to open the shell as user 82 (www-data) to avoid access problems in the web server, which is running as user 82, too:</p>
 
 <div class="highlight highlight-source-shell"><pre>$ docker-compose <span class="pl-c1">exec</span> --user 82 php drush</pre></div>
+
+<p>Also, you can use preconfigured drush alias <a href="https://github.com/dev" class="user-mention">@dev</a>:   </p>
+
+<div class="highlight highlight-source-shell"><pre>$ docker-compose <span class="pl-c1">exec</span> --user 82 php drush @dev</pre></div>
 
 <h4>
 <a id="composer" class="anchor" href="#composer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Composer</h4>
@@ -310,12 +322,17 @@ host: mariadb
 <h3>
 <a id="phpmyadmin" class="anchor" href="#phpmyadmin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>phpMyAdmin</h3>
 
-<p>By default, container with phpMyAdmin included in the bundle. You can accessit by localhost:8001</p>
+<p>By default, container with phpMyAdmin included in the bundle. You can access it by localhost:8001</p>
 
 <h3>
 <a id="apache-solr" class="anchor" href="#apache-solr" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Apache Solr</h3>
 
 <p>To spin up a container with Apache Solr search engine uncomment lines with solr service definition in the compose file. Use  volume directory <code>./docker-runtime/solr</code> to access configuration files. Solr admin UI can be accessed by localhost:8003</p>
+
+<h3>
+<a id="varnish" class="anchor" href="#varnish" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Varnish</h3>
+
+<p>To spin up a container with Varnish uncomment lines with varnish service definition in the compose file.</p>
 
 <h2>
 <a id="logs" class="anchor" href="#logs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Logs</h2>
