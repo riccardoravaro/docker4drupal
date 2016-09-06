@@ -22,7 +22,9 @@
       <h1>
 <a id="native-docker-based-local-environment-for-drupal" class="anchor" href="#native-docker-based-local-environment-for-drupal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Native docker-based local environment for Drupal</h1>
 
-<p>Use this Docker compose file to spin up local environment for Drupal with a <em>native Docker app</em> on Linux, Mac OS X and Windows. </p>
+<p>Use this Docker compose file to spin up local environment for Drupal with a <em>native Docker app</em> on Linux, Mac OS X and Windows.</p>
+
+<p>Docker4Drupal is designed to be used for local development, if you're looking for a dev/staging/production solution check out <a href="https://wodby.com">Wodby</a>. Use Wodby to deploy container-based infrastructure consistent with Docker4Drupal to any server.</p>
 
 <ul>
 <li><a href="#overview">Overview</a></li>
@@ -40,9 +42,7 @@
 <li><a href="#drush">Drush</a></li>
 <li><a href="#composer">Composer</a></li>
 <li><a href="#drupal-console">Drupal Console</a></li>
-<li>
-<a href="#xdebug">Xdebug</a><br>
-</li>
+<li><a href="#xdebug">Xdebug</a></li>
 </ul>
 </li>
 <li>
@@ -55,6 +55,7 @@
 </li>
 <li><a href="#redis">Redis</a></li>
 <li><a href="#memcached">Memcached</a></li>
+<li><a href="#memcached-admin">Memcached Admin</a></li>
 <li><a href="#mailhog">Mailhog</a></li>
 <li><a href="#phpmyadmin">phpMyAdmin</a></li>
 <li><a href="#apache-solr">Apache Solr</a></li>
@@ -65,7 +66,6 @@
 <li><a href="#docroot-in-subdirectory">Docroot in subdirectory</a></li>
 <li><a href="#logs">Logs</a></li>
 <li><a href="#status">Status</a></li>
-<li><a href="#going-beyond-local-machine">Going beyond local machine</a></li>
 </ul>
 
 <h2>
@@ -161,15 +161,15 @@
 
 <p>Supported PHP versions: 7.x and 5.6.x.</p>
 
-<p>1. Install docker for <a href="https://docs.docker.com/engine/installation/">Linux</a>, <a href="https://docs.docker.com/engine/installation/mac">Mac OS X</a> or <a href="https://docs.docker.com/engine/installation/windows">Windows</a>. <strong>For Mac and Windows make sure you're installing native docker app version 1.12, not docker toolbox.</strong> </p>
+<p>1. Install docker for <a href="https://docs.docker.com/engine/installation/">Linux</a>, <a href="https://docs.docker.com/engine/installation/mac">Mac OS X</a> or <a href="https://docs.docker.com/engine/installation/windows">Windows</a>. <strong>For Mac and Windows make sure you're installing native docker app version 1.12, not docker toolbox.</strong></p>
 
 <p>For Linux additionally install <a href="https://docs.docker.com/compose/install/">docker compose</a></p>
 
-<p>2. Download <a href="https://raw.githubusercontent.com/Wodby/drupal-compose/master/docker-compose.yml">the compose file</a> from this repository and put it to your Drupal project codebase (you might want to add docker-compose.yml to .gitignore). </p>
+<p>2. Download <a href="https://raw.githubusercontent.com/Wodby/drupal-compose/master/docker-compose.yml">the compose file</a> from this repository and put it to your Drupal project codebase (you might want to add docker-compose.yml to .gitignore).</p>
 
-<p>3. Since containers <a href="https://docs.docker.com/engine/tutorials/dockervolumes/">do not have a permanent storage</a>, directories from the host machine (volumes) should be mounted: one with code of your Drupal project and another with database files. </p>
+<p>3. Since containers <a href="https://docs.docker.com/engine/tutorials/dockervolumes/">do not have a permanent storage</a>, directories from the host machine (volumes) should be mounted: one with code of your Drupal project and another with database files.</p>
 
-<p>By default, the directory with the compose file (volume <code>./</code>) will be mounted to PHP container (assuming it's your codebase directory). Additionally <code>docker-runtime</code> directory will be created to store files for mariadb and, optionally, solr containers. Do not forget to add <code>docker-runtime</code> to your .gitignore file. </p>
+<p>By default, the directory with the compose file (volume <code>./</code>) will be mounted to PHP container (assuming it's your codebase directory). Additionally <code>docker-runtime</code> directory will be created to store files for mariadb and, optionally, solr containers. Do not forget to add <code>docker-runtime</code> to your .gitignore file.</p>
 
 <p><strong>Linux only</strong>: fix permissions for your files directory with:</p>
 
@@ -178,11 +178,11 @@ $ sudo chmod -R 775 sites/default/files</pre></div>
 
 <p>4. Choose Drupal version by modifying the following environment variable (could be 7 or 8) in the compose file:</p>
 
-<div class="highlight highlight-source-yaml"><pre><span class="pl-c1"><span class="pl-ent">DRUPAL_VERSION:</span> 8</span></pre></div>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">DRUPAL_VERSION:</span> <span class="pl-c1">8</span></pre></div>
 
 <p>5. Choose PHP version by modifying the name of the image:</p>
 
-<div class="highlight highlight-source-yaml"><pre><span class="pl-s"><span class="pl-ent">image:</span> <span class="pl-s">wodby/drupal-php:7.0 </span></span><span class="pl-c"># Allowed: 7.0, 5.6</span></pre></div>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">image:</span> <span class="pl-s">wodby/drupal-php:7.0 </span><span class="pl-c"># Allowed: 7.0, 5.6</span></pre></div>
 
 <p>6. Update database credentials in your settings.php file:</p>
 
@@ -208,7 +208,7 @@ host: mariadb
 
 <div class="highlight highlight-source-shell"><pre>$ docker-compose ps</pre></div>
 
-<p>11. That's it! You drupal website should be up and running at http://localhost:8000. </p>
+<p>11. That's it! You drupal website should be up and running at http://localhost:8000.</p>
 
 <h2>
 <a id="containers" class="anchor" href="#containers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Containers</h2>
@@ -225,7 +225,7 @@ host: mariadb
 <h3>
 <a id="nginx" class="anchor" href="#nginx" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Nginx</h3>
 
-<p>Nginx is being used as a web server. Nginx is pre-configured to be used with Drupal 7 and 8. </p>
+<p>Nginx is being used as a web server. Nginx is pre-configured to be used with Drupal 7 and 8.</p>
 
 <h3>
 <a id="php" class="anchor" href="#php" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PHP</h3>
@@ -239,7 +239,7 @@ host: mariadb
 
 <div class="highlight highlight-source-shell"><pre>$ docker-compose <span class="pl-c1">exec</span> --user 82 php drush</pre></div>
 
-<p>Also, you can use preconfigured drush alias <a href="https://github.com/dev" class="user-mention">@dev</a>:   </p>
+<p>Also, you can use preconfigured drush alias <a href="https://github.com/dev" class="user-mention">@dev</a>:</p>
 
 <div class="highlight highlight-source-shell"><pre>$ docker-compose <span class="pl-c1">exec</span> --user 82 php drush @dev</pre></div>
 
@@ -260,9 +260,9 @@ host: mariadb
 <h4>
 <a id="xdebug" class="anchor" href="#xdebug" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Xdebug</h4>
 
-<p>If you want to use xdebug, uncomment the following line in the compose file:</p>
+<p>If you want to use xdebug, enable the following option in the compose file:</p>
 
-<div class="highlight highlight-source-yaml"><pre><span class="pl-c">#    XDEBUG_CONFIG: xdebug.remote_autostart=1</span></pre></div>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">PHP_XDEBUG_ENABLED:</span> <span class="pl-c1">0</span> <span class="pl-c"># Set 1 to enable.</span></pre></div>
 
 <p>See the <a href="https://github.com/Wodby/drupal-php/issues/1">known issue</a> with Xdebug in Mac OS.</p>
 
@@ -279,7 +279,7 @@ host: mariadb
 <h4>
 <a id="import" class="anchor" href="#import" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Import</h4>
 
-<p>Check out <a href="#instructions">the instructions (step 7)</a> to learn how to import your existing database. </p>
+<p>Check out <a href="#instructions">the instructions (step 7)</a> to learn how to import your existing database.</p>
 
 <h4>
 <a id="export" class="anchor" href="#export" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Export</h4>
@@ -299,7 +299,8 @@ host: mariadb
 
 <ol>
 <li>Uncomment lines with redis service definition in the compose file.</li>
-<li>Download and install <a href="https://www.drupal.org/project/redis">redis module</a> </li>
+<li>Download and install <a href="https://www.drupal.org/project/redis">redis module</a>
+</li>
 <li>Add the following lines to the settings.php file:</li>
 </ol>
 
@@ -318,7 +319,8 @@ host: mariadb
 
 <ol>
 <li>Uncomment lines with memcached service definition in the compose file.</li>
-<li>Download and install <a href="https://www.drupal.org/project/memcache">memcache module</a> </li>
+<li>Download and install <a href="https://www.drupal.org/project/memcache">memcache module</a>
+</li>
 <li>Add the following lines to the settings.php file:</li>
 </ol>
 
@@ -328,6 +330,12 @@ host: mariadb
 <span class="pl-s1"><span class="pl-smi">$conf</span>[<span class="pl-s"><span class="pl-pds">'</span>cache_default_class<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>MemCacheDrupal<span class="pl-pds">'</span></span>;</span>
 <span class="pl-s1"><span class="pl-smi">$conf</span>[<span class="pl-s"><span class="pl-pds">'</span>cache_class_cache_form<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>DrupalDatabaseCache<span class="pl-pds">'</span></span>;</span>
 <span class="pl-s1"><span class="pl-smi">$conf</span>[<span class="pl-s"><span class="pl-pds">'</span>memcache_servers<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-c1">array</span>(<span class="pl-s"><span class="pl-pds">'</span>memcached:11211<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>default<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<h3>
+<a id="memcached-admin" class="anchor" href="#memcached-admin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Memcached Admin</h3>
+
+<p>To spin up a container with the Memcached Admin User interface uncomment to memcached-admin service definition.
+To get started visit http://localhost:8006/index.php</p>
 
 <h3>
 <a id="mailhog" class="anchor" href="#mailhog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mailhog</h3>
@@ -381,11 +389,6 @@ host: mariadb
 
 <pre><code>$ docker-compose up -d
 </code></pre>
-
-<h2>
-<a id="going-beyond-local-machine" class="anchor" href="#going-beyond-local-machine" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Going beyond local machine</h2>
-
-<p>Check out <a href="https://wodby.com">Wodby</a> if you need optimized consistent docker-based environment for Drupal on your dev/staging or production servers. </p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/Wodby/docker4drupal">Docker4Drupal</a> is maintained by <a href="https://github.com/Wodby">Wodby</a>.</span>
