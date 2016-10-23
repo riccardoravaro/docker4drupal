@@ -3,6 +3,8 @@ version: "2"
 services:
   mariadb:
     image: wodby/drupal-mariadb
+    ports:
+      - "3306:3306"
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: 1
       MYSQL_DATABASE: drupal
@@ -81,16 +83,16 @@ services:
     ports:
       - "8003:8983"
 
-#  varnish:
-#    image: wodby/drupal-varnish
-#    depends_on:
-#      - nginx
-#    environment:
-#      VARNISH_SECRET: secret
-#      VARNISH_BACKEND_HOST: nginx
-#      VARNISH_BACKEND_PORT: 80
-#      VARNISH_MEMORY_SIZE: 256M
-#      VARNISH_STORAGE_SIZE: 1024M
-#    ports:
-#      - "8004:6081" # HTTP Proxy
-#      - "8005:6082" # Control terminal
+  varnish:
+    image: wodby/drupal-varnish
+    depends_on:
+      - nginx
+    environment:
+      VARNISH_SECRET: secret
+      VARNISH_BACKEND_HOST: nginx
+      VARNISH_BACKEND_PORT: 80
+      VARNISH_MEMORY_SIZE: 256M
+      VARNISH_STORAGE_SIZE: 1024M
+    ports:
+      - "8004:6081" # HTTP Proxy
+      - "8005:6082" # Control terminal

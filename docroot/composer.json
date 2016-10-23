@@ -22,7 +22,13 @@
         "drupal/core": "~8.0",
         "drush/drush": "~8.0",
         "drupal/console": "~1.0",
-        "drupal/memcache": "2.x-dev"
+        "drupal/memcache": "2.x-dev",
+        "drupal/entity_browser": "1.x-dev",
+        "drupal/pathauto": "1.x-dev",
+        "drupal/Inline_entity_form": "1.x-dev",
+        "drupal/paragraphs": "^1.0",
+        "drupal/search_api_db": "^1.0@beta",
+        "drupal/features": "3.x-dev"
     },
     "require-dev": {
         "behat/mink": "~1.7",
