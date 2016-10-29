@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: feedback
+label: 'Website feedback'
+recipients:
+  - ravaro.riccardo@gmail.com
+reply: ''
+weight: 0

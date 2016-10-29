@@ -1,0 +1,20 @@
+{
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
+
+	"settings": {
+        "xdebug": {
+            "path_mapping": {
+                "/var/www/html": "/Users/riccardoravaro/Documents/web/d8/docker4drupal/docroot",
+            },
+            "url": "http://localhost:8000/",
+            "super_globals": true,
+            "close_on_stop": true,
+            "port": 9000
+        }
+    },
+}
