@@ -24,8 +24,11 @@ use Symfony\Component\Validator\MetadataInterface as LegacyMetadataInterface;
  * against their class' metadata and whether traversable objects should be
  * traversed or not.
  *
+<<<<<<< HEAD
  * @since  2.5
  *
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  * @author Bernhard Schussek <bschussek@gmail.com>
  *
  * @see CascadingStrategy

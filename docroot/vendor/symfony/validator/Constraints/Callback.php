@@ -23,8 +23,11 @@ class Callback extends Constraint
 {
     /**
      * @var string|callable
+<<<<<<< HEAD
      *
      * @since 2.4
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public $callback;
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 build/api
 build/code-browser
 build/coverage
@@ -5,3 +6,8 @@ build/logs
 build/pdepend
 cache.properties
 phpunit.xml
+=======
+/vendor
+/composer.lock
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9

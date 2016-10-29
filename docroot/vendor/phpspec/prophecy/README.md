@@ -1,5 +1,9 @@
 # Prophecy
 
+<<<<<<< HEAD
+=======
+[![Stable release](https://poser.pugx.org/phpspec/prophecy/version.svg)](https://packagist.org/packages/phpspec/prophecy)
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 [![Build Status](https://travis-ci.org/phpspec/prophecy.svg?branch=master)](https://travis-ci.org/phpspec/prophecy)
 
 Prophecy is a highly opinionated yet very powerful and flexible PHP object mocking

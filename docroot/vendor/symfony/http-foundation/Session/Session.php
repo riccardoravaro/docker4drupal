@@ -46,7 +46,11 @@ class Session implements SessionInterface, \IteratorAggregate, \Countable
     /**
      * Constructor.
      *
+<<<<<<< HEAD
      * @param SessionStorageInterface $storage    A SessionStorageInterface instance.
+=======
+     * @param SessionStorageInterface $storage    A SessionStorageInterface instance
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @param AttributeBagInterface   $attributes An AttributeBagInterface instance, (defaults null for default AttributeBag)
      * @param FlashBagInterface       $flashes    A FlashBagInterface instance (defaults null for default FlashBag)
      */

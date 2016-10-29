@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 build/api
 build/code-browser
 build/coverage
@@ -20,3 +21,21 @@ phpunit.xml
 cache.properties
 .idea
 .ant_targets
+=======
+/.ant_targets
+/.idea
+/build/documentation
+/build/logfiles
+/build/phar
+/build/phpdox
+/build/*.phar
+/build/*.phar.asc
+/tests/TextUI/*.diff
+/tests/TextUI/*.exp
+/tests/TextUI/*.log
+/tests/TextUI/*.out
+/tests/TextUI/*.php
+/cache.properties
+/composer.lock
+/vendor
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9

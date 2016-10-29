@@ -3,7 +3,11 @@
 /*
  * This file is part of the Symfony CMF package.
  *
+<<<<<<< HEAD
  * (c) 2011-2014 Symfony CMF
+=======
+ * (c) 2011-2015 Symfony CMF
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -82,7 +86,11 @@ interface RouteProviderInterface
      *                          the provider will determine what routes to return.
      *
      * @return Route[] Iterable list with the keys being the names from the
+<<<<<<< HEAD
  *                     $names array.
+=======
+     *                 $names array.
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getRoutesByNames($names);
 }

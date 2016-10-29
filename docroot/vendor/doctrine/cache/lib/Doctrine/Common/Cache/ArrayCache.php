@@ -33,16 +33,57 @@ namespace Doctrine\Common\Cache;
 class ArrayCache extends CacheProvider
 {
     /**
+<<<<<<< HEAD
      * @var array $data
      */
     private $data = array();
+=======
+     * @var array[] $data each element being a tuple of [$data, $expiration], where the expiration is int|bool
+     */
+    private $data = [];
+
+    /**
+     * @var int
+     */
+    private $hitsCount = 0;
+
+    /**
+     * @var int
+     */
+    private $missesCount = 0;
+
+    /**
+     * @var int
+     */
+    private $upTime;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __construct()
+    {
+        $this->upTime = time();
+    }
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
     /**
      * {@inheritdoc}
      */
     protected function doFetch($id)
     {
+<<<<<<< HEAD
         return $this->doContains($id) ? $this->data[$id] : false;
+=======
+        if (! $this->doContains($id)) {
+            $this->missesCount += 1;
+
+            return false;
+        }
+
+        $this->hitsCount += 1;
+
+        return $this->data[$id][0];
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     /**
@@ -50,8 +91,24 @@ class ArrayCache extends CacheProvider
      */
     protected function doContains($id)
     {
+<<<<<<< HEAD
         // isset() is required for performance optimizations, to avoid unnecessary function calls to array_key_exists.
         return isset($this->data[$id]) || array_key_exists($id, $this->data);
+=======
+        if (! isset($this->data[$id])) {
+            return false;
+        }
+
+        $expiration = $this->data[$id][1];
+
+        if ($expiration && $expiration < time()) {
+            $this->doDelete($id);
+
+            return false;
+        }
+
+        return true;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     /**
@@ -59,7 +116,11 @@ class ArrayCache extends CacheProvider
      */
     protected function doSave($id, $data, $lifeTime = 0)
     {
+<<<<<<< HEAD
         $this->data[$id] = $data;
+=======
+        $this->data[$id] = [$data, $lifeTime ? time() + $lifeTime : false];
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
         return true;
     }
@@ -79,7 +140,11 @@ class ArrayCache extends CacheProvider
      */
     protected function doFlush()
     {
+<<<<<<< HEAD
         $this->data = array();
+=======
+        $this->data = [];
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
         return true;
     }
@@ -89,6 +154,16 @@ class ArrayCache extends CacheProvider
      */
     protected function doGetStats()
     {
+<<<<<<< HEAD
         return null;
+=======
+        return [
+            Cache::STATS_HITS             => $this->hitsCount,
+            Cache::STATS_MISSES           => $this->missesCount,
+            Cache::STATS_UPTIME           => $this->upTime,
+            Cache::STATS_MEMORY_USAGE     => null,
+            Cache::STATS_MEMORY_AVAILABLE => null,
+        ];
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 }

@@ -96,6 +96,10 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements PHPUnit_Fram
      * @param PHPUnit_Framework_Test $test
      * @param Exception              $e
      * @param float                  $time
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since  Method available since Release 4.0.0
      */
     public function addRiskyTest(PHPUnit_Framework_Test $test, Exception $e, $time)

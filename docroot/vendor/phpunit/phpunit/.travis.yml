@@ -7,11 +7,19 @@ php:
   - 5.5
   - 5.6
   - 7.0
+<<<<<<< HEAD
+=======
+  - nightly
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
   - hhvm
 
 matrix:
   allow_failures:
     - php: 7.0
+<<<<<<< HEAD
+=======
+    - php: nightly
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     - php: hhvm
 
 sudo: false
@@ -25,7 +33,11 @@ install:
 script:
   - ./phpunit
   - ./phpunit --configuration ./build/travis-ci-fail.xml > /dev/null; if [ $? -eq 0 ]; then echo "SHOULD FAIL"; false; else echo "fail checked"; fi;
+<<<<<<< HEAD
   - xmllint --noout --schema phpunit.xsd phpunit.xml.dist
+=======
+  - xmllint --noout --schema phpunit.xsd phpunit.xml
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
   - xmllint --noout --schema phpunit.xsd tests/_files/configuration.xml
   - xmllint --noout --schema phpunit.xsd tests/_files/configuration_empty.xml
   - xmllint --noout --schema phpunit.xsd tests/_files/configuration_xinclude.xml -xinclude

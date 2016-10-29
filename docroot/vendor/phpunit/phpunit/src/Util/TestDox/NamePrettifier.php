@@ -33,7 +33,12 @@ class PHPUnit_Util_TestDox_NamePrettifier
     /**
      * Prettifies the name of a test class.
      *
+<<<<<<< HEAD
      * @param  string $name
+=======
+     * @param string $name
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return string
      */
     public function prettifyTestClass($name)
@@ -60,7 +65,12 @@ class PHPUnit_Util_TestDox_NamePrettifier
     /**
      * Prettifies the name of a test method.
      *
+<<<<<<< HEAD
      * @param  string $name
+=======
+     * @param string $name
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return string
      */
     public function prettifyTestMethod($name)
@@ -79,6 +89,7 @@ class PHPUnit_Util_TestDox_NamePrettifier
             $this->strings[] = $string;
         }
 
+<<<<<<< HEAD
         if (strpos($name, '_') !== false) {
             return str_replace('_', ' ', $name);
         }
@@ -96,6 +107,23 @@ class PHPUnit_Util_TestDox_NamePrettifier
 
         for ($i = $offset; $i < $max; $i++) {
             if ($i > $offset &&
+=======
+        if (substr($name, 0, 4) == 'test') {
+            $name = substr($name, 4);
+        }
+
+        $name[0] = strtoupper($name[0]);
+
+        if (strpos($name, '_') !== false) {
+            return trim(str_replace('_', ' ', $name));
+        }
+
+        $max        = strlen($name);
+        $wasNumeric = false;
+
+        for ($i = 0; $i < $max; $i++) {
+            if ($i > 0 &&
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                 ord($name[$i]) >= 65 &&
                 ord($name[$i]) <= 90) {
                 $buffer .= ' ' . strtolower($name[$i]);

@@ -307,14 +307,22 @@ class Command
             return;
         }
 
+<<<<<<< HEAD
+=======
+        $this->definition->addOptions($this->application->getDefinition()->getOptions());
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         if ($mergeArgs) {
             $currentArguments = $this->definition->getArguments();
             $this->definition->setArguments($this->application->getDefinition()->getArguments());
             $this->definition->addArguments($currentArguments);
         }
 
+<<<<<<< HEAD
         $this->definition->addOptions($this->application->getDefinition()->getOptions());
 
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         $this->applicationDefinitionMerged = true;
         if ($mergeArgs) {
             $this->applicationDefinitionMergedWithArgs = true;
@@ -579,6 +587,11 @@ class Command
      * Add a command usage example.
      *
      * @param string $usage The usage, it'll be prefixed with the command name
+<<<<<<< HEAD
+=======
+     *
+     * @return Command The current instance
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function addUsage($usage)
     {
@@ -608,10 +621,21 @@ class Command
      *
      * @return mixed The helper value
      *
+<<<<<<< HEAD
+=======
+     * @throws LogicException           if no HelperSet is defined
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @throws InvalidArgumentException if the helper is not defined
      */
     public function getHelper($name)
     {
+<<<<<<< HEAD
+=======
+        if (null === $this->helperSet) {
+            throw new LogicException(sprintf('Cannot retrieve helper "%s" because there is no HelperSet defined. Did you forget to add your command to the application or to set the application on the command using the setApplication() method? You can also set the HelperSet directly using the setHelperSet() method.', $name));
+        }
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         return $this->helperSet->get($name);
     }
 

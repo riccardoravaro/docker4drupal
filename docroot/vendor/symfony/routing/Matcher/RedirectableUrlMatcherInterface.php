@@ -21,7 +21,11 @@ interface RedirectableUrlMatcherInterface
     /**
      * Redirects the user to another URL.
      *
+<<<<<<< HEAD
      * @param string      $path   The path info to redirect to.
+=======
+     * @param string      $path   The path info to redirect to
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @param string      $route  The route name that matched
      * @param string|null $scheme The URL scheme (null to keep the current one)
      *

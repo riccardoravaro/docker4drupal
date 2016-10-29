@@ -22,7 +22,12 @@ class PHPUnit_Framework_Constraint_ClassHasStaticAttribute extends PHPUnit_Frame
      * Evaluates the constraint for parameter $other. Returns true if the
      * constraint is met, false otherwise.
      *
+<<<<<<< HEAD
      * @param  mixed $other Value or object to evaluate.
+=======
+     * @param mixed $other Value or object to evaluate.
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return bool
      */
     protected function matches($other)
@@ -42,6 +47,10 @@ class PHPUnit_Framework_Constraint_ClassHasStaticAttribute extends PHPUnit_Frame
      * Returns a string representation of the constraint.
      *
      * @return string
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since  Method available since Release 3.3.0
      */
     public function toString()

@@ -50,7 +50,12 @@ class PHPUnit_Extensions_PhptTestCase implements PHPUnit_Framework_Test, PHPUnit
     /**
      * Constructs a test case with the given filename.
      *
+<<<<<<< HEAD
      * @param  string                      $filename
+=======
+     * @param string $filename
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @throws PHPUnit_Framework_Exception
      */
     public function __construct($filename)
@@ -84,7 +89,12 @@ class PHPUnit_Extensions_PhptTestCase implements PHPUnit_Framework_Test, PHPUnit
     /**
      * Runs a test and collects its result in a TestResult instance.
      *
+<<<<<<< HEAD
      * @param  PHPUnit_Framework_TestResult $result
+=======
+     * @param PHPUnit_Framework_TestResult $result
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return PHPUnit_Framework_TestResult
      */
     public function run(PHPUnit_Framework_TestResult $result = null)
@@ -177,6 +187,10 @@ class PHPUnit_Extensions_PhptTestCase implements PHPUnit_Framework_Test, PHPUnit
 
     /**
      * @return array
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @throws PHPUnit_Framework_Exception
      */
     private function parse()
@@ -205,7 +219,12 @@ class PHPUnit_Extensions_PhptTestCase implements PHPUnit_Framework_Test, PHPUnit
     }
 
     /**
+<<<<<<< HEAD
      * @param  string $code
+=======
+     * @param string $code
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return string
      */
     private function render($code)
@@ -227,6 +246,10 @@ class PHPUnit_Extensions_PhptTestCase implements PHPUnit_Framework_Test, PHPUnit
      * Parse --INI-- section key value pairs and return as array.
      *
      * @param string
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return array
      */
     protected function parseIniSection($content)

@@ -24,7 +24,11 @@ interface PropertyMetadataContainerInterface
     /**
      * Check if there's any metadata attached to the given named property.
      *
+<<<<<<< HEAD
      * @param string $property The property name.
+=======
+     * @param string $property The property name
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @return bool
      */
@@ -36,7 +40,11 @@ interface PropertyMetadataContainerInterface
      * If your implementation does not support properties, simply throw an
      * exception in this method (for example a <tt>BadMethodCallException</tt>).
      *
+<<<<<<< HEAD
      * @param string $property The property name.
+=======
+     * @param string $property The property name
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @return PropertyMetadataInterface[] A list of metadata instances. Empty if
      *                                     no metadata exists for the property.

@@ -102,6 +102,14 @@ class Twig_SimpleFilter
 
     public function isDeprecated()
     {
+<<<<<<< HEAD
+=======
+        return (bool) $this->options['deprecated'];
+    }
+
+    public function getDeprecatedVersion()
+    {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         return $this->options['deprecated'];
     }
 

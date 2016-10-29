@@ -101,8 +101,14 @@ class PHPUnit_TextUI_Command
     }
 
     /**
+<<<<<<< HEAD
      * @param  array $argv
      * @param  bool  $exit
+=======
+     * @param array $argv
+     * @param bool  $exit
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return int
      */
     public function run(array $argv, $exit = true)
@@ -169,6 +175,10 @@ class PHPUnit_TextUI_Command
      * Create a TestRunner, override in subclasses.
      *
      * @return PHPUnit_TextUI_TestRunner
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since  Method available since Release 3.6.0
      */
     protected function createRunner()
@@ -227,6 +237,11 @@ class PHPUnit_TextUI_Command
             $this->longOptions['check-version'] = null;
             $this->longOptions['selfupdate']    = null;
             $this->longOptions['self-update']   = null;
+<<<<<<< HEAD
+=======
+            $this->longOptions['selfupgrade']   = null;
+            $this->longOptions['self-upgrade']  = null;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         }
 
         try {
@@ -484,6 +499,18 @@ class PHPUnit_TextUI_Command
                     $this->handleSelfUpdate();
                     break;
 
+<<<<<<< HEAD
+=======
+                case '--selfupgrade':
+                case '--self-upgrade':
+                    $this->handleSelfUpdate(true);
+                    break;
+
+                case '--whitelist':
+                    $this->arguments['whitelist'] = $option[1];
+                    break;
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                 default:
                     $optionName = str_replace('--', '', $option[0]);
 
@@ -665,8 +692,14 @@ class PHPUnit_TextUI_Command
     /**
      * Handles the loading of the PHPUnit_Runner_TestSuiteLoader implementation.
      *
+<<<<<<< HEAD
      * @param  string                         $loaderClass
      * @param  string                         $loaderFile
+=======
+     * @param string $loaderClass
+     * @param string $loaderFile
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return PHPUnit_Runner_TestSuiteLoader
      */
     protected function handleLoader($loaderClass, $loaderFile = '')
@@ -709,8 +742,14 @@ class PHPUnit_TextUI_Command
     /**
      * Handles the loading of the PHPUnit_Util_Printer implementation.
      *
+<<<<<<< HEAD
      * @param  string               $printerClass
      * @param  string               $printerFile
+=======
+     * @param string $printerClass
+     * @param string $printerFile
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return PHPUnit_Util_Printer
      */
     protected function handlePrinter($printerClass, $printerFile = '')
@@ -770,7 +809,11 @@ class PHPUnit_TextUI_Command
     /**
      * @since Method available since Release 4.0.0
      */
+<<<<<<< HEAD
     protected function handleSelfUpdate()
+=======
+    protected function handleSelfUpdate($upgrade = false)
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     {
         $this->printVersionString();
 
@@ -786,17 +829,39 @@ class PHPUnit_TextUI_Command
             exit(PHPUnit_TextUI_TestRunner::EXCEPTION_EXIT);
         }
 
+<<<<<<< HEAD
         if (PHP_VERSION_ID < 50600) {
             $remoteFilename = sprintf('https://phar.phpunit.de/phpunit-old.phar');
         } else {
             $remoteFilename = sprintf('https://phar.phpunit.de/phpunit.phar');
+=======
+        if (!$upgrade) {
+            $remoteFilename = sprintf(
+                'https://phar.phpunit.de/phpunit-%s.phar',
+                file_get_contents(
+                    sprintf(
+                        'https://phar.phpunit.de/latest-version-of/phpunit-%s',
+                        PHPUnit_Runner_Version::series()
+                    )
+                )
+            );
+        } else {
+            $remoteFilename = sprintf(
+                'https://phar.phpunit.de/phpunit%s.phar',
+                PHPUnit_Runner_Version::getReleaseChannel()
+            );
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         }
 
         $tempFilename = tempnam(sys_get_temp_dir(), 'phpunit') . '.phar';
 
         // Workaround for https://bugs.php.net/bug.php?id=65538
         $caFile = dirname($tempFilename) . '/ca.pem';
+<<<<<<< HEAD
         copy(__PHPUNIT_PHAR_ROOT__ . '/phar/ca.pem', $caFile);
+=======
+        copy(__PHPUNIT_PHAR_ROOT__ . '/ca.pem', $caFile);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
         print 'Updating the PHPUnit PHAR ... ';
 
@@ -858,7 +923,11 @@ class PHPUnit_TextUI_Command
 
         if ($isOutdated) {
             print "You are not using the latest version of PHPUnit.\n";
+<<<<<<< HEAD
             print 'Use "phpunit --self-update" to install PHPUnit ' . $latestVersion . "\n";
+=======
+            print 'Use "phpunit --self-upgrade" to install PHPUnit ' . $latestVersion . "\n";
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         } else {
             print "You are using the latest version of PHPUnit.\n";
         }
@@ -954,7 +1023,12 @@ EOT;
 
         if (defined('__PHPUNIT_PHAR__')) {
             print "\n  --check-version           Check whether PHPUnit is the latest version.";
+<<<<<<< HEAD
             print "\n  --self-update             Update PHPUnit to the latest version.\n";
+=======
+            print "\n  --self-update             Update PHPUnit to the latest version within the same\n                            release series.\n";
+            print "\n  --self-upgrade            Upgrade PHPUnit to the latest version.\n";
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         }
     }
 

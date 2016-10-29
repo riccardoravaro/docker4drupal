@@ -32,9 +32,15 @@ interface ValidatorInterface
      * disabled in Symfony 3.0.
      *
      * @param mixed      $value    The value to validate
+<<<<<<< HEAD
      * @param array|null $groups   The validation groups to validate.
      * @param bool       $traverse Whether to traverse the value if it is traversable.
      * @param bool       $deep     Whether to traverse nested traversable values recursively.
+=======
+     * @param array|null $groups   The validation groups to validate
+     * @param bool       $traverse Whether to traverse the value if it is traversable
+     * @param bool       $deep     Whether to traverse nested traversable values recursively
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @return ConstraintViolationListInterface A list of constraint violations. If the
      *                                          list is empty, validation succeeded.
@@ -47,9 +53,15 @@ interface ValidatorInterface
      * The accepted values depend on the {@link MetadataFactoryInterface}
      * implementation.
      *
+<<<<<<< HEAD
      * @param mixed      $containingValue The value containing the property.
      * @param string     $property        The name of the property to validate.
      * @param array|null $groups          The validation groups to validate.
+=======
+     * @param mixed      $containingValue The value containing the property
+     * @param string     $property        The name of the property to validate
+     * @param array|null $groups          The validation groups to validate
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @return ConstraintViolationListInterface A list of constraint violations. If the
      *                                          list is empty, validation succeeded.
@@ -62,11 +74,19 @@ interface ValidatorInterface
      * The accepted values depend on the {@link MetadataFactoryInterface}
      * implementation.
      *
+<<<<<<< HEAD
      * @param mixed      $containingValue The value containing the property.
      * @param string     $property        The name of the property to validate
      * @param string     $value           The value to validate against the
      *                                    constraints of the property.
      * @param array|null $groups          The validation groups to validate.
+=======
+     * @param mixed      $containingValue The value containing the property
+     * @param string     $property        The name of the property to validate
+     * @param string     $value           The value to validate against the
+     *                                    constraints of the property.
+     * @param array|null $groups          The validation groups to validate
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @return ConstraintViolationListInterface A list of constraint violations. If the
      *                                          list is empty, validation succeeded.
@@ -76,9 +96,15 @@ interface ValidatorInterface
     /**
      * Validates a value against a constraint or a list of constraints.
      *
+<<<<<<< HEAD
      * @param mixed                   $value       The value to validate.
      * @param Constraint|Constraint[] $constraints The constraint(s) to validate against.
      * @param array|null              $groups      The validation groups to validate.
+=======
+     * @param mixed                   $value       The value to validate
+     * @param Constraint|Constraint[] $constraints The constraint(s) to validate against
+     * @param array|null              $groups      The validation groups to validate
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @return ConstraintViolationListInterface A list of constraint violations. If the
      *                                          list is empty, validation succeeded.
@@ -92,7 +118,11 @@ interface ValidatorInterface
     /**
      * Returns the factory for metadata instances.
      *
+<<<<<<< HEAD
      * @return MetadataFactoryInterface The metadata factory.
+=======
+     * @return MetadataFactoryInterface The metadata factory
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @deprecated since version 2.5, to be removed in 3.0.
      *             Use {@link Validator\ValidatorInterface::getMetadataFor()} or

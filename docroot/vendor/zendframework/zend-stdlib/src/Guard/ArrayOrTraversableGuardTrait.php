@@ -29,7 +29,11 @@ trait ArrayOrTraversableGuardTrait
         $dataName = 'Argument',
         $exceptionClass = 'Zend\Stdlib\Exception\InvalidArgumentException'
     ) {
+<<<<<<< HEAD
         if (!is_array($data) && !($data instanceof Traversable)) {
+=======
+        if (! is_array($data) && ! ($data instanceof Traversable)) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             $message = sprintf(
                 "%s must be an array or Traversable, [%s] given",
                 $dataName,

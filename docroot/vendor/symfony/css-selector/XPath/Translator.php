@@ -70,9 +70,12 @@ class Translator implements TranslatorInterface
      */
     private $attributeMatchingTranslators = array();
 
+<<<<<<< HEAD
     /**
      * Constructor.
      */
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     public function __construct(ParserInterface $parser = null)
     {
         $this->mainParser = $parser ?: new Parser();
@@ -268,9 +271,15 @@ class Translator implements TranslatorInterface
      * @param string    $attribute
      * @param string    $value
      *
+<<<<<<< HEAD
      * @throws ExpressionErrorException
      *
      * @return XPathExpr
+=======
+     * @return XPathExpr
+     *
+     * @throws ExpressionErrorException
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function addAttributeMatching(XPathExpr $xpath, $operator, $attribute, $value)
     {

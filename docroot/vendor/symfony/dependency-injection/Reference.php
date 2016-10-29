@@ -23,8 +23,11 @@ class Reference
     private $strict;
 
     /**
+<<<<<<< HEAD
      * Constructor.
      *
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * Note: The $strict parameter is deprecated since version 2.8 and will be removed in 3.0.
      *
      * @param string $id              The service identifier
@@ -41,8 +44,11 @@ class Reference
     }
 
     /**
+<<<<<<< HEAD
      * __toString.
      *
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return string The service identifier
      */
     public function __toString()

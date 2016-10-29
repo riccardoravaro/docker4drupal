@@ -59,6 +59,10 @@ class Response
     const HTTP_REQUESTED_RANGE_NOT_SATISFIABLE = 416;
     const HTTP_EXPECTATION_FAILED = 417;
     const HTTP_I_AM_A_TEAPOT = 418;                                               // RFC2324
+<<<<<<< HEAD
+=======
+    const HTTP_MISDIRECTED_REQUEST = 421;                                         // RFC7540
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     const HTTP_UNPROCESSABLE_ENTITY = 422;                                        // RFC4918
     const HTTP_LOCKED = 423;                                                      // RFC4918
     const HTTP_FAILED_DEPENDENCY = 424;                                           // RFC4918
@@ -115,7 +119,11 @@ class Response
      *
      * The list of codes is complete according to the
      * {@link http://www.iana.org/assignments/http-status-codes/ Hypertext Transfer Protocol (HTTP) Status Code Registry}
+<<<<<<< HEAD
      * (last updated 2015-05-19).
+=======
+     * (last updated 2016-03-01).
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * Unless otherwise noted, the status code is defined in RFC2616.
      *
@@ -162,6 +170,10 @@ class Response
         416 => 'Range Not Satisfiable',
         417 => 'Expectation Failed',
         418 => 'I\'m a teapot',                                               // RFC2324
+<<<<<<< HEAD
+=======
+        421 => 'Misdirected Request',                                         // RFC7540
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         422 => 'Unprocessable Entity',                                        // RFC4918
         423 => 'Locked',                                                      // RFC4918
         424 => 'Failed Dependency',                                           // RFC4918
@@ -256,7 +268,11 @@ class Response
      *
      * @param Request $request A Request instance
      *
+<<<<<<< HEAD
      * @return Response The current response.
+=======
+     * @return Response The current response
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function prepare(Request $request)
     {

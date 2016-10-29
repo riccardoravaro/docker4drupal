@@ -34,7 +34,11 @@ class Route
     /**
      * Constructor.
      *
+<<<<<<< HEAD
      * @param array $data An array of key/value parameters.
+=======
+     * @param array $data An array of key/value parameters
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @throws \BadMethodCallException
      */

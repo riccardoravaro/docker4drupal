@@ -59,6 +59,13 @@ class ChoiceFormField extends FormField
      */
     public function isDisabled()
     {
+<<<<<<< HEAD
+=======
+        if (parent::isDisabled() && 'select' === $this->type) {
+            return true;
+        }
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         foreach ($this->options as $option) {
             if ($option['value'] == $this->value && $option['disabled']) {
                 return true;
@@ -259,7 +266,12 @@ class ChoiceFormField extends FormField
     {
         $option = array();
 
+<<<<<<< HEAD
         $defaultValue = (isset($node->nodeValue) && !empty($node->nodeValue)) ? $node->nodeValue : 'on';
+=======
+        $defaultDefaultValue = 'select' === $this->node->nodeName ? '' : 'on';
+        $defaultValue = (isset($node->nodeValue) && !empty($node->nodeValue)) ? $node->nodeValue : $defaultDefaultValue;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         $option['value'] = $node->hasAttribute('value') ? $node->getAttribute('value') : $defaultValue;
         $option['disabled'] = $node->hasAttribute('disabled');
 

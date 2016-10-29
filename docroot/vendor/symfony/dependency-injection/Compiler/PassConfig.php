@@ -35,9 +35,12 @@ class PassConfig
     private $optimizationPasses;
     private $removingPasses;
 
+<<<<<<< HEAD
     /**
      * Constructor.
      */
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     public function __construct()
     {
         $this->mergePass = new MergeExtensionConfigurationPass();
@@ -58,8 +61,13 @@ class PassConfig
 
         $this->removingPasses = array(
             new RemovePrivateAliasesPass(),
+<<<<<<< HEAD
             new RemoveAbstractDefinitionsPass(),
             new ReplaceAliasByActualDefinitionPass(),
+=======
+            new ReplaceAliasByActualDefinitionPass(),
+            new RemoveAbstractDefinitionsPass(),
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             new RepeatedPass(array(
                 new AnalyzeServiceReferencesPass(),
                 new InlineServiceDefinitionsPass(),
@@ -102,8 +110,12 @@ class PassConfig
             throw new InvalidArgumentException(sprintf('Invalid type "%s".', $type));
         }
 
+<<<<<<< HEAD
         $passes = &$this->$property;
         $passes[] = $pass;
+=======
+        $this->{$property}[] = $pass;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     /**
@@ -157,9 +169,15 @@ class PassConfig
     }
 
     /**
+<<<<<<< HEAD
      * Gets all passes for the Merge pass.
      *
      * @return array An array of passes
+=======
+     * Gets the Merge pass.
+     *
+     * @return CompilerPassInterface The merge pass
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getMergePass()
     {

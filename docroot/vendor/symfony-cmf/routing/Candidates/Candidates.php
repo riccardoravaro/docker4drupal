@@ -3,7 +3,11 @@
 /*
  * This file is part of the Symfony CMF package.
  *
+<<<<<<< HEAD
  * (c) 2011-2014 Symfony CMF
+=======
+ * (c) 2011-2015 Symfony CMF
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -60,7 +64,11 @@ class Candidates implements CandidatesInterface
     }
 
     /**
+<<<<<<< HEAD
      * {@inheritDoc}
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * Always returns true.
      */
@@ -70,7 +78,11 @@ class Candidates implements CandidatesInterface
     }
 
     /**
+<<<<<<< HEAD
      * {@inheritDoc}
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * Does nothing.
      */
@@ -79,7 +91,11 @@ class Candidates implements CandidatesInterface
     }
 
     /**
+<<<<<<< HEAD
      * {@inheritDoc}
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getCandidates(Request $request)
     {
@@ -99,7 +115,11 @@ class Candidates implements CandidatesInterface
      *
      * @param string $url The url to determine the locale from.
      *
+<<<<<<< HEAD
      * @return string|boolean The locale if $url starts with one of the allowed locales.
+=======
+     * @return string|bool The locale if $url starts with one of the allowed locales.
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     protected function determineLocale($url)
     {
@@ -108,7 +128,11 @@ class Candidates implements CandidatesInterface
         }
 
         $matches = array();
+<<<<<<< HEAD
         if (preg_match('#(' . implode('|', $this->locales) . ')(/|$)#', $url, $matches)) {
+=======
+        if (preg_match('#('.implode('|', $this->locales).')(/|$)#', $url, $matches)) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             return $matches[1];
         }
 
@@ -132,7 +156,11 @@ class Candidates implements CandidatesInterface
         if ('/' !== $url) {
             // handle format extension, like .html or .json
             if (preg_match('/(.+)\.[a-z]+$/i', $url, $matches)) {
+<<<<<<< HEAD
                 $candidates[] = $prefix . $url;
+=======
+                $candidates[] = $prefix.$url;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                 $url = $matches[1];
             }
 
@@ -142,7 +170,11 @@ class Candidates implements CandidatesInterface
                 if (++$count > $this->limit) {
                     return $candidates;
                 }
+<<<<<<< HEAD
                 $candidates[] = $prefix . $part;
+=======
+                $candidates[] = $prefix.$part;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                 $part = substr($url, 0, $pos);
             }
         }

@@ -36,7 +36,12 @@ class PHPUnit_Framework_Constraint_IsInstanceOf extends PHPUnit_Framework_Constr
      * Evaluates the constraint for parameter $other. Returns true if the
      * constraint is met, false otherwise.
      *
+<<<<<<< HEAD
      * @param  mixed $other Value or object to evaluate.
+=======
+     * @param mixed $other Value or object to evaluate.
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return bool
      */
     protected function matches($other)
@@ -50,7 +55,12 @@ class PHPUnit_Framework_Constraint_IsInstanceOf extends PHPUnit_Framework_Constr
      * The beginning of failure messages is "Failed asserting that" in most
      * cases. This method should return the second part of that sentence.
      *
+<<<<<<< HEAD
      * @param  mixed  $other Evaluated value or object.
+=======
+     * @param mixed $other Evaluated value or object.
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return string
      */
     protected function failureDescription($other)

@@ -16,7 +16,18 @@ if (PHP_VERSION_ID < 50400) {
         function trait_exists($class, $autoload = true) { return $autoload && class_exists($class, $autoload) && false; }
     }
     if (!function_exists('class_uses')) {
+<<<<<<< HEAD
         function class_uses($class, $autoload = true) { return $autoload && class_exists($class, $autoload) && false; }
+=======
+        function class_uses($class, $autoload = true)
+        {
+            if (is_object($class) || class_exists($class, $autoload) || interface_exists($class, false)) {
+                return array();
+            }
+
+            return false;
+        }
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
     if (!function_exists('hex2bin')) {
         function hex2bin($data) { return p\Php54::hex2bin($data); }

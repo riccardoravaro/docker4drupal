@@ -60,7 +60,11 @@ class ExecutableFinder
                 if (@is_dir($path)) {
                     $dirs[] = $path;
                 } else {
+<<<<<<< HEAD
                     if (basename($path) == $name && is_executable($path)) {
+=======
+                    if (basename($path) == $name && @is_executable($path)) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                         return $path;
                     }
                 }
@@ -79,7 +83,11 @@ class ExecutableFinder
         }
         foreach ($suffixes as $suffix) {
             foreach ($dirs as $dir) {
+<<<<<<< HEAD
                 if (is_file($file = $dir.DIRECTORY_SEPARATOR.$name.$suffix) && ('\\' === DIRECTORY_SEPARATOR || is_executable($file))) {
+=======
+                if (@is_file($file = $dir.DIRECTORY_SEPARATOR.$name.$suffix) && ('\\' === DIRECTORY_SEPARATOR || is_executable($file))) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                     return $file;
                 }
             }

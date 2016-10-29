@@ -4,7 +4,10 @@ namespace Egulias\EmailValidator\Parser;
 
 use Egulias\EmailValidator\EmailLexer;
 use Egulias\EmailValidator\EmailValidator;
+<<<<<<< HEAD
 use \InvalidArgumentException;
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
 class LocalPart extends Parser
 {
@@ -12,9 +15,15 @@ class LocalPart extends Parser
     {
         $parseDQuote = true;
         $closingQuote = false;
+<<<<<<< HEAD
 
         while ($this->lexer->token['type'] !== EmailLexer::S_AT && $this->lexer->token) {
 
+=======
+        $openedParenthesis = 0;
+
+        while ($this->lexer->token['type'] !== EmailLexer::S_AT && $this->lexer->token) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             if ($this->lexer->token['type'] === EmailLexer::S_DOT && !$this->lexer->getPrevious()) {
                 throw new \InvalidArgumentException('ERR_DOT_START');
             }
@@ -26,12 +35,27 @@ class LocalPart extends Parser
 
             if ($this->lexer->token['type'] === EmailLexer::S_OPENPARENTHESIS) {
                 $this->parseComments();
+<<<<<<< HEAD
+=======
+                $openedParenthesis += $this->getOpenedParenthesis();
+            }
+            if ($this->lexer->token['type'] === EmailLexer::S_CLOSEPARENTHESIS) {
+                if ($openedParenthesis === 0) {
+                    throw new \InvalidArgumentException('ERR_UNOPENEDCOMMENT');
+                } else {
+                    $openedParenthesis--;
+                }
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             }
 
             $this->checkConsecutiveDots();
 
+<<<<<<< HEAD
             if (
                 $this->lexer->token['type'] === EmailLexer::S_DOT &&
+=======
+            if ($this->lexer->token['type'] === EmailLexer::S_DOT &&
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                 $this->lexer->isNextToken(EmailLexer::S_AT)
             ) {
                 throw new \InvalidArgumentException('ERR_DOT_END');
@@ -82,7 +106,11 @@ class LocalPart extends Parser
             $this->lexer->moveNext();
 
             if (!$this->escaped() && isset($invalid[$this->lexer->token['type']])) {
+<<<<<<< HEAD
                 throw new InvalidArgumentException("ERR_EXPECTED_ATEXT");
+=======
+                throw new \InvalidArgumentException('ERR_EXPECTED_ATEXT');
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             }
         }
 
@@ -90,12 +118,20 @@ class LocalPart extends Parser
 
         if ($prev['type'] === EmailLexer::S_BACKSLASH) {
             if (!$this->checkDQUOTE(false)) {
+<<<<<<< HEAD
                 throw new \InvalidArgumentException("ERR_UNCLOSED_DQUOTE");
+=======
+                throw new \InvalidArgumentException('ERR_UNCLOSED_DQUOTE');
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             }
         }
 
         if (!$this->lexer->isNextToken(EmailLexer::S_AT) && $prev['type'] !== EmailLexer::S_BACKSLASH) {
+<<<<<<< HEAD
             throw new \InvalidArgumentException("ERR_EXPECED_AT");
+=======
+            throw new \InvalidArgumentException('ERR_EXPECED_AT');
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         }
 
         return $parseAgain;

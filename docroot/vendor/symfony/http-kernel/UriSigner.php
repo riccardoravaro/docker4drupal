@@ -98,7 +98,11 @@ class UriSigner
         $host = isset($url['host']) ? $url['host'] : '';
         $port = isset($url['port']) ? ':'.$url['port'] : '';
         $user = isset($url['user']) ? $url['user'] : '';
+<<<<<<< HEAD
         $pass = isset($url['pass']) ? ':'.$url['pass']  : '';
+=======
+        $pass = isset($url['pass']) ? ':'.$url['pass'] : '';
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         $pass = ($user || $pass) ? "$pass@" : '';
         $path = isset($url['path']) ? $url['path'] : '';
         $query = isset($url['query']) && $url['query'] ? '?'.$url['query'] : '';

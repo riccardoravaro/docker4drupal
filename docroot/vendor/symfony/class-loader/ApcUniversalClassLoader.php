@@ -92,8 +92,15 @@ class ApcUniversalClassLoader extends UniversalClassLoader
      */
     public function findFile($class)
     {
+<<<<<<< HEAD
         if (false === $file = apcu_fetch($this->prefix.$class)) {
             apcu_store($this->prefix.$class, $file = parent::findFile($class));
+=======
+        $file = apcu_fetch($this->prefix.$class, $success);
+
+        if (!$success) {
+            apcu_store($this->prefix.$class, $file = parent::findFile($class) ?: null);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         }
 
         return $file;

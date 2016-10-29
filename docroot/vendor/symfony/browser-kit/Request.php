@@ -111,7 +111,11 @@ class Request
     /**
      * Gets the request raw body data.
      *
+<<<<<<< HEAD
      * @return string The request raw body data.
+=======
+     * @return string The request raw body data
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getContent()
     {

@@ -41,6 +41,10 @@ use Symfony\Component\Console\Event\ConsoleExceptionEvent;
 use Symfony\Component\Console\Event\ConsoleTerminateEvent;
 use Symfony\Component\Console\Exception\CommandNotFoundException;
 use Symfony\Component\Console\Exception\LogicException;
+<<<<<<< HEAD
+=======
+use Symfony\Component\Debug\Exception\FatalThrowableError;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
@@ -216,7 +220,11 @@ class Application
     }
 
     /**
+<<<<<<< HEAD
      * Set an input definition set to be used with this application.
+=======
+     * Set an input definition to be used with this application.
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @param InputDefinition $definition The input definition
      */
@@ -238,7 +246,11 @@ class Application
     /**
      * Gets the help message.
      *
+<<<<<<< HEAD
      * @return string A help message.
+=======
+     * @return string A help message
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getHelp()
     {
@@ -338,6 +350,11 @@ class Application
     /**
      * Adds an array of command objects.
      *
+<<<<<<< HEAD
+=======
+     * If a Command is not enabled it will not be added.
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @param Command[] $commands An array of commands
      */
     public function addCommands(array $commands)
@@ -351,10 +368,18 @@ class Application
      * Adds a command object.
      *
      * If a command with the same name already exists, it will be overridden.
+<<<<<<< HEAD
      *
      * @param Command $command A Command object
      *
      * @return Command The registered command
+=======
+     * If the command is not enabled it will not be added.
+     *
+     * @param Command $command A Command object
+     *
+     * @return Command|null The registered command if enabled or null
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function add(Command $command)
     {
@@ -423,9 +448,15 @@ class Application
     /**
      * Returns an array of all unique namespaces used by currently registered commands.
      *
+<<<<<<< HEAD
      * It does not returns the global namespace which always exists.
      *
      * @return array An array of namespaces
+=======
+     * It does not return the global namespace which always exists.
+     *
+     * @return string[] An array of namespaces
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getNamespaces()
     {
@@ -807,6 +838,10 @@ class Application
 
         if (true === $input->hasParameterOption(array('--quiet', '-q'))) {
             $output->setVerbosity(OutputInterface::VERBOSITY_QUIET);
+<<<<<<< HEAD
+=======
+            $input->setInteractive(false);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         } else {
             if ($input->hasParameterOption('-vvv') || $input->hasParameterOption('--verbose=3') || $input->getParameterOption('--verbose') === 3) {
                 $output->setVerbosity(OutputInterface::VERBOSITY_DEBUG);
@@ -857,17 +892,38 @@ class Application
 
         if ($event->commandShouldRun()) {
             try {
+<<<<<<< HEAD
                 $exitCode = $command->run($input, $output);
             } catch (\Exception $e) {
                 $event = new ConsoleExceptionEvent($command, $input, $output, $e, $e->getCode());
                 $this->dispatcher->dispatch(ConsoleEvents::EXCEPTION, $event);
 
                 $e = $event->getException();
+=======
+                $e = null;
+                $exitCode = $command->run($input, $output);
+            } catch (\Exception $x) {
+                $e = $x;
+            } catch (\Throwable $x) {
+                $e = new FatalThrowableError($x);
+            }
+            if (null !== $e) {
+                $event = new ConsoleExceptionEvent($command, $input, $output, $e, $e->getCode());
+                $this->dispatcher->dispatch(ConsoleEvents::EXCEPTION, $event);
+
+                if ($e !== $event->getException()) {
+                    $x = $e = $event->getException();
+                }
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
                 $event = new ConsoleTerminateEvent($command, $input, $output, $e->getCode());
                 $this->dispatcher->dispatch(ConsoleEvents::TERMINATE, $event);
 
+<<<<<<< HEAD
                 throw $e;
+=======
+                throw $x;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             }
         } else {
             $exitCode = ConsoleCommandEvent::RETURN_CODE_DISABLED;
@@ -965,7 +1021,11 @@ class Application
     /**
      * Runs and parses mode CON if it's available, suppressing any error output.
      *
+<<<<<<< HEAD
      * @return string <width>x<height> or null if it could not be parsed
+=======
+     * @return string|null <width>x<height> or null if it could not be parsed
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     private function getConsoleMode()
     {
@@ -1024,7 +1084,11 @@ class Application
      * @param string             $name       The string
      * @param array|\Traversable $collection The collection
      *
+<<<<<<< HEAD
      * @return array A sorted array of similar string
+=======
+     * @return string[] A sorted array of similar string
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     private function findAlternatives($name, $collection)
     {
@@ -1123,7 +1187,11 @@ class Application
      *
      * @param string $name The full name of the command
      *
+<<<<<<< HEAD
      * @return array The namespaces of the command
+=======
+     * @return string[] The namespaces of the command
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     private function extractAllNamespaces($name)
     {

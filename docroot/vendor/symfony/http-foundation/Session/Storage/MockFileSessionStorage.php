@@ -32,9 +32,15 @@ class MockFileSessionStorage extends MockArraySessionStorage
     /**
      * Constructor.
      *
+<<<<<<< HEAD
      * @param string      $savePath Path of directory to save session files.
      * @param string      $name     Session name.
      * @param MetadataBag $metaBag  MetadataBag instance.
+=======
+     * @param string      $savePath Path of directory to save session files
+     * @param string      $name     Session name
+     * @param MetadataBag $metaBag  MetadataBag instance
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function __construct($savePath = null, $name = 'MOCKSESSID', MetadataBag $metaBag = null)
     {

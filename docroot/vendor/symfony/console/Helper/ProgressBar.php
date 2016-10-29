@@ -41,10 +41,17 @@ class ProgressBar
     private $startTime;
     private $stepWidth;
     private $percent = 0.0;
+<<<<<<< HEAD
     private $lastMessagesLength = 0;
     private $formatLineCount;
     private $messages;
     private $overwrite = true;
+=======
+    private $formatLineCount;
+    private $messages = array();
+    private $overwrite = true;
+    private $firstRun = true;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
     private static $formatters;
     private static $formats;
@@ -141,6 +148,19 @@ class ProgressBar
         return isset(self::$formats[$name]) ? self::$formats[$name] : null;
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * Associates a text with a named placeholder.
+     *
+     * The text is displayed when the progress bar is rendered but only
+     * when the corresponding placeholder is part of the custom format line
+     * (by wrapping the name with %).
+     *
+     * @param string $message The text to associate with the placeholder
+     * @param string $name    The name of the placeholder
+     */
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     public function setMessage($message, $name = 'message')
     {
         $this->messages[$name] = $message;
@@ -473,7 +493,11 @@ class ProgressBar
             $this->setRealFormat($this->internalFormat ?: $this->determineBestFormat());
         }
 
+<<<<<<< HEAD
         $this->overwrite(str_repeat("\n", $this->formatLineCount));
+=======
+        $this->overwrite('');
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     /**
@@ -513,6 +537,7 @@ class ProgressBar
      */
     private function overwrite($message)
     {
+<<<<<<< HEAD
         $lines = explode("\n", $message);
 
         // append whitespace to match the line's length
@@ -544,6 +569,28 @@ class ProgressBar
                 $this->lastMessagesLength = $len;
             }
         }
+=======
+        if ($this->overwrite) {
+            if (!$this->firstRun) {
+                // Move the cursor to the beginning of the line
+                $this->output->write("\x0D");
+
+                // Erase the line
+                $this->output->write("\x1B[2K");
+
+                // Erase previous lines
+                if ($this->formatLineCount > 0) {
+                    $this->output->write(str_repeat("\x1B[1A\x1B[2K", $this->formatLineCount));
+                }
+            }
+        } elseif ($this->step > 0) {
+            $this->output->writeln('');
+        }
+
+        $this->firstRun = false;
+
+        $this->output->write($message);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     private function determineBestFormat()

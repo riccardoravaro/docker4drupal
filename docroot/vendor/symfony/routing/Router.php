@@ -106,9 +106,25 @@ class Router implements RouterInterface, RequestMatcherInterface
      *
      * Available options:
      *
+<<<<<<< HEAD
      *   * cache_dir:     The cache directory (or null to disable caching)
      *   * debug:         Whether to enable debugging or not (false by default)
      *   * resource_type: Type hint for the main resource (optional)
+=======
+     *   * cache_dir:              The cache directory (or null to disable caching)
+     *   * debug:                  Whether to enable debugging or not (false by default)
+     *   * generator_class:        The name of a UrlGeneratorInterface implementation
+     *   * generator_base_class:   The base class for the dumped generator class
+     *   * generator_cache_class:  The class name for the dumped generator class
+     *   * generator_dumper_class: The name of a GeneratorDumperInterface implementation
+     *   * matcher_class:          The name of a UrlMatcherInterface implementation
+     *   * matcher_base_class:     The base class for the dumped matcher class
+     *   * matcher_dumper_class:   The class name for the dumped matcher class
+     *   * matcher_cache_class:    The name of a MatcherDumperInterface implementation
+     *   * resource_type:          Type hint for the main resource (optional)
+     *   * strict_requirements:    Configure strict requirement checking for generators
+     *                             implementing ConfigurableRequirementsInterface (default is true)
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @param array $options An array of options
      *
@@ -219,7 +235,11 @@ class Router implements RouterInterface, RequestMatcherInterface
     /**
      * Sets the ConfigCache factory to use.
      *
+<<<<<<< HEAD
      * @param ConfigCacheFactoryInterface $configCacheFactory The factory to use.
+=======
+     * @param ConfigCacheFactoryInterface $configCacheFactory The factory to use
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function setConfigCacheFactory(ConfigCacheFactoryInterface $configCacheFactory)
     {

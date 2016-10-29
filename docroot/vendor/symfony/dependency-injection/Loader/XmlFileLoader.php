@@ -187,7 +187,11 @@ class XmlFileLoader extends FileLoader
         }
 
         if ($deprecated = $this->getChildren($service, 'deprecated')) {
+<<<<<<< HEAD
             $definition->setDeprecated(true, $deprecated[0]->nodeValue);
+=======
+            $definition->setDeprecated(true, $deprecated[0]->nodeValue ?: null);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         }
 
         $definition->setArguments($this->getArgumentsAsPhp($service, 'argument'));
@@ -315,6 +319,13 @@ class XmlFileLoader extends FileLoader
                 if ($services = $this->getChildren($node, 'service')) {
                     $definitions[$id] = array($services[0], $file, false);
                     $services[0]->setAttribute('id', $id);
+<<<<<<< HEAD
+=======
+
+                    // anonymous services are always private
+                    // we could not use the constant false here, because of XML parsing
+                    $services[0]->setAttribute('public', 'false');
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                 }
             }
         }
@@ -325,11 +336,15 @@ class XmlFileLoader extends FileLoader
                 // give it a unique name
                 $id = sprintf('%s_%d', hash('sha256', $file), ++$count);
                 $node->setAttribute('id', $id);
+<<<<<<< HEAD
 
                 if ($services = $this->getChildren($node, 'service')) {
                     $definitions[$id] = array($node, $file, true);
                     $services[0]->setAttribute('id', $id);
                 }
+=======
+                $definitions[$id] = array($node, $file, true);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             }
         }
 
@@ -338,10 +353,13 @@ class XmlFileLoader extends FileLoader
         foreach ($definitions as $id => $def) {
             list($domElement, $file, $wild) = $def;
 
+<<<<<<< HEAD
             // anonymous services are always private
             // we could not use the constant false here, because of XML parsing
             $domElement->setAttribute('public', 'false');
 
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             if (null !== $definition = $this->parseDefinition($domElement, $file)) {
                 $this->container->setDefinition($id, $definition);
             }
@@ -511,7 +529,13 @@ $imports
 EOF
         ;
 
+<<<<<<< HEAD
         $valid = @$dom->schemaValidateSource($source);
+=======
+        $disableEntities = libxml_disable_entity_loader(false);
+        $valid = @$dom->schemaValidateSource($source);
+        libxml_disable_entity_loader($disableEntities);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
         foreach ($tmpfiles as $tmpfile) {
             @unlink($tmpfile);
@@ -589,7 +613,11 @@ EOF
      *
      * @return array A PHP array
      */
+<<<<<<< HEAD
     public static function convertDomElementToArray(\DomElement $element)
+=======
+    public static function convertDomElementToArray(\DOMElement $element)
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     {
         return XmlUtils::convertDomElementToArray($element);
     }

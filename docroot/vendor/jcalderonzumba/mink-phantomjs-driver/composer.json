@@ -21,16 +21,25 @@
   ],
   "require": {
     "php": ">=5.4",
+<<<<<<< HEAD
     "behat/mink": "~1.6",
+=======
+    "behat/mink": "~1.7",
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     "twig/twig": "~1.20|~2.0",
     "jcalderonzumba/gastonjs": "~1.0"
   },
   "require-dev": {
+<<<<<<< HEAD
     "symfony/process": "~2.3",
     "symfony/phpunit-bridge": "~2.7",
     "symfony/css-selector": "~2.1",
     "phpunit/phpunit": "~4.6",
     "silex/silex": "~1.2"
+=======
+    "mink/driver-testsuite": "dev-master",
+    "phpunit/phpunit": "~4.6"
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
   },
   "config": {
     "bin-dir": "bin"

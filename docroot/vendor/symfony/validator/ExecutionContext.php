@@ -66,6 +66,7 @@ class ExecutionContext implements ExecutionContextInterface
     /**
      * Creates a new execution context.
      *
+<<<<<<< HEAD
      * @param GlobalExecutionContextInterface $globalContext     The global context storing node-independent state.
      * @param TranslatorInterface             $translator        The translator for translating violation messages.
      * @param null|string                     $translationDomain The domain of the validation messages.
@@ -73,6 +74,15 @@ class ExecutionContext implements ExecutionContextInterface
      * @param mixed                           $value             The value of the validated node.
      * @param string                          $group             The current validation group.
      * @param string                          $propertyPath      The property path to the current node.
+=======
+     * @param GlobalExecutionContextInterface $globalContext     The global context storing node-independent state
+     * @param TranslatorInterface             $translator        The translator for translating violation messages
+     * @param null|string                     $translationDomain The domain of the validation messages
+     * @param MetadataInterface               $metadata          The metadata of the validated node
+     * @param mixed                           $value             The value of the validated node
+     * @param string                          $group             The current validation group
+     * @param string                          $propertyPath      The property path to the current node
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function __construct(GlobalExecutionContextInterface $globalContext, TranslatorInterface $translator, $translationDomain = null, MetadataInterface $metadata = null, $value = null, $group = null, $propertyPath = '')
     {
@@ -266,8 +276,13 @@ class ExecutionContext implements ExecutionContextInterface
     /**
      * Executes the validators of the given constraints for the given value.
      *
+<<<<<<< HEAD
      * @param mixed        $value       The value to validate.
      * @param Constraint[] $constraints The constraints to match against.
+=======
+     * @param mixed        $value       The value to validate
+     * @param Constraint[] $constraints The constraints to match against
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     private function executeConstraintValidators($value, array $constraints)
     {
@@ -286,7 +301,11 @@ class ExecutionContext implements ExecutionContextInterface
      *                                     is passed, an array containing the current
      *                                     group of the context is returned.
      *
+<<<<<<< HEAD
      * @return array An array of validation groups.
+=======
+     * @return array An array of validation groups
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     private function resolveGroups($groups)
     {

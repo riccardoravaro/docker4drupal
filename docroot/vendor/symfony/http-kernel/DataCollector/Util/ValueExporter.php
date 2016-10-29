@@ -27,6 +27,13 @@ class ValueExporter
      */
     public function exportValue($value, $depth = 1, $deep = false)
     {
+<<<<<<< HEAD
+=======
+        if ($value instanceof \__PHP_Incomplete_Class) {
+            return sprintf('__PHP_Incomplete_Class(%s)', $this->getClassNameFromIncomplete($value));
+        }
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         if (is_object($value)) {
             if ($value instanceof \DateTime || $value instanceof \DateTimeInterface) {
                 return sprintf('Object(%s) - %s', get_class($value), $value->format(\DateTime::ISO8601));
@@ -35,10 +42,13 @@ class ValueExporter
             return sprintf('Object(%s)', get_class($value));
         }
 
+<<<<<<< HEAD
         if ($value instanceof \__PHP_Incomplete_Class) {
             return sprintf('__PHP_Incomplete_Class(%s)', $this->getClassNameFromIncomplete($value));
         }
 
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         if (is_array($value)) {
             if (empty($value)) {
                 return '[]';

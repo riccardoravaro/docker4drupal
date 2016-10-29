@@ -38,7 +38,11 @@ interface ConstraintViolationInterface
     /**
      * Returns the violation message.
      *
+<<<<<<< HEAD
      * @return string The violation message.
+=======
+     * @return string The violation message
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getMessage();
 
@@ -49,7 +53,11 @@ interface ConstraintViolationInterface
      * returned by {@link getMessageParameters}. Typically you'll pass the
      * message template and parameters to a translation engine.
      *
+<<<<<<< HEAD
      * @return string The raw violation message.
+=======
+     * @return string The raw violation message
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getMessageTemplate();
 
@@ -78,7 +86,11 @@ interface ConstraintViolationInterface
      * This method returns the value of the parameter for choosing the right
      * pluralization form (in this case "choices").
      *
+<<<<<<< HEAD
      * @return int|null The number to use to pluralize of the message.
+=======
+     * @return int|null The number to use to pluralize of the message
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @deprecated since version 2.7, to be replaced by getPlural() in 3.0.
      */
@@ -119,7 +131,11 @@ interface ConstraintViolationInterface
     /**
      * Returns a machine-digestible error code for the violation.
      *
+<<<<<<< HEAD
      * @return string|null The error code.
+=======
+     * @return string|null The error code
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getCode();
 }

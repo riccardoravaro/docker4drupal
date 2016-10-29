@@ -17,8 +17,11 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 /**
  * Creates new {@link ExecutionContext} instances.
  *
+<<<<<<< HEAD
  * @since  2.5
  *
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  * @author Bernhard Schussek <bschussek@gmail.com>
  *
  * @internal You should not instantiate or use this class. Code against

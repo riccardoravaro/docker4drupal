@@ -210,7 +210,11 @@ class StreamHandler
         Psr7\copy_to_stream(
             $source,
             $sink,
+<<<<<<< HEAD
             strlen($contentLength) > 0 ? (int) $contentLength : -1
+=======
+            (strlen($contentLength) > 0 && (int) $contentLength > 0) ? (int) $contentLength : -1
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         );
 
         $sink->seek(0);

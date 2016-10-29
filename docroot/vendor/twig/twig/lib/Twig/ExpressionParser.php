@@ -373,13 +373,21 @@ class Twig_ExpressionParser
                 $arg = new Twig_Node_Expression_Constant($token->getValue(), $lineno);
 
                 if ($stream->test(Twig_Token::PUNCTUATION_TYPE, '(')) {
+<<<<<<< HEAD
                     $type = Twig_TemplateInterface::METHOD_CALL;
+=======
+                    $type = Twig_Template::METHOD_CALL;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                     foreach ($this->parseArguments() as $n) {
                         $arguments->addElement($n);
                     }
                 }
             } else {
+<<<<<<< HEAD
                 throw new Twig_Error_Syntax('Expected name or number', $lineno, $this->parser->getFilename());
+=======
+                throw new Twig_Error_Syntax('Expected name or number.', $lineno, $this->parser->getFilename());
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             }
 
             if ($node instanceof Twig_Node_Expression_Name && null !== $this->parser->getImportedSymbol('template', $node->getAttribute('name'))) {
@@ -539,10 +547,18 @@ class Twig_ExpressionParser
         $targets = array();
         while (true) {
             $token = $this->parser->getStream()->expect(Twig_Token::NAME_TYPE, null, 'Only variables can be assigned to');
+<<<<<<< HEAD
             if (in_array($token->getValue(), array('true', 'false', 'none'))) {
                 throw new Twig_Error_Syntax(sprintf('You cannot assign a value to "%s".', $token->getValue()), $token->getLine(), $this->parser->getFilename());
             }
             $targets[] = new Twig_Node_Expression_AssignName($token->getValue(), $token->getLine());
+=======
+            $value = $token->getValue();
+            if (in_array(strtolower($value), array('true', 'false', 'none', 'null'))) {
+                throw new Twig_Error_Syntax(sprintf('You cannot assign a value to "%s".', $value), $token->getLine(), $this->parser->getFilename());
+            }
+            $targets[] = new Twig_Node_Expression_AssignName($value, $token->getLine());
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
             if (!$this->parser->getStream()->nextIf(Twig_Token::PUNCTUATION_TYPE, ',')) {
                 break;
@@ -578,6 +594,12 @@ class Twig_ExpressionParser
 
         if ($function instanceof Twig_SimpleFunction && $function->isDeprecated()) {
             $message = sprintf('Twig Function "%s" is deprecated', $function->getName());
+<<<<<<< HEAD
+=======
+            if (!is_bool($function->getDeprecatedVersion())) {
+                $message .= sprintf(' since version %s', $function->getDeprecatedVersion());
+            }
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             if ($function->getAlternative()) {
                 $message .= sprintf('. Use "%s" instead', $function->getAlternative());
             }
@@ -606,6 +628,12 @@ class Twig_ExpressionParser
 
         if ($filter instanceof Twig_SimpleFilter && $filter->isDeprecated()) {
             $message = sprintf('Twig Filter "%s" is deprecated', $filter->getName());
+<<<<<<< HEAD
+=======
+            if (!is_bool($filter->getDeprecatedVersion())) {
+                $message .= sprintf(' since version %s', $filter->getDeprecatedVersion());
+            }
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             if ($filter->getAlternative()) {
                 $message .= sprintf('. Use "%s" instead', $filter->getAlternative());
             }

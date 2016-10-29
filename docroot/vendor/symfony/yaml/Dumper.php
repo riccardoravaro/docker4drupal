@@ -28,7 +28,11 @@ class Dumper
     /**
      * Sets the indentation.
      *
+<<<<<<< HEAD
      * @param int $num The amount of spaces to use for indentation of nested nodes.
+=======
+     * @param int $num The amount of spaces to use for indentation of nested nodes
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function setIndentation($num)
     {
@@ -58,7 +62,11 @@ class Dumper
         if ($inline <= 0 || !is_array($input) || empty($input)) {
             $output .= $prefix.Inline::dump($input, $exceptionOnInvalidType, $objectSupport);
         } else {
+<<<<<<< HEAD
             $isAHash = array_keys($input) !== range(0, count($input) - 1);
+=======
+            $isAHash = Inline::isHash($input);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
             foreach ($input as $key => $value) {
                 $willBeInlined = $inline - 1 <= 0 || !is_array($value) || empty($value);

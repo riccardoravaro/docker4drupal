@@ -3,7 +3,11 @@
  * Zend Framework (http://framework.zend.com/)
  *
  * @see       http://github.com/zendframework/zend-diactoros for the canonical source repository
+<<<<<<< HEAD
  * @copyright Copyright (c) 2015 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright Copyright (c) 2015-2016 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  * @license   https://github.com/zendframework/zend-diactoros/blob/master/LICENSE.md New BSD License
  */
 
@@ -13,6 +17,10 @@ use InvalidArgumentException;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\UploadedFileInterface;
+<<<<<<< HEAD
+=======
+use Psr\Http\Message\UriInterface;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
 /**
  * Server-side HTTP request
@@ -65,10 +73,21 @@ class ServerRequest implements ServerRequestInterface
     /**
      * @param array $serverParams Server parameters, typically from $_SERVER
      * @param array $uploadedFiles Upload file information, a tree of UploadedFiles
+<<<<<<< HEAD
      * @param null|string $uri URI for the request, if any.
      * @param null|string $method HTTP method for the request, if any.
      * @param string|resource|StreamInterface $body Message body, if any.
      * @param array $headers Headers for the message, if any.
+=======
+     * @param null|string|UriInterface $uri URI for the request, if any.
+     * @param null|string $method HTTP method for the request, if any.
+     * @param string|resource|StreamInterface $body Message body, if any.
+     * @param array $headers Headers for the message, if any.
+     * @param array $cookies Cookies for the message, if any.
+     * @param array $queryParams Query params for the message, if any.
+     * @param null|array|object $parsedBody The deserialized body parameters, if any.
+     * @param string $protocol HTTP protocol version.
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @throws InvalidArgumentException for any invalid value.
      */
     public function __construct(
@@ -77,6 +96,7 @@ class ServerRequest implements ServerRequestInterface
         $uri = null,
         $method = null,
         $body = 'php://input',
+<<<<<<< HEAD
         array $headers = []
     ) {
         $this->validateUploadedFiles($uploadedFiles);
@@ -85,6 +105,27 @@ class ServerRequest implements ServerRequestInterface
         $this->initialize($uri, $method, $body, $headers);
         $this->serverParams  = $serverParams;
         $this->uploadedFiles = $uploadedFiles;
+=======
+        array $headers = [],
+        array $cookies = [],
+        array $queryParams = [],
+        $parsedBody = null,
+        $protocol = '1.1'
+    ) {
+        $this->validateUploadedFiles($uploadedFiles);
+
+        if ($body === 'php://input') {
+            $body = new PhpInputStream();
+        }
+
+        $this->initialize($uri, $method, $body, $headers);
+        $this->serverParams  = $serverParams;
+        $this->uploadedFiles = $uploadedFiles;
+        $this->cookieParams  = $cookies;
+        $this->queryParams   = $queryParams;
+        $this->parsedBody    = $parsedBody;
+        $this->protocol      = $protocol;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     /**
@@ -203,10 +244,13 @@ class ServerRequest implements ServerRequestInterface
      */
     public function withoutAttribute($attribute)
     {
+<<<<<<< HEAD
         if (! isset($this->attributes[$attribute])) {
             return clone $this;
         }
 
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         $new = clone $this;
         unset($new->attributes[$attribute]);
         return $new;
@@ -249,6 +293,7 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /**
+<<<<<<< HEAD
      * Set the body stream
      *
      * @param string|resource|StreamInterface $stream
@@ -276,6 +321,8 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /**
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * Recursively validate the structure in an uploaded files array.
      *
      * @param array $uploadedFiles

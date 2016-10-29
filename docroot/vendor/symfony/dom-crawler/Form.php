@@ -85,7 +85,11 @@ class Form extends Link implements \ArrayAccess
      *
      * The returned array does not include file fields (@see getFiles).
      *
+<<<<<<< HEAD
      * @return array An array of field values.
+=======
+     * @return array An array of field values
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getValues()
     {
@@ -106,7 +110,11 @@ class Form extends Link implements \ArrayAccess
     /**
      * Gets the file field values.
      *
+<<<<<<< HEAD
      * @return array An array of file field values.
+=======
+     * @return array An array of file field values
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getFiles()
     {
@@ -135,7 +143,11 @@ class Form extends Link implements \ArrayAccess
      * This method converts fields with the array notation
      * (like foo[bar] to arrays) like PHP does.
      *
+<<<<<<< HEAD
      * @return array An array of field values.
+=======
+     * @return array An array of field values
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getPhpValues()
     {
@@ -157,8 +169,17 @@ class Form extends Link implements \ArrayAccess
      *
      * This method converts fields with the array notation
      * (like foo[bar] to arrays) like PHP does.
+<<<<<<< HEAD
      *
      * @return array An array of field values.
+=======
+     * The returned array is consistent with the array for field values
+     * (@see getPhpValues), rather than uploaded files found in $_FILES.
+     * For a compound file field foo[bar] it will create foo[bar][name],
+     * instead of foo[name][bar] which would be found in $_FILES.
+     *
+     * @return array An array of file field values
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getPhpFiles()
     {
@@ -242,8 +263,11 @@ class Form extends Link implements \ArrayAccess
      * Removes a field from the form.
      *
      * @param string $name The field name
+<<<<<<< HEAD
      *
      * @throws \InvalidArgumentException when the name is malformed
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function remove($name)
     {

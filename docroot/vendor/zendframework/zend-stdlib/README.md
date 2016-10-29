@@ -7,8 +7,11 @@
 class for different scopes like:
 
 - array utilities functions;
+<<<<<<< HEAD
 - hydrators;
 - json serializable interfaces;
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 - general messaging systems;
 - string wrappers;
 - etc.
@@ -16,4 +19,8 @@ class for different scopes like:
 ---
 
 - File issues at https://github.com/zendframework/zend-stdlib/issues
+<<<<<<< HEAD
 - Documentation is at http://framework.zend.com/manual/current/en/index.html#zend-stdlib
+=======
+- Documentation is at https://docs.zendframework.com/zend-stdlib/
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9

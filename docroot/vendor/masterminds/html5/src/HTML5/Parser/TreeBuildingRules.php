@@ -76,7 +76,10 @@ class TreeBuildingRules
             case 'option':
                 return $this->closeIfCurrentMatches($new, $current, array(
                     'option',
+<<<<<<< HEAD
                     'optgroup'
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                 ));
             case 'tr':
                 return $this->closeIfCurrentMatches($new, $current, array(

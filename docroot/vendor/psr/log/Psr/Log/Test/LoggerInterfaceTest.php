@@ -2,18 +2,30 @@
 
 namespace Psr\Log\Test;
 
+<<<<<<< HEAD
 use Psr\Log\LogLevel;
 
 /**
  * Provides a base test class for ensuring compliance with the LoggerInterface
  *
  * Implementors can extend the class and implement abstract methods to run this as part of their test suite
+=======
+use Psr\Log\LoggerInterface;
+use Psr\Log\LogLevel;
+
+/**
+ * Provides a base test class for ensuring compliance with the LoggerInterface.
+ *
+ * Implementors can extend the class and implement abstract methods to run this
+ * as part of their test suite.
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  */
 abstract class LoggerInterfaceTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @return LoggerInterface
      */
+<<<<<<< HEAD
     abstract function getLogger();
 
     /**
@@ -24,6 +36,20 @@ abstract class LoggerInterfaceTest extends \PHPUnit_Framework_TestCase
      * @return string[]
      */
     abstract function getLogs();
+=======
+    abstract public function getLogger();
+
+    /**
+     * This must return the log messages in order.
+     *
+     * The simple formatting of the messages is: "<LOG LEVEL> <MESSAGE>".
+     *
+     * Example ->error('Foo') would yield "error Foo".
+     *
+     * @return string[]
+     */
+    abstract public function getLogs();
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
     public function testImplements()
     {
@@ -61,7 +87,11 @@ abstract class LoggerInterfaceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+<<<<<<< HEAD
      * @expectedException Psr\Log\InvalidArgumentException
+=======
+     * @expectedException \Psr\Log\InvalidArgumentException
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function testThrowsOnInvalidLevel()
     {
@@ -80,12 +110,26 @@ abstract class LoggerInterfaceTest extends \PHPUnit_Framework_TestCase
 
     public function testObjectCastToString()
     {
+<<<<<<< HEAD
         $dummy = $this->getMock('Psr\Log\Test\DummyTest', array('__toString'));
+=======
+        if (method_exists($this, 'createPartialMock')) {
+            $dummy = $this->createPartialMock('Psr\Log\Test\DummyTest', array('__toString'));
+        } else {
+            $dummy = $this->getMock('Psr\Log\Test\DummyTest', array('__toString'));
+        }
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         $dummy->expects($this->once())
             ->method('__toString')
             ->will($this->returnValue('DUMMY'));
 
         $this->getLogger()->warning($dummy);
+<<<<<<< HEAD
+=======
+
+        $expected = array('warning DUMMY');
+        $this->assertEquals($expected, $this->getLogs());
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     public function testContextCanContainAnything()
@@ -102,15 +146,40 @@ abstract class LoggerInterfaceTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->getLogger()->warning('Crazy context data', $context);
+<<<<<<< HEAD
+=======
+
+        $expected = array('warning Crazy context data');
+        $this->assertEquals($expected, $this->getLogs());
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     public function testContextExceptionKeyCanBeExceptionOrOtherValues()
     {
+<<<<<<< HEAD
         $this->getLogger()->warning('Random message', array('exception' => 'oops'));
         $this->getLogger()->critical('Uncaught Exception!', array('exception' => new \LogicException('Fail')));
+=======
+        $logger = $this->getLogger();
+        $logger->warning('Random message', array('exception' => 'oops'));
+        $logger->critical('Uncaught Exception!', array('exception' => new \LogicException('Fail')));
+
+        $expected = array(
+            'warning Random message',
+            'critical Uncaught Exception!'
+        );
+        $this->assertEquals($expected, $this->getLogs());
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 }
 
 class DummyTest
 {
+<<<<<<< HEAD
 }
+=======
+    public function __toString()
+    {
+    }
+}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9

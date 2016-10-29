@@ -65,6 +65,7 @@ class SymfonyStyle extends OutputStyle
      */
     public function block($messages, $type = null, $style = null, $prefix = ' ', $padding = false)
     {
+<<<<<<< HEAD
         $this->autoPrependBlock();
         $messages = is_array($messages) ? array_values($messages) : array($messages);
         $lines = array();
@@ -99,6 +100,12 @@ class SymfonyStyle extends OutputStyle
         }
 
         $this->writeln($lines);
+=======
+        $messages = is_array($messages) ? array_values($messages) : array($messages);
+
+        $this->autoPrependBlock();
+        $this->writeln($this->createBlock($messages, $type, $style, $prefix, $padding, true));
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         $this->newLine();
     }
 
@@ -156,6 +163,7 @@ class SymfonyStyle extends OutputStyle
     }
 
     /**
+<<<<<<< HEAD
      * {@inheritdoc}
      */
     public function comment($message)
@@ -166,6 +174,19 @@ class SymfonyStyle extends OutputStyle
         foreach ($messages as $message) {
             $this->writeln(sprintf(' // %s', $message));
         }
+=======
+     * Formats a command comment.
+     *
+     * @param string|array $message
+     */
+    public function comment($message)
+    {
+        $messages = is_array($message) ? array_values($message) : array($message);
+
+        $this->autoPrependBlock();
+        $this->writeln($this->createBlock($messages, null, null, '<fg=default;bg=default> // </>'));
+        $this->newLine();
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     /**
@@ -213,12 +234,21 @@ class SymfonyStyle extends OutputStyle
      */
     public function table(array $headers, array $rows)
     {
+<<<<<<< HEAD
         $headers = array_map(function ($value) { return sprintf('<info>%s</>', $value); }, $headers);
+=======
+        $style = clone Table::getStyleDefinition('symfony-style-guide');
+        $style->setCellHeaderFormat('<info>%s</info>');
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
         $table = new Table($this);
         $table->setHeaders($headers);
         $table->setRows($rows);
+<<<<<<< HEAD
         $table->setStyle('symfony-style-guide');
+=======
+        $table->setStyle($style);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
         $table->render();
         $this->newLine();
@@ -412,4 +442,55 @@ class SymfonyStyle extends OutputStyle
             return substr($value, -4);
         }, array_merge(array($this->bufferedOutput->fetch()), (array) $messages));
     }
+<<<<<<< HEAD
+=======
+
+    private function createBlock($messages, $type = null, $style = null, $prefix = ' ', $padding = false, $escape = false)
+    {
+        $indentLength = 0;
+        $prefixLength = Helper::strlenWithoutDecoration($this->getFormatter(), $prefix);
+        $lines = array();
+
+        if (null !== $type) {
+            $type = sprintf('[%s] ', $type);
+            $indentLength = strlen($type);
+            $lineIndentation = str_repeat(' ', $indentLength);
+        }
+
+        // wrap and add newlines for each element
+        foreach ($messages as $key => $message) {
+            if ($escape) {
+                $message = OutputFormatter::escape($message);
+            }
+
+            $lines = array_merge($lines, explode(PHP_EOL, wordwrap($message, $this->lineLength - $prefixLength - $indentLength, PHP_EOL, true)));
+
+            if (count($messages) > 1 && $key < count($messages) - 1) {
+                $lines[] = '';
+            }
+        }
+
+        $firstLineIndex = 0;
+        if ($padding && $this->isDecorated()) {
+            $firstLineIndex = 1;
+            array_unshift($lines, '');
+            $lines[] = '';
+        }
+
+        foreach ($lines as $i => &$line) {
+            if (null !== $type) {
+                $line = $firstLineIndex === $i ? $type.$line : $lineIndentation.$line;
+            }
+
+            $line = $prefix.$line;
+            $line .= str_repeat(' ', $this->lineLength - Helper::strlenWithoutDecoration($this->getFormatter(), $line));
+
+            if ($style) {
+                $line = sprintf('<%s>%s</>', $style, $line);
+            }
+        }
+
+        return $lines;
+    }
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 }

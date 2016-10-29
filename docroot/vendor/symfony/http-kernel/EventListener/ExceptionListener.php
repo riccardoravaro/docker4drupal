@@ -49,7 +49,11 @@ class ExceptionListener implements EventSubscriberInterface
         try {
             $response = $event->getKernel()->handle($request, HttpKernelInterface::SUB_REQUEST, false);
         } catch (\Exception $e) {
+<<<<<<< HEAD
             $this->logException($e, sprintf('Exception thrown when handling an exception (%s: %s at %s line %s)', get_class($e), $e->getMessage(), $e->getFile(), $e->getLine()), false);
+=======
+            $this->logException($e, sprintf('Exception thrown when handling an exception (%s: %s at %s line %s)', get_class($e), $e->getMessage(), $e->getFile(), $e->getLine()));
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
             $wrapper = $e;
 
@@ -96,10 +100,17 @@ class ExceptionListener implements EventSubscriberInterface
     /**
      * Clones the request for the exception.
      *
+<<<<<<< HEAD
      * @param \Exception $exception The thrown exception.
      * @param Request    $request   The original request.
      *
      * @return Request $request The cloned request.
+=======
+     * @param \Exception $exception The thrown exception
+     * @param Request    $request   The original request
+     *
+     * @return Request $request The cloned request
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     protected function duplicateRequest(\Exception $exception, Request $request)
     {

@@ -58,7 +58,11 @@ interface UploadedFileInterface
      * @see http://php.net/is_uploaded_file
      * @see http://php.net/move_uploaded_file
      * @param string $targetPath Path to which to move the uploaded file.
+<<<<<<< HEAD
      * @throws \InvalidArgumentException if the $path specified is invalid.
+=======
+     * @throws \InvalidArgumentException if the $targetPath specified is invalid.
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @throws \RuntimeException on any error during the move operation, or on
      *     the second or subsequent call to the method.
      */

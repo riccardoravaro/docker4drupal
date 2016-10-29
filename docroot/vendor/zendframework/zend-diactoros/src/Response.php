@@ -3,7 +3,11 @@
  * Zend Framework (http://framework.zend.com/)
  *
  * @see       http://github.com/zendframework/zend-diactoros for the canonical source repository
+<<<<<<< HEAD
  * @copyright Copyright (c) 2015 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright Copyright (c) 2015-2016 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  * @license   https://github.com/zendframework/zend-diactoros/blob/master/LICENSE.md New BSD License
  */
 
@@ -44,6 +48,10 @@ class Response implements ResponseInterface
         206 => 'Partial Content',
         207 => 'Multi-status',
         208 => 'Already Reported',
+<<<<<<< HEAD
+=======
+        226 => 'IM used',
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         // REDIRECTION CODES
         300 => 'Multiple Choices',
         301 => 'Moved Permanently',
@@ -51,8 +59,14 @@ class Response implements ResponseInterface
         303 => 'See Other',
         304 => 'Not Modified',
         305 => 'Use Proxy',
+<<<<<<< HEAD
         306 => 'Switch Proxy', // Deprecated
         307 => 'Temporary Redirect',
+=======
+        306 => 'Switch Proxy', // Deprecated to 306 => '(Unused)'
+        307 => 'Temporary Redirect',
+        308 => 'Permanent Redirect',
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         // CLIENT ERROR
         400 => 'Bad Request',
         401 => 'Unauthorized',
@@ -73,6 +87,10 @@ class Response implements ResponseInterface
         416 => 'Requested range not satisfiable',
         417 => 'Expectation Failed',
         418 => 'I\'m a teapot',
+<<<<<<< HEAD
+=======
+        421 => 'Misdirected Request',
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         422 => 'Unprocessable Entity',
         423 => 'Locked',
         424 => 'Failed Dependency',
@@ -81,7 +99,14 @@ class Response implements ResponseInterface
         428 => 'Precondition Required',
         429 => 'Too Many Requests',
         431 => 'Request Header Fields Too Large',
+<<<<<<< HEAD
         // SERVER ERROR
+=======
+        444 => 'Connection Closed Without Response',
+        451 => 'Unavailable For Legal Reasons',
+        // SERVER ERROR
+        499 => 'Client Closed Request',
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         500 => 'Internal Server Error',
         501 => 'Not Implemented',
         502 => 'Bad Gateway',
@@ -91,7 +116,13 @@ class Response implements ResponseInterface
         506 => 'Variant Also Negotiates',
         507 => 'Insufficient Storage',
         508 => 'Loop Detected',
+<<<<<<< HEAD
         511 => 'Network Authentication Required',
+=======
+        510 => 'Not Extended',
+        511 => 'Network Authentication Required',
+        599 => 'Network Connect Timeout Error',
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     ];
 
     /**
@@ -102,16 +133,24 @@ class Response implements ResponseInterface
     /**
      * @var int
      */
+<<<<<<< HEAD
     private $statusCode = 200;
 
     /**
      * @param string|resource|StreamInterface $stream Stream identifier and/or actual stream resource
+=======
+    private $statusCode;
+
+    /**
+     * @param string|resource|StreamInterface $body Stream identifier and/or actual stream resource
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @param int $status Status code for the response, if any.
      * @param array $headers Headers for the response, if any.
      * @throws InvalidArgumentException on any invalid element.
      */
     public function __construct($body = 'php://memory', $status = 200, array $headers = [])
     {
+<<<<<<< HEAD
         if (! is_string($body) && ! is_resource($body) && ! $body instanceof StreamInterface) {
             throw new InvalidArgumentException(
                 'Stream must be a string stream resource identifier, '
@@ -127,6 +166,10 @@ class Response implements ResponseInterface
         $this->stream     = ($body instanceof StreamInterface) ? $body : new Stream($body, 'wb+');
         $this->statusCode = $status ? (int) $status : 200;
 
+=======
+        $this->setStatusCode($status);
+        $this->stream = $this->getStream($body, 'wb+');
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         list($this->headerNames, $headers) = $this->filterHeaders($headers);
         $this->assertHeaders($headers);
         $this->headers = $headers;
@@ -159,9 +202,14 @@ class Response implements ResponseInterface
      */
     public function withStatus($code, $reasonPhrase = '')
     {
+<<<<<<< HEAD
         $this->validateStatus($code);
         $new = clone $this;
         $new->statusCode   = (int) $code;
+=======
+        $new = clone $this;
+        $new->setStatusCode($code);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         $new->reasonPhrase = $reasonPhrase;
         return $new;
     }
@@ -172,7 +220,11 @@ class Response implements ResponseInterface
      * @param int|string $code
      * @throws InvalidArgumentException on an invalid status code.
      */
+<<<<<<< HEAD
     private function validateStatus($code)
+=======
+    private function setStatusCode($code)
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     {
         if (! is_numeric($code)
             || is_float($code)
@@ -184,6 +236,10 @@ class Response implements ResponseInterface
                 (is_scalar($code) ? $code : gettype($code))
             ));
         }
+<<<<<<< HEAD
+=======
+        $this->statusCode = $code;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     /**

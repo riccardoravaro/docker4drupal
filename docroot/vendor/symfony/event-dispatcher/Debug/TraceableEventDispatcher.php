@@ -104,6 +104,13 @@ class TraceableEventDispatcher implements TraceableEventDispatcherInterface
      */
     public function getListenerPriority($eventName, $listener)
     {
+<<<<<<< HEAD
+=======
+        if (!method_exists($this->dispatcher, 'getListenerPriority')) {
+            return 0;
+        }
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         return $this->dispatcher->getListenerPriority($eventName, $listener);
     }
 
@@ -124,6 +131,13 @@ class TraceableEventDispatcher implements TraceableEventDispatcherInterface
             $event = new Event();
         }
 
+<<<<<<< HEAD
+=======
+        if (null !== $this->logger && $event->isPropagationStopped()) {
+            $this->logger->debug(sprintf('The "%s" event is already stopped. No listeners have been called.', $eventName));
+        }
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         $this->preProcess($eventName);
         $this->preDispatch($eventName, $event);
 

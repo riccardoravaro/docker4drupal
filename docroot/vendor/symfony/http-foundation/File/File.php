@@ -68,7 +68,11 @@ class File extends \SplFileInfo
      * mime_content_type() and the system binary "file" (in this order), depending on
      * which of those are available.
      *
+<<<<<<< HEAD
      * @return string|null The guessed mime type (i.e. "application/pdf")
+=======
+     * @return string|null The guessed mime type (e.g. "application/pdf")
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @see MimeTypeGuesser
      */

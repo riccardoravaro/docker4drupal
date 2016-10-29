@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /**
  * GlobalState
  *
@@ -38,15 +39,27 @@
  * @copyright  2001-2014 Sebastian Bergmann <sebastian@phpunit.de>
  * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
  * @link       http://www.github.com/sebastianbergmann/global-state
+=======
+/*
+ * This file is part of the GlobalState package.
+ *
+ * (c) Sebastian Bergmann <sebastian@phpunit.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  */
 
 namespace SebastianBergmann\GlobalState;
 
 /**
+<<<<<<< HEAD
  * @author     Sebastian Bergmann <sebastian@phpunit.de>
  * @copyright  2001-2014 Sebastian Bergmann <sebastian@phpunit.de>
  * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
  * @link       http://www.github.com/sebastianbergmann/global-state
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  */
 interface Exception
 {

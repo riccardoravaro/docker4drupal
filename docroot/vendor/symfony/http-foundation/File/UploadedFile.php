@@ -50,7 +50,11 @@ class UploadedFile extends File
     /**
      * The file size provided by the uploader.
      *
+<<<<<<< HEAD
      * @var string
+=======
+     * @var int|null
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     private $size;
 
@@ -75,12 +79,21 @@ class UploadedFile extends File
      *
      * Calling any other method on an non-valid instance will cause an unpredictable result.
      *
+<<<<<<< HEAD
      * @param string $path         The full temporary path to the file
      * @param string $originalName The original file name
      * @param string $mimeType     The type of the file as provided by PHP
      * @param int    $size         The file size
      * @param int    $error        The error constant of the upload (one of PHP's UPLOAD_ERR_XXX constants)
      * @param bool   $test         Whether the test mode is active
+=======
+     * @param string      $path         The full temporary path to the file
+     * @param string      $originalName The original file name
+     * @param string|null $mimeType     The type of the file as provided by PHP; null defaults to application/octet-stream
+     * @param int|null    $size         The file size
+     * @param int|null    $error        The error constant of the upload (one of PHP's UPLOAD_ERR_XXX constants); null defaults to UPLOAD_ERR_OK
+     * @param bool        $test         Whether the test mode is active
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @throws FileException         If file_uploads is disabled
      * @throws FileNotFoundException If the file does not exist
@@ -194,7 +207,11 @@ class UploadedFile extends File
     /**
      * Returns whether the file was uploaded successfully.
      *
+<<<<<<< HEAD
      * @return bool True if the file has been uploaded with HTTP and no error occurred.
+=======
+     * @return bool True if the file has been uploaded with HTTP and no error occurred
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function isValid()
     {

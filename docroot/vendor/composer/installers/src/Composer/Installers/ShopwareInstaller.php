@@ -11,7 +11,13 @@ class ShopwareInstaller extends BaseInstaller
         'backend-plugin'    => 'engine/Shopware/Plugins/Local/Backend/{$name}/',
         'core-plugin'       => 'engine/Shopware/Plugins/Local/Core/{$name}/',
         'frontend-plugin'   => 'engine/Shopware/Plugins/Local/Frontend/{$name}/',
+<<<<<<< HEAD
         'theme'             => 'templates/{$name}/'
+=======
+        'theme'             => 'templates/{$name}/',
+        'plugin'            => 'custom/plugins/{$name}/',
+        'frontend-theme'    => 'themes/Frontend/{$name}/',
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     );
 
     /**

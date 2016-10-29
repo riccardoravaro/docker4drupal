@@ -14,6 +14,10 @@
  * We want a TestSuite object B that contains TestSuite objects C, D, ...
  * for the Tests tagged with @group C, @group D, ...
  * Running the Tests from TestSuite object B results in Tests tagged with both
+<<<<<<< HEAD
+=======
+ *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  * @group C and @group D in TestSuite object A to be run twice .
  *
  * <code>

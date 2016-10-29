@@ -260,6 +260,11 @@ class ObjectProphecy implements ProphecyInterface
      * Tries to get property value from double.
      *
      * @param string $name
+<<<<<<< HEAD
+=======
+     *
+     * @return mixed
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function __get($name)
     {
@@ -270,7 +275,11 @@ class ObjectProphecy implements ProphecyInterface
      * Tries to set property value to double.
      *
      * @param string $name
+<<<<<<< HEAD
      * @param string $value
+=======
+     * @param mixed  $value
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function __set($name, $value)
     {

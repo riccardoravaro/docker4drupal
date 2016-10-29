@@ -47,7 +47,11 @@ class Event
      *
      * @see Event::stopPropagation()
      *
+<<<<<<< HEAD
      * @return bool Whether propagation was already stopped for this event.
+=======
+     * @return bool Whether propagation was already stopped for this event
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function isPropagationStopped()
     {
@@ -109,7 +113,11 @@ class Event
     /**
      * Sets the event's name property.
      *
+<<<<<<< HEAD
      * @param string $name The event name.
+=======
+     * @param string $name The event name
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @deprecated since version 2.4, to be removed in 3.0. The event name is passed to the listener call.
      */

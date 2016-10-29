@@ -98,4 +98,13 @@ class ArgumentSpec extends ObjectBehavior
         $token = $this->containingString('string');
         $token->shouldBeAnInstanceOf('Prophecy\Argument\Token\StringContainsToken');
     }
+<<<<<<< HEAD
+=======
+
+    function it_has_a_shortcut_for_approximate_token()
+    {
+        $token = $this->approximate(10);
+        $token->shouldBeAnInstanceOf('Prophecy\Argument\Token\ApproximateValueToken');
+    }
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 }

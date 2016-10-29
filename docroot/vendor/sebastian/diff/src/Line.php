@@ -11,6 +11,7 @@
 namespace SebastianBergmann\Diff;
 
 /**
+<<<<<<< HEAD
  * @package    Diff
  * @author     Sebastian Bergmann <sebastian@phpunit.de>
  * @author     Kore Nordmann <mail@kore-nordmann.de>
@@ -22,6 +23,13 @@ class Line
 {
     const ADDED = 1;
     const REMOVED = 2;
+=======
+ */
+class Line
+{
+    const ADDED     = 1;
+    const REMOVED   = 2;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     const UNCHANGED = 3;
 
     /**

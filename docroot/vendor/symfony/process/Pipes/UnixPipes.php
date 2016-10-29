@@ -120,7 +120,11 @@ class UnixPipes extends AbstractPipes
             do {
                 $data = fread($pipe, self::CHUNK_SIZE);
                 $read[$type] .= $data;
+<<<<<<< HEAD
             } while (isset($data[0]));
+=======
+            } while (isset($data[0]) && ($close || isset($data[self::CHUNK_SIZE - 1])));
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
             if (!isset($read[$type][0])) {
                 unset($read[$type]);

@@ -59,6 +59,10 @@ class PHPUnit_Framework_Warning extends PHPUnit_Framework_TestCase
 
     /**
      * @return string
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since  Method available since Release 3.0.0
      */
     public function getMessage()
@@ -70,6 +74,10 @@ class PHPUnit_Framework_Warning extends PHPUnit_Framework_TestCase
      * Returns a string representation of the test case.
      *
      * @return string
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since  Method available since Release 3.4.0
      */
     public function toString()

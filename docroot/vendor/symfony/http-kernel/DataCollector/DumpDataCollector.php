@@ -170,6 +170,11 @@ class DumpDataCollector extends DataCollector implements DataDumperInterface
             return 'a:0:{}';
         }
 
+<<<<<<< HEAD
+=======
+        $this->data[] = $this->fileLinkFormat;
+        $this->data[] = $this->charset;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         $ser = serialize($this->data);
         $this->data = array();
         $this->dataCount = 0;
@@ -184,8 +189,15 @@ class DumpDataCollector extends DataCollector implements DataDumperInterface
     public function unserialize($data)
     {
         parent::unserialize($data);
+<<<<<<< HEAD
         $this->dataCount = count($this->data);
         self::__construct($this->stopwatch);
+=======
+        $charset = array_pop($this->data);
+        $fileLinkFormat = array_pop($this->data);
+        $this->dataCount = count($this->data);
+        self::__construct($this->stopwatch, $fileLinkFormat, $charset);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     public function getDumpsCount()
@@ -211,8 +223,12 @@ class DumpDataCollector extends DataCollector implements DataDumperInterface
                 // getLimitedClone is @deprecated, to be removed in 3.0
                 $dumper->dump($dump['data']->getLimitedClone($maxDepthLimit, $maxItemsPerDepth));
             }
+<<<<<<< HEAD
             rewind($data);
             $dump['data'] = stream_get_contents($data);
+=======
+            $dump['data'] = stream_get_contents($data, -1, 0);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             ftruncate($data, 0);
             rewind($data);
             $dumps[] = $dump;

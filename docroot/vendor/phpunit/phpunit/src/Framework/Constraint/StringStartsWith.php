@@ -34,7 +34,12 @@ class PHPUnit_Framework_Constraint_StringStartsWith extends PHPUnit_Framework_Co
      * Evaluates the constraint for parameter $other. Returns true if the
      * constraint is met, false otherwise.
      *
+<<<<<<< HEAD
      * @param  mixed $other Value or object to evaluate.
+=======
+     * @param mixed $other Value or object to evaluate.
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return bool
      */
     protected function matches($other)

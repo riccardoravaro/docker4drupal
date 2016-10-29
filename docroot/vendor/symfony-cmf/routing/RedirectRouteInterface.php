@@ -3,7 +3,11 @@
 /*
  * This file is part of the Symfony CMF package.
  *
+<<<<<<< HEAD
  * (c) 2011-2014 Symfony CMF
+=======
+ * (c) 2011-2015 Symfony CMF
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -67,14 +71,24 @@ interface RedirectRouteInterface extends RouteObjectInterface
     public function getRouteName();
 
     /**
+<<<<<<< HEAD
      * Whether this should be a permanent or temporary redirect
      *
      * @return boolean
+=======
+     * Whether this should be a permanent or temporary redirect.
+     *
+     * @return bool
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function isPermanent();
 
     /**
+<<<<<<< HEAD
      * Get the parameters for the target route router::generate()
+=======
+     * Get the parameters for the target route router::generate().
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * Note that for the DynamicRouter, you return the target route
      * document as field 'route' of the hashmap.

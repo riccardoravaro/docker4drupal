@@ -1,6 +1,10 @@
 {
     "name": "composer/installers",
+<<<<<<< HEAD
     "type": "composer-installer",
+=======
+    "type": "composer-plugin",
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     "license": "MIT",
     "description": "A multi-framework Composer library installer",
     "keywords": [
@@ -8,9 +12,17 @@
         "Aimeos",
         "AGL",
         "AnnotateCms",
+<<<<<<< HEAD
         "Bitrix",
         "CakePHP",
         "Chef",
+=======
+        "Attogram",
+        "Bitrix",
+        "CakePHP",
+        "Chef",
+        "Cockpit",
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         "CodeIgniter",
         "concrete5",
         "Craft",
@@ -19,15 +31,27 @@
         "Dolibarr",
         "Drupal",
         "Elgg",
+<<<<<<< HEAD
         "FuelPHP",
         "Grav",
         "Hurad",
+=======
+        "ExpressionEngine",
+        "FuelPHP",
+        "Grav",
+        "Hurad",
+        "ImageCMS",
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         "Joomla",
         "Kohana",
         "Laravel",
         "Lithium",
         "Magento",
         "Mako",
+<<<<<<< HEAD
+=======
+        "Mautic",
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         "MODX Evo",
         "MediaWiki",
         "OXID",
@@ -35,8 +59,16 @@
         "Moodle",
         "Piwik",
         "phpBB",
+<<<<<<< HEAD
         "PPI",
         "Puppet",
+=======
+        "Plentymarkets",
+        "PPI",
+        "Puppet",
+        "RadPHP",
+        "ReIndex",
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         "Roundcube",
         "shopware",
         "SilverStripe",
@@ -46,10 +78,18 @@
         "TYPO3",
         "WolfCMS",
         "WordPress",
+<<<<<<< HEAD
         "Zend",
         "Zikula"
     ],
     "homepage": "http://composer.github.com/installers/",
+=======
+        "YAWIK",
+        "Zend",
+        "Zikula"
+    ],
+    "homepage": "https://composer.github.io/installers/",
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     "authors": [
         {
             "name": "Kyle Robinson Young",
@@ -58,10 +98,17 @@
         }
     ],
     "autoload": {
+<<<<<<< HEAD
         "psr-0": { "Composer\\Installers\\": "src/" }
     },
     "extra": {
         "class": "Composer\\Installers\\Installer",
+=======
+        "psr-4": { "Composer\\Installers\\": "src/Composer/Installers" }
+    },
+    "extra": {
+        "class": "Composer\\Installers\\Plugin",
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         "branch-alias": {
             "dev-master": "1.0-dev"
         }
@@ -70,8 +117,20 @@
         "shama/baton": "*",
         "roundcube/plugin-installer": "*"
     },
+<<<<<<< HEAD
     "require-dev": {
         "composer/composer": "1.0.*@dev",
         "phpunit/phpunit": "4.1.*"
+=======
+    "require": {
+        "composer-plugin-api": "^1.0"
+    },
+    "require-dev": {
+        "composer/composer": "1.0.*@dev",
+        "phpunit/phpunit": "4.1.*"
+    },
+    "scripts": {
+        "test": "phpunit"
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 }

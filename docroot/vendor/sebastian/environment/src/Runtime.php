@@ -50,7 +50,13 @@ class Runtime
 
         // PHP >= 5.4.0
         if (self::$binary === null && defined('PHP_BINARY')) {
+<<<<<<< HEAD
             self::$binary = escapeshellarg(PHP_BINARY);
+=======
+            if (PHP_BINARY !== '') {
+                self::$binary = escapeshellarg(PHP_BINARY);
+            }
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         }
 
         // PHP < 5.4.0
@@ -123,7 +129,11 @@ class Runtime
         if ($this->isHHVM()) {
             return 'http://hhvm.com/';
         } else {
+<<<<<<< HEAD
             return 'http://php.net/';
+=======
+            return 'https://secure.php.net/';
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         }
     }
 

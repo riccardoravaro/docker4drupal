@@ -13,6 +13,10 @@ use Traversable;
 
 abstract class AbstractOptions implements ParameterObjectInterface
 {
+<<<<<<< HEAD
+=======
+    // @codingStandardsIgnoreStart
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     /**
      * We use the __ prefix to avoid collisions with properties in
      * user-implementations.
@@ -20,6 +24,10 @@ abstract class AbstractOptions implements ParameterObjectInterface
      * @var bool
      */
     protected $__strictMode__ = true;
+<<<<<<< HEAD
+=======
+    // @codingStandardsIgnoreEnd
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
     /**
      * Constructor
@@ -46,7 +54,11 @@ abstract class AbstractOptions implements ParameterObjectInterface
             $options = $options->toArray();
         }
 
+<<<<<<< HEAD
         if (!is_array($options) && !$options instanceof Traversable) {
+=======
+        if (! is_array($options) && ! $options instanceof Traversable) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             throw new Exception\InvalidArgumentException(
                 sprintf(
                     'Parameter provided to %s must be an %s, %s or %s',

@@ -32,7 +32,11 @@ class CommandTester
     /**
      * Constructor.
      *
+<<<<<<< HEAD
      * @param Command $command A Command instance to test.
+=======
+     * @param Command $command A Command instance to test
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function __construct(Command $command)
     {

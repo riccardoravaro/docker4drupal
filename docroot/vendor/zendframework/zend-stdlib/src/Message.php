@@ -40,7 +40,11 @@ class Message implements MessageInterface
             $this->metadata[$spec] = $value;
             return $this;
         }
+<<<<<<< HEAD
         if (!is_array($spec) && !$spec instanceof Traversable) {
+=======
+        if (! is_array($spec) && ! $spec instanceof Traversable) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             throw new Exception\InvalidArgumentException(sprintf(
                 'Expected a string, array, or Traversable argument in first position; received "%s"',
                 (is_object($spec) ? get_class($spec) : gettype($spec))
@@ -66,7 +70,11 @@ class Message implements MessageInterface
             return $this->metadata;
         }
 
+<<<<<<< HEAD
         if (!is_scalar($key)) {
+=======
+        if (! is_scalar($key)) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             throw new Exception\InvalidArgumentException('Non-scalar argument provided for key');
         }
 

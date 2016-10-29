@@ -32,7 +32,11 @@ class NativeProxy extends AbstractProxy
     /**
      * Returns true if this handler wraps an internal PHP session save handler using \SessionHandler.
      *
+<<<<<<< HEAD
      * @return bool False.
+=======
+     * @return bool False
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function isWrapper()
     {

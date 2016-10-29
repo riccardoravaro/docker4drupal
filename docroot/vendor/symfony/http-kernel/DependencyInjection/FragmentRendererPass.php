@@ -54,7 +54,16 @@ class FragmentRendererPass implements CompilerPassInterface
 
             $class = $container->getParameterBag()->resolveValue($def->getClass());
             $interface = 'Symfony\Component\HttpKernel\Fragment\FragmentRendererInterface';
+<<<<<<< HEAD
             if (!is_subclass_of($class, $interface)) {
+=======
+
+            if (!is_subclass_of($class, $interface)) {
+                if (!class_exists($class, false)) {
+                    throw new \InvalidArgumentException(sprintf('Class "%s" used for service "%s" cannot be found.', $class, $id));
+                }
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                 throw new \InvalidArgumentException(sprintf('Service "%s" must implement interface "%s".', $id, $interface));
             }
 

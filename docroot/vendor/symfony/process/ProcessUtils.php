@@ -80,7 +80,11 @@ class ProcessUtils
      * @param string $caller The name of method call that validates the input
      * @param mixed  $input  The input to validate
      *
+<<<<<<< HEAD
      * @return string The validated input
+=======
+     * @return mixed The validated input
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @throws InvalidArgumentException In case the input is not valid
      *
@@ -92,6 +96,12 @@ class ProcessUtils
             if (is_resource($input)) {
                 return $input;
             }
+<<<<<<< HEAD
+=======
+            if (is_string($input)) {
+                return $input;
+            }
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             if (is_scalar($input)) {
                 return (string) $input;
             }

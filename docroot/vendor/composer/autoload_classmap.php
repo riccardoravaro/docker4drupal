@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'CallbackFilterIterator' => $vendorDir . '/symfony/polyfill-php54/Resources/stubs/CallbackFilterIterator.php',
+<<<<<<< HEAD
     'Drupal' => $baseDir . '/core/lib/Drupal.php',
     'Drupal\\Component\\Utility\\Timer' => $baseDir . '/core/lib/Drupal/Component/Utility/Timer.php',
     'Drupal\\Component\\Utility\\Unicode' => $baseDir . '/core/lib/Drupal/Component/Utility/Unicode.php',
@@ -14,6 +15,17 @@ return array(
     'Drupal\\Core\\DrupalKernel' => $baseDir . '/core/lib/Drupal/Core/DrupalKernel.php',
     'Drupal\\Core\\DrupalKernelInterface' => $baseDir . '/core/lib/Drupal/Core/DrupalKernelInterface.php',
     'Drupal\\Core\\Site\\Settings' => $baseDir . '/core/lib/Drupal/Core/Site/Settings.php',
+=======
+    'Console_Table' => $vendorDir . '/pear/console_table/Table.php',
+    'Drupal' => $baseDir . '/web/core/lib/Drupal.php',
+    'DrupalProject\\composer\\ScriptHandler' => $baseDir . '/scripts/composer/ScriptHandler.php',
+    'Drupal\\Component\\Utility\\Timer' => $baseDir . '/web/core/lib/Drupal/Component/Utility/Timer.php',
+    'Drupal\\Component\\Utility\\Unicode' => $baseDir . '/web/core/lib/Drupal/Component/Utility/Unicode.php',
+    'Drupal\\Core\\Database\\Database' => $baseDir . '/web/core/lib/Drupal/Core/Database/Database.php',
+    'Drupal\\Core\\DrupalKernel' => $baseDir . '/web/core/lib/Drupal/Core/DrupalKernel.php',
+    'Drupal\\Core\\DrupalKernelInterface' => $baseDir . '/web/core/lib/Drupal/Core/DrupalKernelInterface.php',
+    'Drupal\\Core\\Site\\Settings' => $baseDir . '/web/core/lib/Drupal/Core/Site/Settings.php',
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',
     'File_Iterator_Factory' => $vendorDir . '/phpunit/php-file-iterator/src/Factory.php',
@@ -440,6 +452,10 @@ return array(
     'SebastianBergmann\\Environment\\Runtime' => $vendorDir . '/sebastian/environment/src/Runtime.php',
     'SebastianBergmann\\Exporter\\Exporter' => $vendorDir . '/sebastian/exporter/src/Exporter.php',
     'SebastianBergmann\\GlobalState\\Blacklist' => $vendorDir . '/sebastian/global-state/src/Blacklist.php',
+<<<<<<< HEAD
+=======
+    'SebastianBergmann\\GlobalState\\CodeExporter' => $vendorDir . '/sebastian/global-state/src/CodeExporter.php',
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     'SebastianBergmann\\GlobalState\\Exception' => $vendorDir . '/sebastian/global-state/src/Exception.php',
     'SebastianBergmann\\GlobalState\\Restorer' => $vendorDir . '/sebastian/global-state/src/Restorer.php',
     'SebastianBergmann\\GlobalState\\RuntimeException' => $vendorDir . '/sebastian/global-state/src/RuntimeException.php',
@@ -449,6 +465,7 @@ return array(
     'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => $vendorDir . '/sebastian/recursion-context/src/InvalidArgumentException.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
     'SessionHandlerInterface' => $vendorDir . '/symfony/polyfill-php54/Resources/stubs/SessionHandlerInterface.php',
+<<<<<<< HEAD
     'Symfony\\Component\\HttpFoundation\\FileBag' => $vendorDir . '/symfony/http-foundation/FileBag.php',
     'Symfony\\Component\\HttpFoundation\\HeaderBag' => $vendorDir . '/symfony/http-foundation/HeaderBag.php',
     'Symfony\\Component\\HttpFoundation\\ParameterBag' => $vendorDir . '/symfony/http-foundation/ParameterBag.php',
@@ -457,5 +474,7 @@ return array(
     'Symfony\\Component\\HttpKernel\\HttpKernel' => $vendorDir . '/symfony/http-kernel/HttpKernel.php',
     'Symfony\\Component\\HttpKernel\\HttpKernelInterface' => $vendorDir . '/symfony/http-kernel/HttpKernelInterface.php',
     'Symfony\\Component\\HttpKernel\\TerminableInterface' => $vendorDir . '/symfony/http-kernel/TerminableInterface.php',
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
 );

@@ -25,8 +25,11 @@ class ServiceReferenceGraphEdge
     private $value;
 
     /**
+<<<<<<< HEAD
      * Constructor.
      *
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @param ServiceReferenceGraphNode $sourceNode
      * @param ServiceReferenceGraphNode $destNode
      * @param string                    $value
@@ -41,7 +44,11 @@ class ServiceReferenceGraphEdge
     /**
      * Returns the value of the edge.
      *
+<<<<<<< HEAD
      * @return ServiceReferenceGraphNode
+=======
+     * @return string
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getValue()
     {

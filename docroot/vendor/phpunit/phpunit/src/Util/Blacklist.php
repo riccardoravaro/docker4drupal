@@ -50,6 +50,10 @@ class PHPUnit_Util_Blacklist
 
     /**
      * @return array
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since  Method available since Release 4.1.0
      */
     public function getBlacklistedDirectories()
@@ -60,7 +64,12 @@ class PHPUnit_Util_Blacklist
     }
 
     /**
+<<<<<<< HEAD
      * @param  string $file
+=======
+     * @param string $file
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return bool
      */
     public function isBlacklisted($file)

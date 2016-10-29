@@ -53,8 +53,13 @@ class ClassLoader
 
     private $useIncludePath = false;
     private $classMap = array();
+<<<<<<< HEAD
 
     private $classMapAuthoritative = false;
+=======
+    private $classMapAuthoritative = false;
+    private $missingClasses = array();
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
     public function getPrefixes()
     {
@@ -322,13 +327,18 @@ class ClassLoader
         if (isset($this->classMap[$class])) {
             return $this->classMap[$class];
         }
+<<<<<<< HEAD
         if ($this->classMapAuthoritative) {
+=======
+        if ($this->classMapAuthoritative || isset($this->missingClasses[$class])) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             return false;
         }
 
         $file = $this->findFileWithExtension($class, '.php');
 
         // Search for Hack files if we are running on HHVM
+<<<<<<< HEAD
         if ($file === null && defined('HHVM_VERSION')) {
             $file = $this->findFileWithExtension($class, '.hh');
         }
@@ -336,6 +346,15 @@ class ClassLoader
         if ($file === null) {
             // Remember that this class does not exist.
             return $this->classMap[$class] = false;
+=======
+        if (false === $file && defined('HHVM_VERSION')) {
+            $file = $this->findFileWithExtension($class, '.hh');
+        }
+
+        if (false === $file) {
+            // Remember that this class does not exist.
+            $this->missingClasses[$class] = true;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         }
 
         return $file;
@@ -399,6 +418,11 @@ class ClassLoader
         if ($this->useIncludePath && $file = stream_resolve_include_path($logicalPathPsr0)) {
             return $file;
         }
+<<<<<<< HEAD
+=======
+
+        return false;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 }
 

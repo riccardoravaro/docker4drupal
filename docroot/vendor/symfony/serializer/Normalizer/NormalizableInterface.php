@@ -33,7 +33,11 @@ interface NormalizableInterface
      *                                        based on different output formats.
      * @param array               $context    Options for normalizing this object
      *
+<<<<<<< HEAD
      * @return array|string|bool|int|float|null
+=======
+     * @return array|scalar
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function normalize(NormalizerInterface $normalizer, $format = null, array $context = array());
 }

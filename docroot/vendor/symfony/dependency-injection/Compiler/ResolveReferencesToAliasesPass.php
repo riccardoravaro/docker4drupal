@@ -12,7 +12,10 @@
 namespace Symfony\Component\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Alias;
+<<<<<<< HEAD
 use Symfony\Component\DependencyInjection\Definition;
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 use Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

@@ -21,5 +21,9 @@ namespace Doctrine\Common\Cache;
 
 class Version
 {
+<<<<<<< HEAD
     const VERSION = '1.4.0-DEV';
+=======
+    const VERSION = '1.6.0';
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 }

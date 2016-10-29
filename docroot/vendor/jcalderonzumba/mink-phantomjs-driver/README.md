@@ -38,6 +38,13 @@ PhantomJS browser start:
 ```bash
 phantomjs --ssl-protocol=any --ignore-ssl-errors=true vendor/jcalderonzumba/gastonjs/src/Client/main.js 8510 1024 768 2>&1 >> /tmp/gastonjs.log &
 ```
+<<<<<<< HEAD
+=======
+Driver instantiation:
+```php
+$driver = new Zumba\Mink\Driver\PhantomJSDriver('http://localhost:8510');
+```
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
 FAQ
 ---------

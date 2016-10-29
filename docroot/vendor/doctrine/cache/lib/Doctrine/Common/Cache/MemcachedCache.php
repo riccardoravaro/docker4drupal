@@ -80,9 +80,28 @@ class MemcachedCache extends CacheProvider
     /**
      * {@inheritdoc}
      */
+<<<<<<< HEAD
     protected function doContains($id)
     {
         return (false !== $this->memcached->get($id));
+=======
+    protected function doSaveMultiple(array $keysAndValues, $lifetime = 0)
+    {
+        if ($lifetime > 30 * 24 * 3600) {
+            $lifetime = time() + $lifetime;
+        }
+
+        return $this->memcached->setMulti($keysAndValues, null, $lifetime);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function doContains($id)
+    {
+        return false !== $this->memcached->get($id)
+            || $this->memcached->getResultCode() !== Memcached::RES_NOTFOUND;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     /**
@@ -101,7 +120,12 @@ class MemcachedCache extends CacheProvider
      */
     protected function doDelete($id)
     {
+<<<<<<< HEAD
         return $this->memcached->delete($id);
+=======
+        return $this->memcached->delete($id)
+            || $this->memcached->getResultCode() === Memcached::RES_NOTFOUND;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     /**

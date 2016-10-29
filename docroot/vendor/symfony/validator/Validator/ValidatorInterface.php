@@ -19,8 +19,11 @@ use Symfony\Component\Validator\Mapping\Factory\MetadataFactoryInterface;
 /**
  * Validates PHP values against constraints.
  *
+<<<<<<< HEAD
  * @since  2.5
  *
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
 interface ValidatorInterface extends MetadataFactoryInterface
@@ -38,7 +41,11 @@ interface ValidatorInterface extends MetadataFactoryInterface
      *                                             validate. If none is given,
      *                                             "Default" is assumed
      *
+<<<<<<< HEAD
      * @return ConstraintViolationListInterface A list of constraint violations.
+=======
+     * @return ConstraintViolationListInterface A list of constraint violations
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *                                          If the list is empty, validation
      *                                          succeeded
      */
@@ -53,7 +60,11 @@ interface ValidatorInterface extends MetadataFactoryInterface
      * @param array|null $groups       The validation groups to validate. If
      *                                 none is given, "Default" is assumed
      *
+<<<<<<< HEAD
      * @return ConstraintViolationListInterface A list of constraint violations.
+=======
+     * @return ConstraintViolationListInterface A list of constraint violations
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *                                          If the list is empty, validation
      *                                          succeeded
      */
@@ -70,7 +81,11 @@ interface ValidatorInterface extends MetadataFactoryInterface
      * @param array|null    $groups        The validation groups to validate. If
      *                                     none is given, "Default" is assumed
      *
+<<<<<<< HEAD
      * @return ConstraintViolationListInterface A list of constraint violations.
+=======
+     * @return ConstraintViolationListInterface A list of constraint violations
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *                                          If the list is empty, validation
      *                                          succeeded
      */

@@ -35,7 +35,11 @@ class Native extends AbstractStringWrapper
         $encodingUpper      = strtoupper($encoding);
         $supportedEncodings = static::getSupportedEncodings();
 
+<<<<<<< HEAD
         if (!in_array($encodingUpper, $supportedEncodings)) {
+=======
+        if (! in_array($encodingUpper, $supportedEncodings)) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             return false;
         }
 
@@ -69,7 +73,11 @@ class Native extends AbstractStringWrapper
         $supportedEncodings = static::getSupportedEncodings();
 
         $encodingUpper = strtoupper($encoding);
+<<<<<<< HEAD
         if (!in_array($encodingUpper, $supportedEncodings)) {
+=======
+        if (! in_array($encodingUpper, $supportedEncodings)) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             throw new Exception\InvalidArgumentException(
                 'Wrapper doesn\'t support character encoding "' . $encoding . '"'
             );

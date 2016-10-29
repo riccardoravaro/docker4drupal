@@ -40,6 +40,7 @@ class LengthValidator extends ConstraintValidator
 
         $stringValue = (string) $value;
 
+<<<<<<< HEAD
         if ('UTF8' === $charset = strtoupper($constraint->charset)) {
             $charset = 'UTF-8'; // iconv on Windows requires "UTF-8" instead of "UTF8"
         }
@@ -47,6 +48,12 @@ class LengthValidator extends ConstraintValidator
         $length = @iconv_strlen($stringValue, $charset);
         $invalidCharset = false === $length;
 
+=======
+        if (!$invalidCharset = !@mb_check_encoding($stringValue, $constraint->charset)) {
+            $length = mb_strlen($stringValue, $constraint->charset);
+        }
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         if ($invalidCharset) {
             if ($this->context instanceof ExecutionContextInterface) {
                 $this->context->buildViolation($constraint->charsetMessage)

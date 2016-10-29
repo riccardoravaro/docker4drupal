@@ -21,13 +21,23 @@ use Symfony\Component\Console\Exception\InvalidArgumentException;
  */
 class HelperSet implements \IteratorAggregate
 {
+<<<<<<< HEAD
+=======
+    /**
+     * @var Helper[]
+     */
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     private $helpers = array();
     private $command;
 
     /**
      * Constructor.
      *
+<<<<<<< HEAD
      * @param Helper[] $helpers An array of helper.
+=======
+     * @param Helper[] $helpers An array of helper
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function __construct(array $helpers = array())
     {
@@ -110,6 +120,12 @@ class HelperSet implements \IteratorAggregate
         return $this->command;
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * @return Helper[]
+     */
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     public function getIterator()
     {
         return new \ArrayIterator($this->helpers);

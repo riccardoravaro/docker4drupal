@@ -88,6 +88,7 @@ class File extends Constraint
 
     private function normalizeBinaryFormat($maxSize)
     {
+<<<<<<< HEAD
         if (ctype_digit((string) $maxSize)) {
             $this->maxSize = (int) $maxSize;
             $this->binaryFormat = null === $this->binaryFormat ? false : $this->binaryFormat;
@@ -102,6 +103,24 @@ class File extends Constraint
             $this->binaryFormat = null === $this->binaryFormat ? true : $this->binaryFormat;
         } elseif (preg_match('/^\d++Mi$/i', $maxSize)) {
             $this->maxSize = $maxSize << 20;
+=======
+        $sizeInt = (int) $maxSize;
+
+        if (ctype_digit((string) $maxSize)) {
+            $this->maxSize = $sizeInt;
+            $this->binaryFormat = null === $this->binaryFormat ? false : $this->binaryFormat;
+        } elseif (preg_match('/^\d++k$/i', $maxSize)) {
+            $this->maxSize = $sizeInt * 1000;
+            $this->binaryFormat = null === $this->binaryFormat ? false : $this->binaryFormat;
+        } elseif (preg_match('/^\d++M$/i', $maxSize)) {
+            $this->maxSize = $sizeInt * 1000000;
+            $this->binaryFormat = null === $this->binaryFormat ? false : $this->binaryFormat;
+        } elseif (preg_match('/^\d++Ki$/i', $maxSize)) {
+            $this->maxSize = $sizeInt << 10;
+            $this->binaryFormat = null === $this->binaryFormat ? true : $this->binaryFormat;
+        } elseif (preg_match('/^\d++Mi$/i', $maxSize)) {
+            $this->maxSize = $sizeInt << 20;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             $this->binaryFormat = null === $this->binaryFormat ? true : $this->binaryFormat;
         } else {
             throw new ConstraintDefinitionException(sprintf('"%s" is not a valid maximum size', $this->maxSize));

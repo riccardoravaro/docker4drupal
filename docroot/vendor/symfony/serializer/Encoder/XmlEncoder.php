@@ -461,6 +461,11 @@ class XmlEncoder extends SerializerAwareEncoder implements EncoderInterface, Dec
      * @param mixed    $val
      *
      * @return bool
+<<<<<<< HEAD
+=======
+     *
+     * @throws UnexpectedValueException
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     private function selectNodeType(\DOMNode $node, $val)
     {
@@ -506,7 +511,11 @@ class XmlEncoder extends SerializerAwareEncoder implements EncoderInterface, Dec
     /**
      * Create a DOM document, taking serializer options into account.
      *
+<<<<<<< HEAD
      * @param array $context options that the encoder has access to.
+=======
+     * @param array $context options that the encoder has access to
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @return \DOMDocument
      */

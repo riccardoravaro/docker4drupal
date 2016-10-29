@@ -13,6 +13,7 @@
         }
     },
     "require": {
+<<<<<<< HEAD
         "php": ">=5.5",
         "zendframework/zend-hydrator": "~1.0"
     },
@@ -39,6 +40,19 @@
         "branch-alias": {
             "dev-master": "2.7-dev",
             "dev-develop": "2.8-dev"
+=======
+        "php": "^5.6 || ^7.0"
+    },
+    "require-dev": {
+        "athletic/athletic": "~0.1",
+        "phpunit/PHPUnit": "~4.0",
+        "squizlabs/php_codesniffer": "^2.6.2"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.1-dev",
+            "dev-develop": "3.2-dev"
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         }
     },
     "autoload-dev": {
@@ -46,5 +60,15 @@
             "ZendTest\\Stdlib\\": "test/",
             "ZendBench\\Stdlib\\": "benchmark/"
         }
+<<<<<<< HEAD
+=======
+    },
+    "scripts": {
+        "cs-check": "phpcs --colors",
+        "cs-fix": "phpcbf --colors",
+        "test": "phpunit --colors=always",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
+        "upload-coverage": "coveralls -v"
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 }

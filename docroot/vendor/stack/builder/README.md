@@ -10,6 +10,7 @@ HttpKernelInterface decorator tree. It models it as a stack of middlewares.
 If you want to decorate a [silex](https://github.com/fabpot/Silex) app with
 session and cache middlewares, you'll have to do something like this:
 
+<<<<<<< HEAD
     use Symfony\Component\HttpKernel\HttpCache\Store;
 
     $app = new Silex\Application();
@@ -33,28 +34,78 @@ This can get quite annoying indeed. Stack/Builder simplifies that:
 
     $app = $stack->resolve($app);
 
+=======
+```php
+use Symfony\Component\HttpKernel\HttpCache\Store;
+
+$app = new Silex\Application();
+
+$app->get('/', function () {
+    return 'Hello World!';
+});
+
+$app = new Stack\Session(
+    new Symfony\Component\HttpKernel\HttpCache\HttpCache(
+        $app,
+        new Store(__DIR__.'/cache')
+    )
+);
+```
+
+This can get quite annoying indeed. Stack/Builder simplifies that:
+
+```php
+$stack = (new Stack\Builder())
+    ->push('Stack\Session')
+    ->push('Symfony\Component\HttpKernel\HttpCache\HttpCache', new Store(__DIR__.'/cache'));
+
+$app = $stack->resolve($app);
+```
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 As you can see, by arranging the layers as a stack, they become a lot easier
 to work with.
 
 In the front controller, you need to serve the request:
 
+<<<<<<< HEAD
     use Symfony\Component\HttpFoundation\Request;
 
     $request = Request::createFromGlobals();
     $response = $app->handle($request)->send();
     $app->terminate($request, $response);
 
+=======
+```php
+use Symfony\Component\HttpFoundation\Request;
+
+$request = Request::createFromGlobals();
+$response = $app->handle($request)->send();
+$app->terminate($request, $response);
+```
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 Stack/Builder also supports pushing a `callable` on to the stack, for situations
 where instantiating middlewares might be more complicated. The `callable` should
 accept a `HttpKernelInterface` as the first argument and should also return a
 `HttpKernelInterface`. The example above could be rewritten as:
 
+<<<<<<< HEAD
     $stack = (new Stack\Builder())
         ->push('Stack\Session')
         ->push(function ($app) {
             $cache = new HttpCache($app, new Store(__DIR__.'/cache'));
             return $cache;
         });
+=======
+```php
+$stack = (new Stack\Builder())
+    ->push('Stack\Session')
+    ->push(function ($app) {
+        $cache = new HttpCache($app, new Store(__DIR__.'/cache'));
+        return $cache;
+    })
+;
+```
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
 ## Inspiration
 

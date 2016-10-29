@@ -25,9 +25,13 @@ class DefinitionDecorator extends Definition
     private $changes = array();
 
     /**
+<<<<<<< HEAD
      * Constructor.
      *
      * @param string $parent The id of Definition instance to decorate.
+=======
+     * @param string $parent The id of Definition instance to decorate
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function __construct($parent)
     {
@@ -167,6 +171,19 @@ class DefinitionDecorator extends Definition
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * {@inheritdoc}
+     */
+    public function setAutowired($autowired)
+    {
+        $this->changes['autowire'] = true;
+
+        return parent::setAutowired($autowired);
+    }
+
+    /**
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * Gets an argument to pass to the service constructor/factory method.
      *
      * If replaceArgument() has been used to replace an argument, this method

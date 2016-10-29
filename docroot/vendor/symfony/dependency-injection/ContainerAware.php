@@ -26,9 +26,13 @@ abstract class ContainerAware implements ContainerAwareInterface
     protected $container;
 
     /**
+<<<<<<< HEAD
      * Sets the container.
      *
      * @param ContainerInterface|null $container A ContainerInterface instance or null
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function setContainer(ContainerInterface $container = null)
     {

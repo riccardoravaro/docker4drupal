@@ -12,6 +12,10 @@
 namespace Symfony\Component\HttpKernel;
 
 use Symfony\Component\HttpKernel\Controller\ControllerResolverInterface;
+<<<<<<< HEAD
+=======
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
@@ -21,6 +25,10 @@ use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 use Symfony\Component\HttpKernel\Event\PostResponseEvent;
+<<<<<<< HEAD
+=======
+use Symfony\Component\HttpFoundation\Exception\ConflictingHeadersException;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
@@ -61,6 +69,12 @@ class HttpKernel implements HttpKernelInterface, TerminableInterface
         try {
             return $this->handleRaw($request, $type);
         } catch (\Exception $e) {
+<<<<<<< HEAD
+=======
+            if ($e instanceof ConflictingHeadersException) {
+                $e = new BadRequestHttpException('The request headers contain conflicting information regarding the origin of this request.', $e);
+            }
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             if (false === $catch) {
                 $this->finishRequest($request, $type);
 

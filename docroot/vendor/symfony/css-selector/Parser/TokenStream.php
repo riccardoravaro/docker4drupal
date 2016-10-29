@@ -85,9 +85,15 @@ class TokenStream
     /**
      * Returns next token.
      *
+<<<<<<< HEAD
      * @throws InternalErrorException If there is no more token
      *
      * @return Token
+=======
+     * @return Token
+     *
+     * @throws InternalErrorException If there is no more token
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getNext()
     {
@@ -133,9 +139,15 @@ class TokenStream
     /**
      * Returns nex identifier token.
      *
+<<<<<<< HEAD
      * @throws SyntaxErrorException If next token is not an identifier
      *
      * @return string The identifier token value
+=======
+     * @return string The identifier token value
+     *
+     * @throws SyntaxErrorException If next token is not an identifier
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getNextIdentifier()
     {
@@ -151,9 +163,15 @@ class TokenStream
     /**
      * Returns nex identifier or star delimiter token.
      *
+<<<<<<< HEAD
      * @throws SyntaxErrorException If next token is not an identifier or a star delimiter
      *
      * @return null|string The identifier token value or null if star found
+=======
+     * @return null|string The identifier token value or null if star found
+     *
+     * @throws SyntaxErrorException If next token is not an identifier or a star delimiter
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getNextIdentifierOrStar()
     {

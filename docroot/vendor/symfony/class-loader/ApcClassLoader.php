@@ -59,8 +59,13 @@ class ApcClassLoader
     /**
      * Constructor.
      *
+<<<<<<< HEAD
      * @param string $prefix    The APC namespace prefix to use.
      * @param object $decorated A class loader object that implements the findFile() method.
+=======
+     * @param string $prefix    The APC namespace prefix to use
+     * @param object $decorated A class loader object that implements the findFile() method
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @throws \RuntimeException
      * @throws \InvalidArgumentException
@@ -122,8 +127,15 @@ class ApcClassLoader
      */
     public function findFile($class)
     {
+<<<<<<< HEAD
         if (false === $file = apcu_fetch($this->prefix.$class)) {
             apcu_store($this->prefix.$class, $file = $this->decorated->findFile($class));
+=======
+        $file = apcu_fetch($this->prefix.$class, $success);
+
+        if (!$success) {
+            apcu_store($this->prefix.$class, $file = $this->decorated->findFile($class) ?: null);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         }
 
         return $file;

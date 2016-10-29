@@ -16,6 +16,7 @@ use SebastianBergmann\Diff\LCS\MemoryEfficientImplementation;
 
 /**
  * Diff implementation.
+<<<<<<< HEAD
  *
  * @package    Diff
  * @author     Sebastian Bergmann <sebastian@phpunit.de>
@@ -23,6 +24,8 @@ use SebastianBergmann\Diff\LCS\MemoryEfficientImplementation;
  * @copyright  Sebastian Bergmann <sebastian@phpunit.de>
  * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
  * @link       http://www.github.com/sebastianbergmann/diff
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  */
 class Differ
 {
@@ -32,19 +35,40 @@ class Differ
     private $header;
 
     /**
+<<<<<<< HEAD
      * @param string $header
      */
     public function __construct($header = "--- Original\n+++ New\n")
     {
         $this->header = $header;
+=======
+     * @var bool
+     */
+    private $showNonDiffLines;
+
+    /**
+     * @param string $header
+     */
+    public function __construct($header = "--- Original\n+++ New\n", $showNonDiffLines = true)
+    {
+        $this->header           = $header;
+        $this->showNonDiffLines = $showNonDiffLines;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     /**
      * Returns the diff between two arrays or strings as string.
      *
+<<<<<<< HEAD
      * @param  array|string             $from
      * @param  array|string             $to
      * @param  LongestCommonSubsequence $lcs
+=======
+     * @param array|string             $from
+     * @param array|string             $to
+     * @param LongestCommonSubsequence $lcs
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return string
      */
     public function diff($from, $to, LongestCommonSubsequence $lcs = null)
@@ -97,7 +121,13 @@ class Differ
             }
 
             if ($newChunk) {
+<<<<<<< HEAD
                 $buffer  .= "@@ @@\n";
+=======
+                if ($this->showNonDiffLines === true) {
+                    $buffer .= "@@ @@\n";
+                }
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                 $newChunk = false;
             }
 
@@ -105,7 +135,11 @@ class Differ
                 $buffer .= '+' . $diff[$i][0] . "\n";
             } elseif ($diff[$i][1] === 2 /* REMOVED */) {
                 $buffer .= '-' . $diff[$i][0] . "\n";
+<<<<<<< HEAD
             } else {
+=======
+            } elseif ($this->showNonDiffLines === true) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                 $buffer .= ' ' . $diff[$i][0] . "\n";
             }
         }
@@ -124,9 +158,16 @@ class Differ
      * - 1: ADDED: $token was added to $from
      * - 0: OLD: $token is not changed in $to
      *
+<<<<<<< HEAD
      * @param  array|string             $from
      * @param  array|string             $to
      * @param  LongestCommonSubsequence $lcs
+=======
+     * @param array|string             $from
+     * @param array|string             $to
+     * @param LongestCommonSubsequence $lcs
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return array
      */
     public function diffToArray($from, $to, LongestCommonSubsequence $lcs = null)
@@ -221,8 +262,14 @@ class Differ
     }
 
     /**
+<<<<<<< HEAD
      * @param  array $from
      * @param  array $to
+=======
+     * @param array $from
+     * @param array $to
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return LongestCommonSubsequence
      */
     private function selectLcsImplementation(array $from, array $to)
@@ -243,9 +290,16 @@ class Differ
     /**
      * Calculates the estimated memory footprint for the DP-based method.
      *
+<<<<<<< HEAD
      * @param  array $from
      * @param  array $to
      * @return integer
+=======
+     * @param array $from
+     * @param array $to
+     *
+     * @return int
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     private function calculateEstimatedFootprint(array $from, array $to)
     {

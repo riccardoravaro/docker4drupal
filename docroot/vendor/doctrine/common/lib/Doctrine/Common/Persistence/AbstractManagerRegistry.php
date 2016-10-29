@@ -195,8 +195,18 @@ abstract class AbstractManagerRegistry implements ManagerRegistry
         }
 
         $proxyClass = new \ReflectionClass($class);
+<<<<<<< HEAD
         if ($proxyClass->implementsInterface($this->proxyInterfaceName)) {
             $class = $proxyClass->getParentClass()->getName();
+=======
+
+        if ($proxyClass->implementsInterface($this->proxyInterfaceName)) {
+            if (! $parentClass = $proxyClass->getParentClass()) {
+                return null;
+            }
+
+            $class = $parentClass->getName();
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         }
 
         foreach ($this->managers as $id) {

@@ -158,7 +158,11 @@ class Process
             $this->setEnv($env);
         }
 
+<<<<<<< HEAD
         $this->input = $input;
+=======
+        $this->setInput($input);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         $this->setTimeout($timeout);
         $this->useFileHandles = '\\' === DIRECTORY_SEPARATOR;
         $this->pty = false;
@@ -477,10 +481,17 @@ class Process
      * In comparison with the getOutput method which always return the whole
      * output, this one returns the new output since the last call.
      *
+<<<<<<< HEAD
      * @throws LogicException in case the output has been disabled
      * @throws LogicException In case the process is not started
      *
      * @return string The process output since the last call
+=======
+     * @return string The process output since the last call
+     *
+     * @throws LogicException in case the output has been disabled
+     * @throws LogicException In case the process is not started
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getIncrementalOutput()
     {
@@ -536,10 +547,17 @@ class Process
      * whole error output, this one returns the new error output since the last
      * call.
      *
+<<<<<<< HEAD
      * @throws LogicException in case the output has been disabled
      * @throws LogicException In case the process is not started
      *
      * @return string The process error output since the last call
+=======
+     * @return string The process error output since the last call
+     *
+     * @throws LogicException in case the output has been disabled
+     * @throws LogicException In case the process is not started
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getIncrementalErrorOutput()
     {
@@ -593,7 +611,11 @@ class Process
      * This method relies on the Unix exit code status standardization
      * and might not be relevant for other operating systems.
      *
+<<<<<<< HEAD
      * @return null|string A string representation for the exit status code, null if the Process is not terminated.
+=======
+     * @return null|string A string representation for the exit status code, null if the Process is not terminated
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @see http://tldp.org/LDP/abs/html/exitcodes.html
      * @see http://en.wikipedia.org/wiki/Unix_signal
@@ -881,7 +903,11 @@ class Process
      *
      * @param int|float|null $timeout The timeout in seconds
      *
+<<<<<<< HEAD
      * @return self The current Process instance.
+=======
+     * @return self The current Process instance
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @throws LogicException           if the output is disabled
      * @throws InvalidArgumentException if the timeout is negative
@@ -1087,7 +1113,11 @@ class Process
             throw new LogicException('Input can not be set while the process is running.');
         }
 
+<<<<<<< HEAD
         $this->input = ProcessUtils::validateInput(sprintf('%s::%s', __CLASS__, __FUNCTION__), $input);
+=======
+        $this->input = ProcessUtils::validateInput(__METHOD__, $input);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
         return $this;
     }
@@ -1265,7 +1295,11 @@ class Process
     /**
      * Updates the status of the process, reads pipes.
      *
+<<<<<<< HEAD
      * @param bool $blocking Whether to use a blocking read call.
+=======
+     * @param bool $blocking Whether to use a blocking read call
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     protected function updateStatus($blocking)
     {
@@ -1351,8 +1385,13 @@ class Process
     /**
      * Reads pipes, executes callback.
      *
+<<<<<<< HEAD
      * @param bool $blocking Whether to use blocking calls or not.
      * @param bool $close    Whether to close file handles or not.
+=======
+     * @param bool $blocking Whether to use blocking calls or not
+     * @param bool $close    Whether to close file handles or not
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     private function readPipes($blocking, $close)
     {
@@ -1478,7 +1517,11 @@ class Process
     /**
      * Ensures the process is running or terminated, throws a LogicException if the process has a not started.
      *
+<<<<<<< HEAD
      * @param string $functionName The function name that was called.
+=======
+     * @param string $functionName The function name that was called
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @throws LogicException If the process has not run.
      */
@@ -1492,7 +1535,11 @@ class Process
     /**
      * Ensures the process is terminated, throws a LogicException if the process has a status different than `terminated`.
      *
+<<<<<<< HEAD
      * @param string $functionName The function name that was called.
+=======
+     * @param string $functionName The function name that was called
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @throws LogicException If the process is not yet terminated.
      */

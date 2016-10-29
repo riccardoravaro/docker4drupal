@@ -46,8 +46,13 @@ class ArgvInput extends Input
     /**
      * Constructor.
      *
+<<<<<<< HEAD
      * @param array           $argv       An array of parameters from the CLI (in the argv format)
      * @param InputDefinition $definition A InputDefinition instance
+=======
+     * @param array|null           $argv       An array of parameters from the CLI (in the argv format)
+     * @param InputDefinition|null $definition A InputDefinition instance
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function __construct(array $argv = null, InputDefinition $definition = null)
     {
@@ -69,7 +74,11 @@ class ArgvInput extends Input
     }
 
     /**
+<<<<<<< HEAD
      * Processes command line arguments.
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     protected function parse()
     {
@@ -93,7 +102,11 @@ class ArgvInput extends Input
     /**
      * Parses a short option.
      *
+<<<<<<< HEAD
      * @param string $token The current token.
+=======
+     * @param string $token The current token
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     private function parseShortOption($token)
     {
@@ -147,7 +160,14 @@ class ArgvInput extends Input
         $name = substr($token, 2);
 
         if (false !== $pos = strpos($name, '=')) {
+<<<<<<< HEAD
             $this->addLongOption(substr($name, 0, $pos), substr($name, $pos + 1));
+=======
+            if (0 === strlen($value = substr($name, $pos + 1))) {
+                array_unshift($this->parsed, null);
+            }
+            $this->addLongOption(substr($name, 0, $pos), $value);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         } else {
             $this->addLongOption($name, null);
         }
@@ -176,7 +196,16 @@ class ArgvInput extends Input
 
         // unexpected argument
         } else {
+<<<<<<< HEAD
             throw new RuntimeException('Too many arguments.');
+=======
+            $all = $this->definition->getArguments();
+            if (count($all)) {
+                throw new RuntimeException(sprintf('Too many arguments, expected arguments "%s".', implode('" "', array_keys($all))));
+            }
+
+            throw new RuntimeException(sprintf('No arguments expected, got "%s".', $token));
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         }
     }
 
@@ -229,7 +258,11 @@ class ArgvInput extends Input
             if (isset($next[0]) && '-' !== $next[0]) {
                 $value = $next;
             } elseif (empty($next)) {
+<<<<<<< HEAD
                 $value = '';
+=======
+                $value = null;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             } else {
                 array_unshift($this->parsed, $next);
             }
@@ -253,9 +286,13 @@ class ArgvInput extends Input
     }
 
     /**
+<<<<<<< HEAD
      * Returns the first argument from the raw parameters (not parsed).
      *
      * @return string The value of the first argument or null otherwise
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getFirstArgument()
     {
@@ -269,6 +306,7 @@ class ArgvInput extends Input
     }
 
     /**
+<<<<<<< HEAD
      * Returns true if the raw parameters (not parsed) contain a value.
      *
      * This method is to be used to introspect the input parameters
@@ -277,6 +315,9 @@ class ArgvInput extends Input
      * @param string|array $values The value(s) to look for in the raw parameters (can be an array)
      *
      * @return bool true if the value is contained in the raw parameters
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function hasParameterOption($values)
     {
@@ -294,6 +335,7 @@ class ArgvInput extends Input
     }
 
     /**
+<<<<<<< HEAD
      * Returns the value of a raw option (not parsed).
      *
      * This method is to be used to introspect the input parameters
@@ -303,6 +345,9 @@ class ArgvInput extends Input
      * @param mixed        $default The default value to return if no result is found
      *
      * @return mixed The option value
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getParameterOption($values, $default = false)
     {

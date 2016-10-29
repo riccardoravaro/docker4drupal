@@ -20,17 +20,36 @@ class PHPUnit_Util_PHP_Default extends PHPUnit_Util_PHP
     /**
      * Runs a single job (PHP code) using a separate PHP process.
      *
+<<<<<<< HEAD
      * @param  string                      $job
      * @param  array                       $settings
      * @return array
+=======
+     * @param string $job
+     * @param array  $settings
+     *
+     * @return array
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @throws PHPUnit_Framework_Exception
      */
     public function runJob($job, array $settings = array())
     {
         $runtime = new Runtime;
+<<<<<<< HEAD
 
         $process = proc_open(
             $runtime->getBinary() . $this->settingsToParameters($settings),
+=======
+        $runtime = $runtime->getBinary() . $this->settingsToParameters($settings);
+
+        if ('phpdbg' === PHP_SAPI) {
+            $runtime .= ' -qrr ' . escapeshellarg(__DIR__ . '/eval-stdin.php');
+        }
+
+        $process = proc_open(
+            $runtime,
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             array(
             0 => array('pipe', 'r'),
             1 => array('pipe', 'w'),
@@ -61,9 +80,17 @@ class PHPUnit_Util_PHP_Default extends PHPUnit_Util_PHP
     }
 
     /**
+<<<<<<< HEAD
      * @param  resource                    $pipe
      * @param  string                      $job
      * @throws PHPUnit_Framework_Exception
+=======
+     * @param resource $pipe
+     * @param string   $job
+     *
+     * @throws PHPUnit_Framework_Exception
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since Method available since Release 3.5.12
      */
     protected function process($pipe, $job)

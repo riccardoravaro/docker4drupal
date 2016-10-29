@@ -27,9 +27,13 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 abstract class Extension implements ExtensionInterface, ConfigurationExtensionInterface
 {
     /**
+<<<<<<< HEAD
      * Returns the base path for the XSD files.
      *
      * @return string The XSD base path
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getXsdValidationBasePath()
     {
@@ -37,9 +41,13 @@ abstract class Extension implements ExtensionInterface, ConfigurationExtensionIn
     }
 
     /**
+<<<<<<< HEAD
      * Returns the namespace to be used for this extension (XML namespace).
      *
      * @return string The XML namespace
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getNamespace()
     {

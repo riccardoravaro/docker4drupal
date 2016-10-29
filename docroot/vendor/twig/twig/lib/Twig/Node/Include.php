@@ -19,7 +19,16 @@ class Twig_Node_Include extends Twig_Node implements Twig_NodeOutputInterface
 {
     public function __construct(Twig_Node_Expression $expr, Twig_Node_Expression $variables = null, $only = false, $ignoreMissing = false, $lineno, $tag = null)
     {
+<<<<<<< HEAD
         parent::__construct(array('expr' => $expr, 'variables' => $variables), array('only' => (bool) $only, 'ignore_missing' => (bool) $ignoreMissing), $lineno, $tag);
+=======
+        $nodes = array('expr' => $expr);
+        if (null !== $variables) {
+            $nodes['variables'] = $variables;
+        }
+
+        parent::__construct($nodes, array('only' => (bool) $only, 'ignore_missing' => (bool) $ignoreMissing), $lineno, $tag);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     public function compile(Twig_Compiler $compiler)
@@ -59,7 +68,11 @@ class Twig_Node_Include extends Twig_Node implements Twig_NodeOutputInterface
              ->write('$this->loadTemplate(')
              ->subcompile($this->getNode('expr'))
              ->raw(', ')
+<<<<<<< HEAD
              ->repr($compiler->getFilename())
+=======
+             ->repr($this->getFilename())
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
              ->raw(', ')
              ->repr($this->getLine())
              ->raw(')')
@@ -68,7 +81,11 @@ class Twig_Node_Include extends Twig_Node implements Twig_NodeOutputInterface
 
     protected function addTemplateArguments(Twig_Compiler $compiler)
     {
+<<<<<<< HEAD
         if (null === $this->getNode('variables')) {
+=======
+        if (!$this->hasNode('variables')) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             $compiler->raw(false === $this->getAttribute('only') ? '$context' : 'array()');
         } elseif (false === $this->getAttribute('only')) {
             $compiler

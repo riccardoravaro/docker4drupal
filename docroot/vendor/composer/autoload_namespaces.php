@@ -10,6 +10,7 @@ return array(
     'org\\bovigo\\vfs\\' => array($vendorDir . '/mikey179/vfsStream/src/main/php'),
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
     'Stack' => array($vendorDir . '/stack/builder/src'),
+<<<<<<< HEAD
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'Egulias\\' => array($vendorDir . '/egulias/email-validator/src'),
@@ -21,4 +22,22 @@ return array(
     'Doctrine\\Common\\Annotations\\' => array($vendorDir . '/doctrine/annotations/lib'),
     'Doctrine\\Common\\' => array($vendorDir . '/doctrine/common/lib'),
     'Composer\\Installers\\' => array($vendorDir . '/composer/installers/src'),
+=======
+    'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
+    'JakubOnderka\\PhpConsoleHighlighter' => array($vendorDir . '/jakub-onderka/php-console-highlighter/src'),
+    'JakubOnderka\\PhpConsoleColor' => array($vendorDir . '/jakub-onderka/php-console-color/src'),
+    'Egulias\\' => array($vendorDir . '/egulias/email-validator/src'),
+    'EasyRdf_' => array($vendorDir . '/easyrdf/easyrdf/lib'),
+    'Drush' => array($vendorDir . '/drush/drush/lib'),
+    'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib'),
+    'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),
+    'Doctrine\\Common\\Collections\\' => array($vendorDir . '/doctrine/collections/lib'),
+    'Doctrine\\Common\\Annotations\\' => array($vendorDir . '/doctrine/annotations/lib'),
+    'Doctrine\\Common\\' => array($vendorDir . '/doctrine/common/lib'),
+    'Dflydev\\PlaceholderResolver' => array($vendorDir . '/dflydev/placeholder-resolver/src'),
+    'Dflydev\\DotAccessData' => array($vendorDir . '/dflydev/dot-access-data/src'),
+    'Dflydev\\DotAccessConfiguration' => array($vendorDir . '/dflydev/dot-access-configuration/src'),
+    'Consolidation' => array($vendorDir . '/drush/drush/lib'),
+    'Asm89\\Stack' => array($vendorDir . '/asm89/stack-cors/src'),
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 );

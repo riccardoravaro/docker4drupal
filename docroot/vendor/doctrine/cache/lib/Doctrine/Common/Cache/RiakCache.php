@@ -202,7 +202,11 @@ class RiakCache extends CacheProvider
      *
      * @param \Riak\Object $object
      *
+<<<<<<< HEAD
      * @return boolean
+=======
+     * @return bool
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     private function isExpired(Object $object)
     {

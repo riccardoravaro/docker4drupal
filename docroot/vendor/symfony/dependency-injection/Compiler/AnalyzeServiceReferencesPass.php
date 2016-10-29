@@ -34,8 +34,11 @@ class AnalyzeServiceReferencesPass implements RepeatablePassInterface
     private $onlyConstructorArguments;
 
     /**
+<<<<<<< HEAD
      * Constructor.
      *
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @param bool $onlyConstructorArguments Sets this Service Reference pass to ignore method calls
      */
     public function __construct($onlyConstructorArguments = false)
@@ -128,7 +131,11 @@ class AnalyzeServiceReferencesPass implements RepeatablePassInterface
     /**
      * Returns a service definition given the full name or an alias.
      *
+<<<<<<< HEAD
      * @param string $id A full id or alias for a service definition.
+=======
+     * @param string $id A full id or alias for a service definition
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @return Definition|null The definition related to the supplied id
      */

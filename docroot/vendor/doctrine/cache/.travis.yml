@@ -1,11 +1,26 @@
 language: php
 
+<<<<<<< HEAD
 php:
   - 5.3
   - 5.4
   - 5.5
   - 5.6
   - hhvm
+=======
+sudo: false
+
+cache:
+    directories:
+        - vendor
+        - $HOME/.composer/cache
+
+php:
+    - 5.5
+    - 5.6
+    - 7.0
+    - hhvm
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
 services:
     - riak
@@ -14,6 +29,7 @@ services:
     - redis-server
 
 before_install:
+<<<<<<< HEAD
     - sh -c "if [ $TRAVIS_PHP_VERSION != 'hhvm' ]; then pecl install riak-beta; fi"
     - sh -c "if [[ $TRAVIS_PHP_VERSION != 'hhvm' && `php-config --vernum` -ge 50500 ]] ; then pecl config-set preferred_state beta; printf "yes\n" | pecl install apcu ; else echo 'extension="apc.so"' >> ./tests/travis/php.ini ;fi"
     - composer self-update
@@ -21,6 +37,16 @@ before_install:
 
 install:
     - composer --prefer-source --dev install
+=======
+    - if [[ $TRAVIS_PHP_VERSION != 'hhvm' ]] ; then pecl channel-update pecl.php.net; fi;
+    - if [[ $TRAVIS_PHP_VERSION != 'hhvm' && $TRAVIS_PHP_VERSION != '7.0' ]]; then pecl install riak-beta; fi;
+    - if [[ $TRAVIS_PHP_VERSION =~ 5.[56] ]] ; then echo yes | pecl install apcu-4.0.10; fi;
+    - if [[ $TRAVIS_PHP_VERSION = 7.* ]] ; then pecl config-set preferred_state beta; echo yes | pecl install apcu; fi;
+    - if [[ $TRAVIS_PHP_VERSION != 'hhvm' ]]; then phpenv config-add ./tests/travis/php.ini; fi;
+
+install:
+    - travis_retry composer install
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
 script:
     - ./vendor/bin/phpunit -c ./tests/travis/phpunit.travis.xml -v
@@ -29,5 +55,12 @@ after_script:
     - php vendor/bin/coveralls -v
 
 matrix:
+<<<<<<< HEAD
   allow_failures:
     - php: hhvm
+=======
+    fast_finish: true
+    allow_failures:
+        - php: hhvm
+        - php: 7.0
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9

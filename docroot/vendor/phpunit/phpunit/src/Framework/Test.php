@@ -18,7 +18,12 @@ interface PHPUnit_Framework_Test extends Countable
     /**
      * Runs a test and collects its result in a TestResult instance.
      *
+<<<<<<< HEAD
      * @param  PHPUnit_Framework_TestResult $result
+=======
+     * @param PHPUnit_Framework_TestResult $result
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return PHPUnit_Framework_TestResult
      */
     public function run(PHPUnit_Framework_TestResult $result = null);

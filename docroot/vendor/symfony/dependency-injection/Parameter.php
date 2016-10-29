@@ -21,8 +21,11 @@ class Parameter
     private $id;
 
     /**
+<<<<<<< HEAD
      * Constructor.
      *
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @param string $id The parameter key
      */
     public function __construct($id)
@@ -31,8 +34,11 @@ class Parameter
     }
 
     /**
+<<<<<<< HEAD
      * __toString.
      *
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return string The parameter key
      */
     public function __toString()

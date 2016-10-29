@@ -3,7 +3,11 @@
  * Zend Framework (http://framework.zend.com/)
  *
  * @see       http://github.com/zendframework/zend-diactoros for the canonical source repository
+<<<<<<< HEAD
  * @copyright Copyright (c) 2015 Zend Technologies USA Inc. (http://www.zend.com)
+=======
+ * @copyright Copyright (c) 2015-2016 Zend Technologies USA Inc. (http://www.zend.com)
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  * @license   https://github.com/zendframework/zend-diactoros/blob/master/LICENSE.md New BSD License
  */
 
@@ -52,7 +56,11 @@ trait RequestTrait
      *
      * Used by constructors.
      *
+<<<<<<< HEAD
      * @param null|string $uri URI for the request, if any.
+=======
+     * @param null|string|UriInterface $uri URI for the request, if any.
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @param null|string $method HTTP method for the request, if any.
      * @param string|resource|StreamInterface $body Message body, if any.
      * @param array $headers Headers for the message, if any.
@@ -60,6 +68,7 @@ trait RequestTrait
      */
     private function initialize($uri = null, $method = null, $body = 'php://memory', array $headers = [])
     {
+<<<<<<< HEAD
         if (! $uri instanceof UriInterface && ! is_string($uri) && null !== $uri) {
             throw new InvalidArgumentException(
                 'Invalid URI provided; must be null, a string, or a Psr\Http\Message\UriInterface instance'
@@ -83,10 +92,59 @@ trait RequestTrait
         $this->method = $method ?: '';
         $this->uri    = $uri ?: new Uri();
         $this->stream = ($body instanceof StreamInterface) ? $body : new Stream($body, 'wb+');
+=======
+        $this->validateMethod($method);
+
+        $this->method = $method ?: '';
+        $this->uri    = $this->createUri($uri);
+        $this->stream = $this->getStream($body, 'wb+');
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
         list($this->headerNames, $headers) = $this->filterHeaders($headers);
         $this->assertHeaders($headers);
         $this->headers = $headers;
+<<<<<<< HEAD
+=======
+
+        // per PSR-7: attempt to set the Host header from a provided URI if no
+        // Host header is provided
+        if (! $this->hasHeader('Host') && $this->uri->getHost()) {
+            $this->headerNames['host'] = 'Host';
+            $this->headers['Host'] = [$this->getHostFromUri()];
+        }
+    }
+
+    /**
+     * Create and return a URI instance.
+     *
+     * If `$uri` is a already a `UriInterface` instance, returns it.
+     *
+     * If `$uri` is a string, passes it to the `Uri` constructor to return an
+     * instance.
+     *
+     * If `$uri is null, creates and returns an empty `Uri` instance.
+     *
+     * Otherwise, it raises an exception.
+     *
+     * @param null|string|UriInterface $uri
+     * @return UriInterface
+     * @throws InvalidArgumentException
+     */
+    private function createUri($uri)
+    {
+        if ($uri instanceof UriInterface) {
+            return $uri;
+        }
+        if (is_string($uri)) {
+            return new Uri($uri);
+        }
+        if ($uri === null) {
+            return new Uri();
+        }
+        throw new InvalidArgumentException(
+            'Invalid URI provided; must be null, a string, or a Psr\Http\Message\UriInterface instance'
+        );
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     /**
@@ -249,6 +307,19 @@ trait RequestTrait
         }
 
         $new->headerNames['host'] = 'Host';
+<<<<<<< HEAD
+=======
+
+        // Remove an existing host header if present, regardless of current
+        // de-normalization of the header name.
+        // @see https://github.com/zendframework/zend-diactoros/issues/91
+        foreach (array_keys($new->headers) as $header) {
+            if (strtolower($header) === 'host') {
+                unset($new->headers[$header]);
+            }
+        }
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         $new->headers['Host'] = [$host];
 
         return $new;

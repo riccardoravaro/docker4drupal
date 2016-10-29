@@ -327,7 +327,11 @@ class YamlDumper extends Dumper
      *
      * @return array
      */
+<<<<<<< HEAD
     private function prepareParameters($parameters, $escape = true)
+=======
+    private function prepareParameters(array $parameters, $escape = true)
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     {
         $filtered = array();
         foreach ($parameters as $key => $value) {
@@ -350,7 +354,11 @@ class YamlDumper extends Dumper
      *
      * @return array
      */
+<<<<<<< HEAD
     private function escape($arguments)
+=======
+    private function escape(array $arguments)
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     {
         $args = array();
         foreach ($arguments as $k => $v) {

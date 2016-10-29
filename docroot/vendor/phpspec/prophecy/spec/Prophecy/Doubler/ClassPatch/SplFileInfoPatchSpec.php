@@ -88,4 +88,23 @@ class SplFileInfoPatchSpec extends ObjectBehavior
         $this->apply($node);
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * @param \Prophecy\Doubler\Generator\Node\ClassNode  $node
+     * @param \Prophecy\Doubler\Generator\Node\MethodNode $method
+     */
+    function it_should_supply_a_file_for_a_spl_file_object($node, $method)
+    {
+        $node->hasMethod('__construct')->willReturn(true);
+        $node->getMethod('__construct')->willReturn($method);
+        $node->getParentClass()->willReturn('SplFileObject');
+
+        $method->setCode(Argument::that(function($value) {
+            return strpos($value, '.php') !== false;
+        }))->shouldBeCalled();
+
+        $this->apply($node);
+    }
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 }

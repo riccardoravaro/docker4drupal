@@ -24,8 +24,11 @@ use Symfony\Component\Validator\Exception\ConstraintDefinitionException;
  * let {@link getCompositeOption()} return the name of the property which
  * contains the nested constraints.
  *
+<<<<<<< HEAD
  * @since  2.6
  *
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
 abstract class Composite extends Constraint

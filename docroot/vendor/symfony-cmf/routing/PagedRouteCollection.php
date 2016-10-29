@@ -1,9 +1,16 @@
 <?php
 
+<<<<<<< HEAD
 /**
  * This file is part of the Symfony CMF package.
  *
  * (c) 2011-2014 Symfony CMF
+=======
+/*
+ * This file is part of the Symfony CMF package.
+ *
+ * (c) 2011-2015 Symfony CMF
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -85,7 +92,11 @@ class PagedRouteCollection implements \Iterator, \Countable
         if (false === $result) {
             $this->loadNextElements($this->current + 1);
         }
+<<<<<<< HEAD
         $this->current++;
+=======
+        ++$this->current;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     /**
@@ -110,7 +121,11 @@ class PagedRouteCollection implements \Iterator, \Countable
     public function rewind()
     {
         $this->current = 0;
+<<<<<<< HEAD
         $this->currentRoutes = NULL;
+=======
+        $this->currentRoutes = null;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         $this->loadNextElements($this->current);
     }
 

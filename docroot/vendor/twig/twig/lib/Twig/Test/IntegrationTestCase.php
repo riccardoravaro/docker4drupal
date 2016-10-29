@@ -167,7 +167,12 @@ abstract class Twig_Test_IntegrationTestCase extends PHPUnit_Framework_TestCase
                 if (false !== $exception) {
                     $message = $e->getMessage();
                     $this->assertSame(trim($exception), trim(sprintf('%s: %s', get_class($e), $message)));
+<<<<<<< HEAD
                     $this->assertSame('.', substr($message, strlen($message) - 1), $message, 'Exception message must end with a dot.');
+=======
+                    $last = substr($message, strlen($message) - 1);
+                    $this->assertTrue('.' === $last || '?' === $last, $message, 'Exception message must end with a dot or a question mark.');
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
                     return;
                 }

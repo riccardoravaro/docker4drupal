@@ -25,7 +25,11 @@ interface EncoderInterface
      *
      * @param mixed  $data    Data to encode
      * @param string $format  Format name
+<<<<<<< HEAD
      * @param array  $context options that normalizers/encoders have access to.
+=======
+     * @param array  $context options that normalizers/encoders have access to
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @return scalar
      *

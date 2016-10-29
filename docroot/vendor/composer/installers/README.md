@@ -35,31 +35,63 @@ is not needed to install packages with these frameworks:
 | ---------    | -----
 | Aimeos       | `aimeos-extension`
 | Asgard       | `asgard-module`<br>`asgard-theme`
+<<<<<<< HEAD
 | AGL          | `agl-module`
 | AnnotateCms  | `annotatecms-module`<br>`annotatecms-component`<br>`annotatecms-service`
 | Bitrix       | `bitrix-module`<br>`bitrix-component`<br>`bitrix-theme`
 | CakePHP 2+   | **`cakephp-plugin`**
 | Chef         | `chef-cookbook`<br>`chef-role`
 | CCFramework  | `ccframework-ship`<br>`ccframework-theme`
+=======
+| Attogram     | `attogram-module`
+| AGL          | `agl-module`
+| Bonefish     | `bonefish-package`
+| AnnotateCms  | `annotatecms-module`<br>`annotatecms-component`<br>`annotatecms-service`
+| Bitrix       | `bitrix-module` (deprecated) <br>`bitrix-component` (deprecated) <br>`bitrix-theme` (deprecated) <br><br> `bitrix-d7-module` <br> `bitrix-d7-component` <br> `bitrix-d7-template`
+| CakePHP 2+   | **`cakephp-plugin`**
+| Chef         | `chef-cookbook`<br>`chef-role`
+| CCFramework  | `ccframework-ship`<br>`ccframework-theme`
+| Cockpit      | `cockpit-module`
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 | CodeIgniter  | `codeigniter-library`<br>`codeigniter-third-party`<br>`codeigniter-module`
 | concrete5    | `concrete5-block`<br>`concrete5-package`<br>`concrete5-theme`<br>`concrete5-update`
 | Craft        | `craft-plugin`
 | Croogo       | `croogo-plugin`<br>`croogo-theme`
+<<<<<<< HEAD
 | DokuWiki     | `dokuwiki-plugin`<br>`dokuwiki-template`
 | Dolibarr     | `dolibarr-module`
 | Drupal       | <b>`drupal-module`<br>`drupal-theme`</b><br>`drupal-library`<br>`drupal-profile`<br>`drupal-drush`
 | Elgg         | `elgg-plugin`
+=======
+| Decibel      | `decibel-app`
+| DokuWiki     | `dokuwiki-plugin`<br>`dokuwiki-template`
+| Dolibarr     | `dolibarr-module`
+| Drupal       | <b>`drupal-core`<br>`drupal-module`<br>`drupal-theme`</b><br>`drupal-library`<br>`drupal-profile`<br>`drupal-drush`
+| Elgg         | `elgg-plugin`
+| ExpressionEngine 3         | `ee3-addon`<br>`ee3-theme`
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 | FuelPHP v1.x | `fuel-module`<br>`fuel-package`<br/>`fuel-theme`
 | FuelPHP v2.x | `fuelphp-component`
 | Grav         | `grav-plugin`<br>`grav-theme`
 | Hurad        | `hurad-plugin`<br>`hurad-theme`
+<<<<<<< HEAD
 | Joomla       | `joomla-component`<br>`joomla-module`<br>`joomla-template`<br>`joomla-plugin`<br>`joomla-library`
 | Kirby        | **`kirby-plugin`**
+=======
+| ImageCMS     | `imagecms-template`<br>`imagecms-module`<br>`imagecms-library`
+| Joomla       | `joomla-component`<br>`joomla-module`<br>`joomla-template`<br>`joomla-plugin`<br>`joomla-library`
+| Kirby        | **`kirby-plugin`**<br>`kirby-field`<br>`kirby-tag`
+| KodiCMS      | `kodicms-plugin`<br>`kodicms-media`
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 | Kohana       | **`kohana-module`**
 | Laravel      | `laravel-library`
 | Lithium      | **`lithium-library`<br>`lithium-source`**
 | Magento      | `magento-library`<br>`magento-skin`<br>`magento-theme`
 | Mako         | `mako-package`
+<<<<<<< HEAD
+=======
+| Mautic       | `mautic-plugin`<br>`mautic-theme`
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 | MODX Evo     | `modxevo-snippet`<br>`modxevo-plugin`<br>`modxevo-module`<br>`modxevo-template`<br>`modxevo-lib`
 | MediaWiki    | `mediawiki-extension`
 | October      | **`october-module`<br>`october-plugin`<br>`october-theme`**
@@ -69,22 +101,45 @@ is not needed to install packages with these frameworks:
 | Piwik        | `piwik-plugin`
 | phpBB        | `phpbb-extension`<br>`phpbb-style`<br>`phpbb-language`
 | Pimcore      | `pimcore-plugin`
+<<<<<<< HEAD
 | PPI          | **`ppi-module`**
 | Puppet       | `puppet-module`
 | REDAXO       | `redaxo-addon`
 | Roundcube    | `roundcube-plugin`
 | shopware     | `shopware-backend-plugin`<br/>`shopware-core-plugin`<br/>`shopware-frontend-plugin`<br/>`shopware-theme`
+=======
+| Plentymarkets      | `plentymarkets-plugin`
+| PPI          | **`ppi-module`**
+| Puppet       | `puppet-module`
+| RadPHP       | `radphp-bundle`
+| REDAXO       | `redaxo-addon`
+| ReIndex      | **`reindex-plugin`** <br> **`reindex-theme`**
+| Roundcube    | `roundcube-plugin`
+| shopware     | `shopware-backend-plugin`<br/>`shopware-core-plugin`<br/>`shopware-frontend-plugin`<br/>`shopware-theme`<br/>`shopware-plugin`<br/>`shopware-frontend-theme`
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 | SilverStripe | `silverstripe-module`<br>`silverstripe-theme`
 | SMF          | `smf-module`<br>`smf-theme`
 | symfony1     | **`symfony1-plugin`**
 | Tusk         | `tusk-task`<br>`tusk-command`<br>`tusk-asset`
 | TYPO3 Flow   | `typo3-flow-package`<br>`typo3-flow-framework`<br>`typo3-flow-plugin`<br>`typo3-flow-site`<br>`typo3-flow-boilerplate`<br>`typo3-flow-build`
+<<<<<<< HEAD
 | TYPO3 CMS    | `typo3-cms-extension`
 | Wolf CMS     | `wolfcms-plugin`
 | WordPress    | <b>`wordpress-plugin`<br>`wordpress-theme`</b><br>`wordpress-muplugin`
 | Zend         | `zend-library`<br>`zend-extra`<br>`zend-module`
 | Zikula       | `zikula-module`<br>`zikula-theme`
 | Prestashop   | `prestashop-module`<br>`prestashop-theme`
+=======
+| TYPO3 CMS    | `typo3-cms-extension` (Deprecated in this package, use the [TYPO3 CMS Installers](https://packagist.org/packages/typo3/cms-composer-installers) instead)
+| Vanilla      | `vanilla-plugin`<br>`vanilla-theme`
+| Wolf CMS     | `wolfcms-plugin`
+| WordPress    | <b>`wordpress-plugin`<br>`wordpress-theme`</b><br>`wordpress-muplugin`
+| YAWIK        | `yawik-module`
+| Zend         | `zend-library`<br>`zend-extra`<br>`zend-module`
+| Zikula       | `zikula-module`<br>`zikula-theme`
+| Prestashop   | `prestashop-module`<br>`prestashop-theme`
+| Phifty       | `phifty-bundle`<br>`phifty-framework`<br>`phifty-library`
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
 ## Example `composer.json` File
 
@@ -135,7 +190,24 @@ A package type can have a custom installation path with a `type:` prefix.
 }
 ```
 
+<<<<<<< HEAD
 This would use your custom path for each of the listed packages. The available
+=======
+You can also have the same vendor packages with a custom installation path by
+using the `vendor:` prefix.
+
+``` json
+{
+    "extra": {
+        "installer-paths": {
+            "your/custom/path/{$name}/": ["vendor:my_organization"]
+        }
+    }
+}
+```
+
+These would use your custom path for each of the listed packages. The available
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 variables to use in your paths are: `{$name}`, `{$vendor}`, `{$type}`.
 
 ## Custom Install Names
@@ -166,8 +238,13 @@ not be inflected.
 ## Contribute!
 
 * [Fork and clone](https://help.github.com/articles/fork-a-repo).
+<<<<<<< HEAD
 * Run the command `php composer.phar install --dev` to install the dev
   dependencies. See [Composer](https://github.com/composer/composer#installation--usage).
+=======
+* Run the command `php composer.phar install` to install the dependencies.
+  This will also install the dev dependencies. See [Composer](https://getcomposer.org/doc/03-cli.md#install).
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 * Use the command `phpunit` to run the tests. See [PHPUnit](http://phpunit.de).
 * Create a branch, commit, push and send us a
   [pull request](https://help.github.com/articles/using-pull-requests).
@@ -189,3 +266,8 @@ It has been proposed many times. Even implemented once early on and then
 removed. `installers` won't do this because it would allow a single package
 author to wipe out entire folders without the user's consent. That user would
 then come here to yell at us.
+<<<<<<< HEAD
+=======
+
+Anyone still wanting this capability should consider requiring https://github.com/oomphinc/composer-installers-extender.
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9

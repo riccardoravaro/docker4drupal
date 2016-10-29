@@ -1,11 +1,35 @@
 Changelog
 =========
 
+<<<<<<< HEAD
+=======
+1.4.0
+-----
+
+* **2016-02-27**: Added ContentRepositoryEnhancer that can look up a content by
+  ID from a content repository.
+
+1.4.0-RC1
+---------
+
+* **2016-01-09**: When ChainRouter::match is used with a RequestMatcher, the
+  Request is now properly rebuilt from the RequestContext if that was set on
+  the ChainRouter, and http://localhost is used otherwise to avoid issues with
+  paths starting with a double forward slash.
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 * **2014-09-29**: ChainRouter does not require a RouterInterface, as a
   RequestMatcher and UrlGenerator is fine too. Fixed chain router interface to
   not force a RouterInterface.
 * **2014-09-29**: Deprecated DynamicRouter::match in favor of matchRequest.
 
+<<<<<<< HEAD
+=======
+1.3.0
+-----
+
+Release 1.3.0
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 1.3.0-RC1
 ---------
 

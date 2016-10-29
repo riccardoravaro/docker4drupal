@@ -25,7 +25,11 @@ interface DecoderInterface
      *
      * @param string $data    Data to decode
      * @param string $format  Format name
+<<<<<<< HEAD
      * @param array  $context options that decoders have access to.
+=======
+     * @param array  $context options that decoders have access to
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * The format parameter specifies which format the data is in; valid values
      * depend on the specific implementation. Authors implementing this interface

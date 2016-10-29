@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /**
  * GlobalState
  *
@@ -38,6 +39,15 @@
  * @copyright  2001-2014 Sebastian Bergmann <sebastian@phpunit.de>
  * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
  * @link       http://www.github.com/sebastianbergmann/global-state
+=======
+/*
+ * This file is part of the GlobalState package.
+ *
+ * (c) Sebastian Bergmann <sebastian@phpunit.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  */
 
 namespace SebastianBergmann\GlobalState;
@@ -46,11 +56,14 @@ use ReflectionClass;
 
 /**
  * A blacklist for global state elements that should not be snapshotted.
+<<<<<<< HEAD
  *
  * @author     Sebastian Bergmann <sebastian@phpunit.de>
  * @copyright  2001-2014 Sebastian Bergmann <sebastian@phpunit.de>
  * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
  * @link       http://www.github.com/sebastianbergmann/global-state
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  */
 class Blacklist
 {
@@ -139,7 +152,11 @@ class Blacklist
 
     /**
      * @param  string $variableName
+<<<<<<< HEAD
      * @return boolean
+=======
+     * @return bool
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function isGlobalVariableBlacklisted($variableName)
     {
@@ -149,7 +166,11 @@ class Blacklist
     /**
      * @param  string $className
      * @param  string $attributeName
+<<<<<<< HEAD
      * @return boolean
+=======
+     * @return bool
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function isStaticAttributeBlacklisted($className, $attributeName)
     {

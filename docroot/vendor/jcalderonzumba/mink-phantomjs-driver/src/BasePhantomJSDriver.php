@@ -4,7 +4,10 @@ namespace Zumba\Mink\Driver;
 
 use Behat\Mink\Driver\CoreDriver;
 use Behat\Mink\Exception\DriverException;
+<<<<<<< HEAD
 use Behat\Mink\Session;
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 use Zumba\GastonJS\Browser\Browser;
 
 /**
@@ -13,8 +16,11 @@ use Zumba\GastonJS\Browser\Browser;
  */
 class BasePhantomJSDriver extends CoreDriver {
 
+<<<<<<< HEAD
   /** @var  Session */
   protected $session;
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
   /** @var  Browser */
   protected $browser;
   /** @var  string */
@@ -73,6 +79,7 @@ class BasePhantomJSDriver extends CoreDriver {
   }
 
   /**
+<<<<<<< HEAD
    * {@inheritdoc}
    * @param Session $session
    */
@@ -81,6 +88,8 @@ class BasePhantomJSDriver extends CoreDriver {
   }
 
   /**
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
    * @return Browser
    */
   public function getBrowser() {

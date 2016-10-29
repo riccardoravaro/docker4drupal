@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /**
  * GlobalState
  *
@@ -38,10 +39,20 @@
  * @copyright  2001-2014 Sebastian Bergmann <sebastian@phpunit.de>
  * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
  * @link       http://www.github.com/sebastianbergmann/global-state
+=======
+/*
+ * This file is part of the GlobalState package.
+ *
+ * (c) Sebastian Bergmann <sebastian@phpunit.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  */
 
 namespace SebastianBergmann\GlobalState;
 
+<<<<<<< HEAD
 use Closure;
 use ReflectionClass;
 
@@ -52,6 +63,13 @@ use ReflectionClass;
  * @copyright  2001-2014 Sebastian Bergmann <sebastian@phpunit.de>
  * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
  * @link       http://www.github.com/sebastianbergmann/global-state
+=======
+use ReflectionClass;
+use Serializable;
+
+/**
+ * A snapshot of global state.
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  */
 class Snapshot
 {
@@ -119,6 +137,7 @@ class Snapshot
      * Creates a snapshot of the current global state.
      *
      * @param Blacklist $blacklist
+<<<<<<< HEAD
      * @param boolean   $includeGlobalVariables
      * @param boolean   $includeStaticAttributes
      * @param boolean   $includeConstants
@@ -128,6 +147,17 @@ class Snapshot
      * @param boolean   $includeTraits
      * @param boolean   $includeIniSettings
      * @param boolean   $includeIncludedFiles
+=======
+     * @param bool      $includeGlobalVariables
+     * @param bool      $includeStaticAttributes
+     * @param bool      $includeConstants
+     * @param bool      $includeFunctions
+     * @param bool      $includeClasses
+     * @param bool      $includeInterfaces
+     * @param bool      $includeTraits
+     * @param bool      $includeIniSettings
+     * @param bool      $includeIncludedFiles
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function __construct(Blacklist $blacklist = null, $includeGlobalVariables = true, $includeStaticAttributes = true, $includeConstants = true, $includeFunctions = true, $includeClasses = true, $includeInterfaces = true, $includeTraits = true, $includeIniSettings = true, $includeIncludedFiles = true)
     {
@@ -434,10 +464,35 @@ class Snapshot
 
     /**
      * @param  mixed $variable
+<<<<<<< HEAD
      * @return boolean
      * @todo   Implement this properly
      */
     private function canBeSerialized($variable) {
         return !$variable instanceof Closure;
+=======
+     * @return bool
+     * @todo   Implement this properly
+     */
+    private function canBeSerialized($variable)
+    {
+        if (!is_object($variable)) {
+            return !is_resource($variable);
+        }
+
+        if ($variable instanceof \stdClass) {
+            return true;
+        }
+
+        $class = new ReflectionClass($variable);
+
+        do {
+            if ($class->isInternal()) {
+                return $variable instanceof Serializable;
+            }
+        } while ($class = $class->getParentClass());
+
+        return true;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 }

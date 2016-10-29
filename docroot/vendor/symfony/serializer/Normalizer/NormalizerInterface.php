@@ -25,15 +25,24 @@ interface NormalizerInterface
      * @param string $format  format the normalization result will be encoded as
      * @param array  $context Context options for the normalizer
      *
+<<<<<<< HEAD
      * @return array|string|bool|int|float|null
+=======
+     * @return array|scalar
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function normalize($object, $format = null, array $context = array());
 
     /**
      * Checks whether the given class is supported for normalization by this normalizer.
      *
+<<<<<<< HEAD
      * @param mixed  $data   Data to normalize.
      * @param string $format The format being (de-)serialized from or into.
+=======
+     * @param mixed  $data   Data to normalize
+     * @param string $format The format being (de-)serialized from or into
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @return bool
      */

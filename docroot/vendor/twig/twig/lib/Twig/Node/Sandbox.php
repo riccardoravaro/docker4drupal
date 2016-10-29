@@ -25,7 +25,11 @@ class Twig_Node_Sandbox extends Twig_Node
     {
         $compiler
             ->addDebugInfo($this)
+<<<<<<< HEAD
             ->write("\$sandbox = \$this->env->getExtension('sandbox');\n")
+=======
+            ->write("\$sandbox = \$this->env->getExtension('Twig_Extension_Sandbox');\n")
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             ->write("if (!\$alreadySandboxed = \$sandbox->isSandboxed()) {\n")
             ->indent()
             ->write("\$sandbox->enableSandbox();\n")

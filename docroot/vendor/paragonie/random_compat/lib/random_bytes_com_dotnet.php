@@ -46,14 +46,26 @@ function random_bytes($bytes)
             'random_bytes(): $bytes must be an integer'
         );
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     if ($bytes < 1) {
         throw new Error(
             'Length must be greater than 0'
         );
     }
+<<<<<<< HEAD
     $buf = '';
     $util = new COM('CAPICOM.Utilities.1');
     $execCount = 0;
+=======
+
+    $buf = '';
+    $util = new COM('CAPICOM.Utilities.1');
+    $execCount = 0;
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     /**
      * Let's not let it loop forever. If we run N times and fail to
      * get N bytes of random data, then CAPICOM has failed us.
@@ -68,6 +80,10 @@ function random_bytes($bytes)
         }
         ++$execCount; 
     } while ($execCount < $bytes);
+<<<<<<< HEAD
+=======
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     /**
      * If we reach here, PHP has failed us.
      */

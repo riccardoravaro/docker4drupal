@@ -1,5 +1,17 @@
 <?php
 
+<<<<<<< HEAD
+=======
+/*
+ * This file is part of the Symfony CMF package.
+ *
+ * (c) 2011-2015 Symfony CMF
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 /**
  * This file is part of the Symfony CMF package.
  *
@@ -8,6 +20,17 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+<<<<<<< HEAD
+=======
+/*
+ * This file is part of the Symfony CMF package.
+ *
+ * (c) 2011-2015 Symfony CMF
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
 namespace Symfony\Cmf\Component\Routing;
 
@@ -23,6 +46,7 @@ interface PagedRouteProviderInterface extends RouteProviderInterface
      * all routes at once.
      *
      * @param int $offset
+<<<<<<< HEAD
      *   The sequence will start with that offset in the list of all routes.
      * @param int $length [optional]
      *   The sequence will have that many routes in it. If no length is
@@ -30,6 +54,15 @@ interface PagedRouteProviderInterface extends RouteProviderInterface
      *
      * @return \Symfony\Component\Routing\Route[]
      *   Routes keyed by the route name.
+=======
+     *                    The sequence will start with that offset in the list of all routes.
+     * @param int $length [optional]
+     *                    The sequence will have that many routes in it. If no length is
+     *                    specified all routes are returned.
+     *
+     * @return \Symfony\Component\Routing\Route[]
+     *                                            Routes keyed by the route name.
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getRoutesPaged($offset, $length = null);
 

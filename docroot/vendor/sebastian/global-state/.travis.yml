@@ -1,9 +1,12 @@
 language: php
 
+<<<<<<< HEAD
 before_script:
   - composer self-update
   - composer install --no-interaction --prefer-source --dev
 
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 php:
   - 5.3.3
   - 5.3
@@ -12,8 +15,21 @@ php:
   - 5.6
   - hhvm
 
+<<<<<<< HEAD
 script: ./vendor/bin/phpunit --configuration ./build/phpunit.xml
 
 notifications:
   email: false
   irc: "irc.freenode.org#phpunit"
+=======
+sudo: false
+
+before_script:
+  - composer self-update
+  - composer install --no-interaction --prefer-source --dev
+
+script: ./vendor/bin/phpunit
+
+notifications:
+  email: false
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9

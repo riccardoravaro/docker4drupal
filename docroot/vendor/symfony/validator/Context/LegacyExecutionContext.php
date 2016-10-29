@@ -20,8 +20,11 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 /**
  * An execution context that is compatible with the legacy API (< 2.5).
  *
+<<<<<<< HEAD
  * @since  2.5
  *
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  * @author Bernhard Schussek <bschussek@gmail.com>
  *
  * @deprecated since version 2.5, to be removed in 3.0.

@@ -35,7 +35,12 @@ class PHPUnit_Framework_Constraint_Not extends PHPUnit_Framework_Constraint
     }
 
     /**
+<<<<<<< HEAD
      * @param  string $string
+=======
+     * @param string $string
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return string
      */
     public static function negate($string)
@@ -79,10 +84,19 @@ class PHPUnit_Framework_Constraint_Not extends PHPUnit_Framework_Constraint
      * a boolean value instead: true in case of success, false in case of a
      * failure.
      *
+<<<<<<< HEAD
      * @param  mixed                                        $other        Value or object to evaluate.
      * @param  string                                       $description  Additional information about the test
      * @param  bool                                         $returnResult Whether to return a result or throw an exception
      * @return mixed
+=======
+     * @param mixed  $other        Value or object to evaluate.
+     * @param string $description  Additional information about the test
+     * @param bool   $returnResult Whether to return a result or throw an exception
+     *
+     * @return mixed
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @throws PHPUnit_Framework_ExpectationFailedException
      */
     public function evaluate($other, $description = '', $returnResult = false)
@@ -104,7 +118,12 @@ class PHPUnit_Framework_Constraint_Not extends PHPUnit_Framework_Constraint
      * The beginning of failure messages is "Failed asserting that" in most
      * cases. This method should return the second part of that sentence.
      *
+<<<<<<< HEAD
      * @param  mixed  $other Evaluated value or object.
+=======
+     * @param mixed $other Evaluated value or object.
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return string
      */
     protected function failureDescription($other)
@@ -146,6 +165,10 @@ class PHPUnit_Framework_Constraint_Not extends PHPUnit_Framework_Constraint
      * Counts the number of constraint elements.
      *
      * @return int
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since  Method available since Release 3.4.0
      */
     public function count()

@@ -92,9 +92,15 @@ class NativeSessionStorage implements SessionStorageInterface
      * upload_progress.min-freq, "1"
      * url_rewriter.tags, "a=href,area=href,frame=src,form=,fieldset="
      *
+<<<<<<< HEAD
      * @param array                                                            $options Session configuration options.
      * @param AbstractProxy|NativeSessionHandler|\SessionHandlerInterface|null $handler
      * @param MetadataBag                                                      $metaBag MetadataBag.
+=======
+     * @param array                                                            $options Session configuration options
+     * @param AbstractProxy|NativeSessionHandler|\SessionHandlerInterface|null $handler
+     * @param MetadataBag                                                      $metaBag MetadataBag
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function __construct(array $options = array(), $handler = null, MetadataBag $metaBag = null)
     {
@@ -319,7 +325,11 @@ class NativeSessionStorage implements SessionStorageInterface
      * For convenience we omit 'session.' from the beginning of the keys.
      * Explicitly ignores other ini keys.
      *
+<<<<<<< HEAD
      * @param array $options Session ini directives array(key => value).
+=======
+     * @param array $options Session ini directives array(key => value)
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @see http://php.net/session.configuration
      */

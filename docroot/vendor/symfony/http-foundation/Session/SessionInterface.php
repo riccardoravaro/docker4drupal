@@ -23,7 +23,11 @@ interface SessionInterface
     /**
      * Starts the session storage.
      *
+<<<<<<< HEAD
      * @return bool True if session started.
+=======
+     * @return bool True if session started
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @throws \RuntimeException If session fails to start.
      */
@@ -32,7 +36,11 @@ interface SessionInterface
     /**
      * Returns the session ID.
      *
+<<<<<<< HEAD
      * @return string The session ID.
+=======
+     * @return string The session ID
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getId();
 
@@ -46,7 +54,11 @@ interface SessionInterface
     /**
      * Returns the session name.
      *
+<<<<<<< HEAD
      * @return mixed The session name.
+=======
+     * @return mixed The session name
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getName();
 
@@ -68,7 +80,11 @@ interface SessionInterface
      *                      to expire with browser session. Time is in seconds, and is
      *                      not a Unix timestamp.
      *
+<<<<<<< HEAD
      * @return bool True if session invalidated, false if error.
+=======
+     * @return bool True if session invalidated, false if error
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function invalidate($lifetime = null);
 
@@ -76,13 +92,21 @@ interface SessionInterface
      * Migrates the current session to a new session id while maintaining all
      * session attributes.
      *
+<<<<<<< HEAD
      * @param bool $destroy  Whether to delete the old session or leave it to garbage collection.
+=======
+     * @param bool $destroy  Whether to delete the old session or leave it to garbage collection
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @param int  $lifetime Sets the cookie lifetime for the session cookie. A null value
      *                       will leave the system settings unchanged, 0 sets the cookie
      *                       to expire with browser session. Time is in seconds, and is
      *                       not a Unix timestamp.
      *
+<<<<<<< HEAD
      * @return bool True if session migrated, false if error.
+=======
+     * @return bool True if session migrated, false if error
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function migrate($destroy = false, $lifetime = null);
 
@@ -108,7 +132,11 @@ interface SessionInterface
      * Returns an attribute.
      *
      * @param string $name    The attribute name
+<<<<<<< HEAD
      * @param mixed  $default The default value if not found.
+=======
+     * @param mixed  $default The default value if not found
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @return mixed
      */

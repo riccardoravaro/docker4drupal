@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /**
  * GlobalState
  *
@@ -38,6 +39,15 @@
  * @copyright  2001-2014 Sebastian Bergmann <sebastian@phpunit.de>
  * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
  * @link       http://www.github.com/sebastianbergmann/global-state
+=======
+/*
+ * This file is part of the GlobalState package.
+ *
+ * (c) Sebastian Bergmann <sebastian@phpunit.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  */
 
 namespace SebastianBergmann\GlobalState;
@@ -46,18 +56,25 @@ use ReflectionProperty;
 
 /**
  * Restorer of snapshots of global state.
+<<<<<<< HEAD
  *
  * @author     Sebastian Bergmann <sebastian@phpunit.de>
  * @copyright  2001-2014 Sebastian Bergmann <sebastian@phpunit.de>
  * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
  * @link       http://www.github.com/sebastianbergmann/global-state
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  */
 class Restorer
 {
     /**
      * Deletes function definitions that are not defined in a snapshot.
      *
+<<<<<<< HEAD
      * @param  Snapshot $snapshot
+=======
+     * @param  Snapshot         $snapshot
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @throws RuntimeException when the uopz_delete() function is not available
      * @see    https://github.com/krakjoe/uopz
      */
@@ -109,6 +126,13 @@ class Restorer
      */
     public function restoreStaticAttributes(Snapshot $snapshot)
     {
+<<<<<<< HEAD
+=======
+        $current    = new Snapshot($snapshot->blacklist(), false, false, false, false, true, false, false, false, false);
+        $newClasses = array_diff($current->classes(), $snapshot->classes());
+        unset($current);
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         foreach ($snapshot->staticAttributes() as $className => $staticAttributes) {
             foreach ($staticAttributes as $name => $value) {
                 $reflector = new ReflectionProperty($className, $name);
@@ -116,6 +140,33 @@ class Restorer
                 $reflector->setValue($value);
             }
         }
+<<<<<<< HEAD
+=======
+
+        foreach ($newClasses as $className) {
+            $class    = new \ReflectionClass($className);
+            $defaults = $class->getDefaultProperties();
+
+            foreach ($class->getProperties() as $attribute) {
+                if (!$attribute->isStatic()) {
+                    continue;
+                }
+
+                $name = $attribute->getName();
+
+                if ($snapshot->blacklist()->isStaticAttributeBlacklisted($className, $name)) {
+                    continue;
+                }
+
+                if (!isset($defaults[$name])) {
+                    continue;
+                }
+
+                $attribute->setAccessible(true);
+                $attribute->setValue($defaults[$name]);
+            }
+        }
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     /**

@@ -420,9 +420,15 @@ class YamlFileLoader extends FileLoader
     {
         if (is_array($value)) {
             $value = array_map(array($this, 'resolveServices'), $value);
+<<<<<<< HEAD
         } elseif (is_string($value) &&  0 === strpos($value, '@=')) {
             return new Expression(substr($value, 2));
         } elseif (is_string($value) &&  0 === strpos($value, '@')) {
+=======
+        } elseif (is_string($value) && 0 === strpos($value, '@=')) {
+            return new Expression(substr($value, 2));
+        } elseif (is_string($value) && 0 === strpos($value, '@')) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             if (0 === strpos($value, '@@')) {
                 $value = substr($value, 1);
                 $invalidBehavior = null;

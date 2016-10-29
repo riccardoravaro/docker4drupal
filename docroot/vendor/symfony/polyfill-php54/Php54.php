@@ -31,6 +31,7 @@ final class Php54
             return false;
         }
 
+<<<<<<< HEAD
         $data = pack('H*', $data);
 
         if (false !== strpos($data, "\0")) {
@@ -38,5 +39,8 @@ final class Php54
         }
 
         return $data;
+=======
+        return pack('H*', $data);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 }

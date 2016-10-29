@@ -36,7 +36,11 @@ class Twig_Extension_Profiler extends Twig_Extension
 
     public function getNodeVisitors()
     {
+<<<<<<< HEAD
         return array(new Twig_Profiler_NodeVisitor_Profiler($this->getName()));
+=======
+        return array(new Twig_Profiler_NodeVisitor_Profiler(get_class($this)));
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     public function getName()

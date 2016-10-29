@@ -48,11 +48,19 @@ function random_bytes($bytes)
             'random_bytes(): $bytes must be an integer'
         );
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     if ($bytes < 1) {
         throw new Error(
             'Length must be greater than 0'
         );
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     /**
      * \Sodium\randombytes_buf() doesn't allow more than 2147483647 bytes to be
      * generated in one invocation.

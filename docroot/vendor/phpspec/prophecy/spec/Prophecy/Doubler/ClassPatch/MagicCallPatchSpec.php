@@ -46,6 +46,34 @@ class MagicCallPatchSpec extends ObjectBehavior
         $this->apply($node);
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * @param \Prophecy\Doubler\Generator\Node\ClassNode $node
+     */
+    function it_ignores_empty_methods_from_phpdoc($node)
+    {
+        $node->getParentClass()->willReturn('spec\Prophecy\Doubler\ClassPatch\MagicalApiInvalidMethodDefinition');
+
+        $node->addMethod(new MethodNode(''))->shouldNotBeCalled();
+
+        $this->apply($node);
+    }
+
+    /**
+     * @param \Prophecy\Doubler\Generator\Node\ClassNode $node
+     */
+    function it_discovers_api_using_phpdoc_from_interface($node)
+    {
+        $node->getParentClass()->willReturn('spec\Prophecy\Doubler\ClassPatch\MagicalApiImplemented');
+
+        $node->addMethod(new MethodNode('implementedMethod'))->shouldBeCalled();
+
+        $this->apply($node);
+    }
+
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     function it_has_50_priority()
     {
         $this->getPriority()->shouldReturn(50);
@@ -67,10 +95,41 @@ class MagicalApi
 }
 
 /**
+<<<<<<< HEAD
+=======
+ * @method void invalidMethodDefinition
+ * @method void
+ * @method
+ */
+class MagicalApiInvalidMethodDefinition
+{
+}
+
+/**
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  * @method void undefinedMethod()
  * @method void definedMethod()
  */
 class MagicalApiExtended extends MagicalApi
 {
 
+<<<<<<< HEAD
 }
+=======
+}
+
+/**
+ */
+class MagicalApiImplemented implements MagicalApiInterface
+{
+
+}
+
+/**
+ * @method void implementedMethod()
+ */
+interface MagicalApiInterface
+{
+
+}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9

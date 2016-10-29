@@ -73,11 +73,16 @@ class Yaml
     }
 
     /**
+<<<<<<< HEAD
      * Dumps a PHP array to a YAML string.
+=======
+     * Dumps a PHP value to a YAML string.
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * The dump method, when supplied with an array, will do its best
      * to convert the array into friendly YAML.
      *
+<<<<<<< HEAD
      * @param array $array                  PHP array
      * @param int   $inline                 The level where you switch to inline YAML
      * @param int   $indent                 The amount of spaces to use for indentation of nested nodes.
@@ -87,6 +92,17 @@ class Yaml
      * @return string A YAML string representing the original PHP array
      */
     public static function dump($array, $inline = 2, $indent = 4, $exceptionOnInvalidType = false, $objectSupport = false)
+=======
+     * @param mixed $input                  The PHP value
+     * @param int   $inline                 The level where you switch to inline YAML
+     * @param int   $indent                 The amount of spaces to use for indentation of nested nodes
+     * @param bool  $exceptionOnInvalidType true if an exception must be thrown on invalid types (a PHP resource or object), false otherwise
+     * @param bool  $objectSupport          true if object support is enabled, false otherwise
+     *
+     * @return string A YAML string representing the original PHP value
+     */
+    public static function dump($input, $inline = 2, $indent = 4, $exceptionOnInvalidType = false, $objectSupport = false)
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     {
         if ($indent < 1) {
             throw new \InvalidArgumentException('The indentation must be greater than zero.');
@@ -95,6 +111,10 @@ class Yaml
         $yaml = new Dumper();
         $yaml->setIndentation($indent);
 
+<<<<<<< HEAD
         return $yaml->dump($array, $inline, 0, $exceptionOnInvalidType, $objectSupport);
+=======
+        return $yaml->dump($input, $inline, 0, $exceptionOnInvalidType, $objectSupport);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 }

@@ -2,7 +2,10 @@
 
 namespace Zumba\Mink\Driver;
 
+<<<<<<< HEAD
 use Behat\Mink\Element\NodeElement;
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 use Behat\Mink\Exception\DriverException;
 
 /**
@@ -144,6 +147,7 @@ class PhantomJSDriver extends BasePhantomJSDriver {
   /**
    * Finds elements with specified XPath query.
    * @param string $xpath
+<<<<<<< HEAD
    * @return NodeElement[]
    * @throws DriverException                  When the operation cannot be done
    */
@@ -159,6 +163,23 @@ class PhantomJSDriver extends BasePhantomJSDriver {
       $nodeElements[] = new NodeElement(sprintf('(%s)[%d]', $xpath, $i + 1), $this->session);
     }
     return $nodeElements;
+=======
+   * @return string[]
+   * @throws DriverException                  When the operation cannot be done
+   */
+  protected function findElementXpaths($xpath) {
+    $elements = $this->browser->find("xpath", $xpath);
+    $nodeXPaths = array();
+
+    if (!isset($elements["ids"])) {
+      return array();
+    }
+
+    foreach ($elements["ids"] as $i => $elementId) {
+      $nodeXPaths[] = sprintf('(%s)[%d]', $xpath, $i + 1);
+    }
+    return $nodeXPaths;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
   }
 
 }

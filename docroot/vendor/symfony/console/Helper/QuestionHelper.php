@@ -202,6 +202,10 @@ class QuestionHelper extends Helper
      *
      * @param OutputInterface $output
      * @param Question        $question
+<<<<<<< HEAD
+=======
+     * @param resource        $inputStream
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @return string
      */
@@ -318,7 +322,12 @@ class QuestionHelper extends Helper
     /**
      * Gets a hidden response from user.
      *
+<<<<<<< HEAD
      * @param OutputInterface $output An Output instance
+=======
+     * @param OutputInterface $output      An Output instance
+     * @param resource        $inputStream The handler resource
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @return string The answer
      *

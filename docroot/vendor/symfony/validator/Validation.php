@@ -42,7 +42,11 @@ final class Validation
      * If you want to configure the validator, use
      * {@link createValidatorBuilder()} instead.
      *
+<<<<<<< HEAD
      * @return ValidatorInterface The new validator.
+=======
+     * @return ValidatorInterface The new validator
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public static function createValidator()
     {
@@ -52,7 +56,11 @@ final class Validation
     /**
      * Creates a configurable builder for validator objects.
      *
+<<<<<<< HEAD
      * @return ValidatorBuilderInterface The new builder.
+=======
+     * @return ValidatorBuilderInterface The new builder
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public static function createValidatorBuilder()
     {

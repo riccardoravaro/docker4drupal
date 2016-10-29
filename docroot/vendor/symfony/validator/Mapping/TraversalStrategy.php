@@ -23,8 +23,11 @@ namespace Symfony\Component\Validator\Mapping;
  *
  * The traversal strategy is ignored for arrays. Arrays are always iterated.
  *
+<<<<<<< HEAD
  * @since  2.1
  *
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  * @author Bernhard Schussek <bschussek@gmail.com>
  *
  * @see CascadingStrategy

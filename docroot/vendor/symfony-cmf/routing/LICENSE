@@ -2,7 +2,11 @@ Routing
 
     The MIT License
 
+<<<<<<< HEAD
     Copyright (c) 2011-2014 Symfony2 CMF
+=======
+    Copyright (c) 2011-2015 Symfony CMF
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal

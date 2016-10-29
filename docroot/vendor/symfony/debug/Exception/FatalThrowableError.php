@@ -27,7 +27,11 @@ class FatalThrowableError extends FatalErrorException
             $message = 'Type error: '.$e->getMessage();
             $severity = E_RECOVERABLE_ERROR;
         } else {
+<<<<<<< HEAD
             $message = 'Fatal error: '.$e->getMessage();
+=======
+            $message = $e->getMessage();
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             $severity = E_ERROR;
         }
 

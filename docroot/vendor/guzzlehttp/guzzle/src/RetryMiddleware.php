@@ -5,6 +5,10 @@ use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\Promise\RejectedPromise;
 use GuzzleHttp\Psr7;
 use Psr\Http\Message\RequestInterface;
+<<<<<<< HEAD
+=======
+use Psr\Http\Message\ResponseInterface;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
 /**
  * Middleware that retries requests based on the boolean result of
@@ -25,8 +29,13 @@ class RetryMiddleware
      *                              retried.
      * @param callable $nextHandler Next handler to invoke.
      * @param callable $delay       Function that accepts the number of retries
+<<<<<<< HEAD
      *                              and returns the number of milliseconds to
      *                              delay.
+=======
+     *                              and [response] and returns the number of
+     *                              milliseconds to delay.
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function __construct(
         callable $decider,
@@ -82,7 +91,11 @@ class RetryMiddleware
             )) {
                 return $value;
             }
+<<<<<<< HEAD
             return $this->doRetry($req, $options);
+=======
+            return $this->doRetry($req, $options, $value);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         };
     }
 
@@ -102,9 +115,15 @@ class RetryMiddleware
         };
     }
 
+<<<<<<< HEAD
     private function doRetry(RequestInterface $request, array $options)
     {
         $options['delay'] = call_user_func($this->delay, ++$options['retries']);
+=======
+    private function doRetry(RequestInterface $request, array $options, ResponseInterface $response = null)
+    {
+        $options['delay'] = call_user_func($this->delay, ++$options['retries'], $response);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
         return $this($request, $options);
     }

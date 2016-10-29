@@ -5,6 +5,7 @@ php:
   - 5.4
   - 5.5
   - 5.6
+<<<<<<< HEAD
   - hhvm
 
 before_script:
@@ -12,3 +13,19 @@ before_script:
   - php composer.phar install --dev
 
 script: phpunit
+=======
+  - 7.0
+  - hhvm
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - php: 7.0
+
+before_script:  
+  - composer self-update
+  - composer install
+
+script:
+  - composer test
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9

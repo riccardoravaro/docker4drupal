@@ -22,10 +22,16 @@ abstract class AbstractPipes implements PipesInterface
     public $pipes = array();
 
     /** @var string */
+<<<<<<< HEAD
     protected $inputBuffer = '';
     /** @var resource|null */
     protected $input;
 
+=======
+    private $inputBuffer = '';
+    /** @var resource|null */
+    private $input;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     /** @var bool */
     private $blocked = true;
 
@@ -91,9 +97,14 @@ abstract class AbstractPipes implements PipesInterface
         if (!isset($this->pipes[0])) {
             return;
         }
+<<<<<<< HEAD
 
         $e = array();
         $r = null !== $this->input ? array($this->input) : $e;
+=======
+        $input = $this->input;
+        $r = $e = array();
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         $w = array($this->pipes[0]);
 
         // let's have a look if something changed in streams
@@ -110,7 +121,11 @@ abstract class AbstractPipes implements PipesInterface
                 }
             }
 
+<<<<<<< HEAD
             foreach ($r as $input) {
+=======
+            if ($input) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                 for (;;) {
                     $data = fread($input, self::CHUNK_SIZE);
                     if (!isset($data[0])) {
@@ -124,7 +139,11 @@ abstract class AbstractPipes implements PipesInterface
                         return array($this->pipes[0]);
                     }
                 }
+<<<<<<< HEAD
                 if (!isset($data[0]) && feof($input)) {
+=======
+                if (feof($input)) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                     // no more data to read on input resource
                     // use an empty buffer in the next reads
                     $this->input = null;
@@ -136,9 +155,13 @@ abstract class AbstractPipes implements PipesInterface
         if (null === $this->input && !isset($this->inputBuffer[0])) {
             fclose($this->pipes[0]);
             unset($this->pipes[0]);
+<<<<<<< HEAD
         }
 
         if (!$w) {
+=======
+        } elseif (!$w) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             return array($this->pipes[0]);
         }
     }

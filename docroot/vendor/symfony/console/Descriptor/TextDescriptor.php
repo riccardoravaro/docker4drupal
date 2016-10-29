@@ -156,7 +156,11 @@ class TextDescriptor extends Descriptor
             $this->writeText("\n");
             $this->writeText('<comment>Help:</comment>', $options);
             $this->writeText("\n");
+<<<<<<< HEAD
             $this->writeText(' '.str_replace("\n", "\n ", $help), $options);
+=======
+            $this->writeText('  '.str_replace("\n", "\n  ", $help), $options);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             $this->writeText("\n");
         }
     }

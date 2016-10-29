@@ -3,6 +3,8 @@ version: "2"
 services:
   mariadb:
     image: wodby/drupal-mariadb
+    ports:
+      - "3306:3306"
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: 1
       MYSQL_DATABASE: drupal
@@ -14,7 +16,11 @@ services:
       - ./docker-runtime/mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
 
   php:
+<<<<<<< HEAD
     image: riccardoravaro/drupal-php:7.0 # Allowed: 7.0, 5.6.
+=======
+    image: riccardoravaro/drupal-php:7.0 
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     environment:
       PHP_SITE_NAME: dev
       PHP_HOST_NAME: localhost:8000
@@ -27,18 +33,25 @@ services:
 
     volumes:
       - ./docroot:/var/www/html
+<<<<<<< HEAD
+=======
+    links:
+      - memcached:memcached
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
   nginx:
     image: wodby/drupal-nginx
     environment:
       NGINX_SERVER_NAME: localhost
       NGINX_UPSTREAM_NAME: php
-#      NGINX_DOCROOT: public # Relative path inside the /var/www/html/ directory.
+      NGINX_DOCROOT: web # Relative path inside the /var/www/html/ directory.
       DRUPAL_VERSION: 8 # Allowed: 7, 8.
     volumes_from:
       - php
     ports:
       - "8000:80"
+    links:
+      - memcached:memcached
 
   pma:
     image: phpmyadmin/phpmyadmin
@@ -61,11 +74,21 @@ services:
 
   memcached:
     image: memcached:1.4-alpine
+<<<<<<< HEAD
+=======
+    ports:
+      - "11211:11211"
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
   memcached-admin:
     image: phynias/phpmemcachedadmin
     ports:
       - "8006:80"
+<<<<<<< HEAD
+=======
+    links:
+      - memcached:memcached
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
   solr:
     image: solr:5.5-alpine

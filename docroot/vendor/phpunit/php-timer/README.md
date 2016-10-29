@@ -44,4 +44,8 @@ print PHP_Timer::resourceUsage();
 
 The code above yields the output below:
 
+<<<<<<< HEAD
     Time: 0 ms, Memory: 0.50Mb
+=======
+    Time: 0 ms, Memory: 0.50MB
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9

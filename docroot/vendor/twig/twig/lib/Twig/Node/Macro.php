@@ -109,6 +109,14 @@ class Twig_Node_Macro extends Twig_Node
             ->write("ob_end_clean();\n\n")
             ->write("throw \$e;\n")
             ->outdent()
+<<<<<<< HEAD
+=======
+            ->write("} catch (Throwable \$e) {\n")
+            ->indent()
+            ->write("ob_end_clean();\n\n")
+            ->write("throw \$e;\n")
+            ->outdent()
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             ->write("}\n\n")
             ->write("return ('' === \$tmp = ob_get_clean()) ? '' : new Twig_Markup(\$tmp, \$this->env->getCharset());\n")
             ->outdent()

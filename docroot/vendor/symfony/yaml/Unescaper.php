@@ -39,9 +39,15 @@ class Unescaper
     /**
      * Unescapes a single quoted string.
      *
+<<<<<<< HEAD
      * @param string $value A single quoted string.
      *
      * @return string The unescaped string.
+=======
+     * @param string $value A single quoted string
+     *
+     * @return string The unescaped string
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function unescapeSingleQuotedString($value)
     {
@@ -51,9 +57,15 @@ class Unescaper
     /**
      * Unescapes a double quoted string.
      *
+<<<<<<< HEAD
      * @param string $value A double quoted string.
      *
      * @return string The unescaped string.
+=======
+     * @param string $value A double quoted string
+     *
+     * @return string The unescaped string
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function unescapeDoubleQuotedString($value)
     {

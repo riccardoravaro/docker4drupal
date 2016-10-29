@@ -46,7 +46,11 @@ interface ResponseInterface extends MessageInterface
      * @param string $reasonPhrase The reason phrase to use with the
      *     provided status code; if none is provided, implementations MAY
      *     use the defaults as suggested in the HTTP specification.
+<<<<<<< HEAD
      * @return self
+=======
+     * @return static
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @throws \InvalidArgumentException For invalid status code arguments.
      */
     public function withStatus($code, $reasonPhrase = '');

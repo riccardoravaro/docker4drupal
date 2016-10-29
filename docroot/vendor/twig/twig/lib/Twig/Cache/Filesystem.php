@@ -27,7 +27,11 @@ class Twig_Cache_Filesystem implements Twig_CacheInterface
      */
     public function __construct($directory, $options = 0)
     {
+<<<<<<< HEAD
         $this->directory = $directory;
+=======
+        $this->directory = rtrim($directory, '\/').'/';
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         $this->options = $options;
     }
 
@@ -38,7 +42,11 @@ class Twig_Cache_Filesystem implements Twig_CacheInterface
     {
         $hash = hash('sha256', $className);
 
+<<<<<<< HEAD
         return $this->directory.'/'.$hash[0].$hash[1].'/'.$hash.'.php';
+=======
+        return $this->directory.$hash[0].$hash[1].'/'.$hash.'.php';
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     /**
@@ -46,7 +54,13 @@ class Twig_Cache_Filesystem implements Twig_CacheInterface
      */
     public function load($key)
     {
+<<<<<<< HEAD
         @include_once $key;
+=======
+        if (file_exists($key)) {
+            @include_once $key;
+        }
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     /**

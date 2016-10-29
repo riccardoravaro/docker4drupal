@@ -23,8 +23,11 @@ abstract class Dumper implements DumperInterface
     protected $container;
 
     /**
+<<<<<<< HEAD
      * Constructor.
      *
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @param ContainerBuilder $container The service container to dump
      */
     public function __construct(ContainerBuilder $container)

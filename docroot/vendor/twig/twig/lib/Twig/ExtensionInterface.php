@@ -23,7 +23,11 @@ interface Twig_ExtensionInterface
      *
      * @param Twig_Environment $environment The current Twig_Environment instance
      *
+<<<<<<< HEAD
      * @deprecated since 1.23 (to be removed in 2.0), implement Twig_Extension_InitRuntimeInterace instead
+=======
+     * @deprecated since 1.23 (to be removed in 2.0), implement Twig_Extension_InitRuntimeInterface instead
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function initRuntime(Twig_Environment $environment);
 
@@ -82,6 +86,11 @@ interface Twig_ExtensionInterface
      * Returns the name of the extension.
      *
      * @return string The extension name
+<<<<<<< HEAD
+=======
+     *
+     * @deprecated since 1.26 (to be removed in 2.0), not used anymore internally
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getName();
 }

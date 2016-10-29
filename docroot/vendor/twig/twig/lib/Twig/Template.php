@@ -43,6 +43,31 @@ abstract class Twig_Template implements Twig_TemplateInterface
     abstract public function getTemplateName();
 
     /**
+<<<<<<< HEAD
+=======
+     * Returns debug information about the template.
+     *
+     * @return array Debug information
+     *
+     * @internal
+     */
+    public function getDebugInfo()
+    {
+        return array();
+    }
+
+    /**
+     * Returns the template source code.
+     *
+     * @return string The template source code
+     */
+    public function getSource()
+    {
+        return '';
+    }
+
+    /**
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @deprecated since 1.20 (to be removed in 2.0)
      */
     public function getEnvironment()
@@ -125,7 +150,11 @@ abstract class Twig_Template implements Twig_TemplateInterface
         } elseif (false !== $parent = $this->getParent($context)) {
             $parent->displayBlock($name, $context, $blocks, false);
         } else {
+<<<<<<< HEAD
             throw new Twig_Error_Runtime(sprintf('The template has no parent and no traits defining the "%s" block', $name), -1, $this->getTemplateName());
+=======
+            throw new Twig_Error_Runtime(sprintf('The template has no parent and no traits defining the "%s" block.', $name), -1, $this->getTemplateName());
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         }
     }
 
@@ -321,6 +350,7 @@ abstract class Twig_Template implements Twig_TemplateInterface
     }
 
     /**
+<<<<<<< HEAD
      * Returns the template source code.
      *
      * @return string|null The template source code or null if it is not available
@@ -348,6 +378,8 @@ abstract class Twig_Template implements Twig_TemplateInterface
     }
 
     /**
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * {@inheritdoc}
      */
     public function display(array $context, array $blocks = array())
@@ -370,6 +402,15 @@ abstract class Twig_Template implements Twig_TemplateInterface
             }
 
             throw $e;
+<<<<<<< HEAD
+=======
+        } catch (Throwable $e) {
+            while (ob_get_level() > $level) {
+                ob_end_clean();
+            }
+
+            throw $e;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         }
 
         return ob_get_clean();
@@ -433,7 +474,11 @@ abstract class Twig_Template implements Twig_TemplateInterface
                 return;
             }
 
+<<<<<<< HEAD
             throw new Twig_Error_Runtime(sprintf('Variable "%s" does not exist', $item), -1, $this->getTemplateName());
+=======
+            throw new Twig_Error_Runtime(sprintf('Variable "%s" does not exist.', $item), -1, $this->getTemplateName());
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         }
 
         return $context[$item];
@@ -479,6 +524,7 @@ abstract class Twig_Template implements Twig_TemplateInterface
                 }
 
                 if ($object instanceof ArrayAccess) {
+<<<<<<< HEAD
                     $message = sprintf('Key "%s" in object with ArrayAccess of class "%s" does not exist', $arrayItem, get_class($object));
                 } elseif (is_object($object)) {
                     $message = sprintf('Impossible to access a key "%s" on an object of class "%s" that does not implement ArrayAccess interface', $item, get_class($object));
@@ -498,6 +544,27 @@ abstract class Twig_Template implements Twig_TemplateInterface
                     $message = sprintf('Impossible to access an attribute ("%s") on a null variable', $item);
                 } else {
                     $message = sprintf('Impossible to access an attribute ("%s") on a %s variable ("%s")', $item, gettype($object), $object);
+=======
+                    $message = sprintf('Key "%s" in object with ArrayAccess of class "%s" does not exist.', $arrayItem, get_class($object));
+                } elseif (is_object($object)) {
+                    $message = sprintf('Impossible to access a key "%s" on an object of class "%s" that does not implement ArrayAccess interface.', $item, get_class($object));
+                } elseif (is_array($object)) {
+                    if (empty($object)) {
+                        $message = sprintf('Key "%s" does not exist as the array is empty.', $arrayItem);
+                    } else {
+                        $message = sprintf('Key "%s" for array with keys "%s" does not exist.', $arrayItem, implode(', ', array_keys($object)));
+                    }
+                } elseif (self::ARRAY_CALL === $type) {
+                    if (null === $object) {
+                        $message = sprintf('Impossible to access a key ("%s") on a null variable.', $item);
+                    } else {
+                        $message = sprintf('Impossible to access a key ("%s") on a %s variable ("%s").', $item, gettype($object), $object);
+                    }
+                } elseif (null === $object) {
+                    $message = sprintf('Impossible to access an attribute ("%s") on a null variable.', $item);
+                } else {
+                    $message = sprintf('Impossible to access an attribute ("%s") on a %s variable ("%s").', $item, gettype($object), $object);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                 }
 
                 throw new Twig_Error_Runtime($message, -1, $this->getTemplateName());
@@ -514,9 +581,15 @@ abstract class Twig_Template implements Twig_TemplateInterface
             }
 
             if (null === $object) {
+<<<<<<< HEAD
                 $message = sprintf('Impossible to invoke a method ("%s") on a null variable', $item);
             } else {
                 $message = sprintf('Impossible to invoke a method ("%s") on a %s variable ("%s")', $item, gettype($object), $object);
+=======
+                $message = sprintf('Impossible to invoke a method ("%s") on a null variable.', $item);
+            } else {
+                $message = sprintf('Impossible to invoke a method ("%s") on a %s variable ("%s").', $item, gettype($object), $object);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             }
 
             throw new Twig_Error_Runtime($message, -1, $this->getTemplateName());
@@ -529,8 +602,13 @@ abstract class Twig_Template implements Twig_TemplateInterface
                     return true;
                 }
 
+<<<<<<< HEAD
                 if ($this->env->hasExtension('sandbox')) {
                     $this->env->getExtension('sandbox')->checkPropertyAllowed($object, $item);
+=======
+                if ($this->env->hasExtension('Twig_Extension_Sandbox')) {
+                    $this->env->getExtension('Twig_Extension_Sandbox')->checkPropertyAllowed($object, $item);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                 }
 
                 return $object->$item;
@@ -581,15 +659,24 @@ abstract class Twig_Template implements Twig_TemplateInterface
                 return;
             }
 
+<<<<<<< HEAD
             throw new Twig_Error_Runtime(sprintf('Method "%s" for object "%s" does not exist', $item, get_class($object)), -1, $this->getTemplateName());
+=======
+            throw new Twig_Error_Runtime(sprintf('Neither the property "%1$s" nor one of the methods "%1$s()", "get%1$s()"/"is%1$s()" or "__call()" exist and have public access in class "%2$s".', $item, get_class($object)), -1, $this->getTemplateName());
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         }
 
         if ($isDefinedTest) {
             return true;
         }
 
+<<<<<<< HEAD
         if ($this->env->hasExtension('sandbox')) {
             $this->env->getExtension('sandbox')->checkMethodAllowed($object, $method);
+=======
+        if ($this->env->hasExtension('Twig_Extension_Sandbox')) {
+            $this->env->getExtension('Twig_Extension_Sandbox')->checkMethodAllowed($object, $method);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         }
 
         // Some objects throw exceptions when they have __call, and the method we try

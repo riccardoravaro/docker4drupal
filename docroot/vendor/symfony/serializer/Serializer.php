@@ -250,6 +250,7 @@ class Serializer implements SerializerInterface, NormalizerInterface, Denormaliz
             return $normalizer->denormalize($data, $class, $format, $context);
         }
 
+<<<<<<< HEAD
         foreach ($this->normalizers as $normalizer) {
             if (
                 $normalizer instanceof DenormalizerInterface &&
@@ -259,6 +260,8 @@ class Serializer implements SerializerInterface, NormalizerInterface, Denormaliz
             }
         }
 
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         throw new UnexpectedValueException(sprintf('Could not denormalize object of type %s, no supporting normalizer found.', $class));
     }
 

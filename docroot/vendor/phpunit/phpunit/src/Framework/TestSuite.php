@@ -131,8 +131,14 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
      *     name of an existing class) or constructs an empty TestSuite
      *     with the given name.
      *
+<<<<<<< HEAD
      * @param  mixed                       $theClass
      * @param  string                      $name
+=======
+     * @param mixed  $theClass
+     * @param string $name
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @throws PHPUnit_Framework_Exception
      */
     public function __construct($theClass = '', $name = '')
@@ -254,7 +260,12 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
     /**
      * Adds the tests from the given class to the suite.
      *
+<<<<<<< HEAD
      * @param  mixed                       $testClass
+=======
+     * @param mixed $testClass
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @throws PHPUnit_Framework_Exception
      */
     public function addTestSuite($testClass)
@@ -307,8 +318,15 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
      * added, a <code>PHPUnit_Framework_Warning</code> will be created instead,
      * leaving the current test run untouched.
      *
+<<<<<<< HEAD
      * @param  string                      $filename
      * @throws PHPUnit_Framework_Exception
+=======
+     * @param string $filename
+     *
+     * @throws PHPUnit_Framework_Exception
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since  Method available since Release 2.3.0
      */
     public function addTestFile($filename)
@@ -385,8 +403,15 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
     /**
      * Wrapper for addTestFile() that adds multiple test files.
      *
+<<<<<<< HEAD
      * @param  array|Iterator              $filenames
      * @throws PHPUnit_Framework_Exception
+=======
+     * @param array|Iterator $filenames
+     *
+     * @throws PHPUnit_Framework_Exception
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since  Method available since Release 2.3.0
      */
     public function addTestFiles($filenames)
@@ -407,7 +432,12 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
     /**
      * Counts the number of test cases that will be run by this test.
      *
+<<<<<<< HEAD
      * @param  bool $preferCache Indicates if cache is preferred.
+=======
+     * @param bool $preferCache Indicates if cache is preferred.
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return int
      */
     public function count($preferCache = false)
@@ -426,9 +456,17 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
     }
 
     /**
+<<<<<<< HEAD
      * @param  ReflectionClass             $theClass
      * @param  string                      $name
      * @return PHPUnit_Framework_Test
+=======
+     * @param ReflectionClass $theClass
+     * @param string          $name
+     *
+     * @return PHPUnit_Framework_Test
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @throws PHPUnit_Framework_Exception
      */
     public static function createTest(ReflectionClass $theClass, $name)
@@ -628,6 +666,10 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
      * Returns the test groups of the suite.
      *
      * @return array
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since  Method available since Release 3.2.0
      */
     public function getGroups()
@@ -644,6 +686,10 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
      * Set tests groups of the test case
      *
      * @param array $groups
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since Method available since Release 4.0.0
      */
     public function setGroupDetails(array $groups)
@@ -654,7 +700,12 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
     /**
      * Runs the tests and collects their result in a TestResult.
      *
+<<<<<<< HEAD
      * @param  PHPUnit_Framework_TestResult $result
+=======
+     * @param PHPUnit_Framework_TestResult $result
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return PHPUnit_Framework_TestResult
      */
     public function run(PHPUnit_Framework_TestResult $result = null)
@@ -749,8 +800,15 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
     }
 
     /**
+<<<<<<< HEAD
      * @param  bool                        $runTestInSeparateProcess
      * @throws PHPUnit_Framework_Exception
+=======
+     * @param bool $runTestInSeparateProcess
+     *
+     * @throws PHPUnit_Framework_Exception
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since  Method available since Release 3.7.0
      */
     public function setRunTestInSeparateProcess($runTestInSeparateProcess)
@@ -766,6 +824,10 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
      * Runs a test.
      *
      * @deprecated
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @param PHPUnit_Framework_Test       $test
      * @param PHPUnit_Framework_TestResult $result
      */
@@ -788,6 +850,10 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
      * Returns the test at the given index.
      *
      * @param  int
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return PHPUnit_Framework_Test
      */
     public function testAt($index)
@@ -813,6 +879,10 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
      * Set tests of the test suite
      *
      * @param array $tests
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since Method available since Release 4.0.0
      */
     public function setTests(array $tests)
@@ -823,8 +893,15 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
     /**
      * Mark the test suite as skipped.
      *
+<<<<<<< HEAD
      * @param  string                                  $message
      * @throws PHPUnit_Framework_SkippedTestSuiteError
+=======
+     * @param string $message
+     *
+     * @throws PHPUnit_Framework_SkippedTestSuiteError
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since  Method available since Release 3.0.0
      */
     public function markTestSuiteSkipped($message = '')
@@ -874,7 +951,12 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
     }
 
     /**
+<<<<<<< HEAD
      * @param  ReflectionMethod $method
+=======
+     * @param ReflectionMethod $method
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return bool
      */
     public static function isTestMethod(ReflectionMethod $method)
@@ -892,7 +974,12 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
     }
 
     /**
+<<<<<<< HEAD
      * @param  string                    $message
+=======
+     * @param string $message
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return PHPUnit_Framework_Warning
      */
     protected static function warning($message)
@@ -901,10 +988,19 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
     }
 
     /**
+<<<<<<< HEAD
      * @param  string                            $class
      * @param  string                            $methodName
      * @param  string                            $message
      * @return PHPUnit_Framework_SkippedTestCase
+=======
+     * @param string $class
+     * @param string $methodName
+     * @param string $message
+     *
+     * @return PHPUnit_Framework_SkippedTestCase
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since  Method available since Release 4.3.0
      */
     protected static function skipTest($class, $methodName, $message)
@@ -913,10 +1009,19 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
     }
 
     /**
+<<<<<<< HEAD
      * @param  string                               $class
      * @param  string                               $methodName
      * @param  string                               $message
      * @return PHPUnit_Framework_IncompleteTestCase
+=======
+     * @param string $class
+     * @param string $methodName
+     * @param string $message
+     *
+     * @return PHPUnit_Framework_IncompleteTestCase
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since  Method available since Release 4.3.0
      */
     protected static function incompleteTest($class, $methodName, $message)
@@ -926,6 +1031,10 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
 
     /**
      * @param bool $disallowChangesToGlobalState
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since  Method available since Release 4.6.0
      */
     public function setDisallowChangesToGlobalState($disallowChangesToGlobalState)
@@ -937,6 +1046,10 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
 
     /**
      * @param bool $backupGlobals
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since  Method available since Release 3.3.0
      */
     public function setBackupGlobals($backupGlobals)
@@ -948,6 +1061,10 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
 
     /**
      * @param bool $backupStaticAttributes
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since  Method available since Release 3.4.0
      */
     public function setBackupStaticAttributes($backupStaticAttributes)
@@ -962,6 +1079,10 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
      * Returns an iterator for this test suite.
      *
      * @return RecursiveIteratorIterator
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since  Method available since Release 3.1.0
      */
     public function getIterator()

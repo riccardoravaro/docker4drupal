@@ -12,6 +12,7 @@ namespace SebastianBergmann\Diff;
 
 /**
  * Unified diff parser.
+<<<<<<< HEAD
  *
  * @package    Diff
  * @author     Sebastian Bergmann <sebastian@phpunit.de>
@@ -19,11 +20,18 @@ namespace SebastianBergmann\Diff;
  * @copyright  Sebastian Bergmann <sebastian@phpunit.de>
  * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
  * @link       http://www.github.com/sebastianbergmann/diff
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  */
 class Parser
 {
     /**
+<<<<<<< HEAD
      * @param  string $string
+=======
+     * @param string $string
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return Diff[]
      */
     public function parse($string)
@@ -78,7 +86,11 @@ class Parser
                     isset($match['endrange']) ? max(1, $match['endrange']) : 1
                 );
 
+<<<<<<< HEAD
                 $chunks[] = $chunk;
+=======
+                $chunks[]  = $chunk;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                 $diffLines = array();
                 continue;
             }

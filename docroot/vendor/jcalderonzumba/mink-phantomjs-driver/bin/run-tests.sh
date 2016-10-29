@@ -18,6 +18,7 @@ stop_services(){
   sleep 2
 }
 
+<<<<<<< HEAD
 star_local_browser(){
   CURRENT_DIR=$(pwd)
   cd ${CURRENT_DIR}/vendor/behat/mink/driver-testsuite/web-fixtures
@@ -27,13 +28,24 @@ star_local_browser(){
   else
     php -S 127.0.0.1:6789 2>&1 >> /dev/null &
   fi
+=======
+start_local_browser(){
+  CURRENT_DIR=$(pwd)
+  ${CURRENT_DIR}/bin/mink-test-server > /dev/null 2>&1 &
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
   sleep 2
 }
 
 mkdir -p /tmp/jcalderonzumba/phantomjs
+<<<<<<< HEAD
 stop_services
 start_browser_api
 star_local_browser
+=======
+stop_services || true
+start_browser_api
+start_local_browser
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 cd ${CURRENT_DIR}
 ${CURRENT_DIR}/bin/phpunit --configuration integration_tests.xml
 stop_services

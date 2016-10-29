@@ -47,6 +47,7 @@ class WindowsPipes extends AbstractPipes
             // Workaround for this problem is to use temporary files instead of pipes on Windows platform.
             //
             // @see https://bugs.php.net/bug.php?id=51800
+<<<<<<< HEAD
             $this->files = array(
                 Process::STDOUT => tempnam(sys_get_temp_dir(), 'out_sf_proc'),
                 Process::STDERR => tempnam(sys_get_temp_dir(), 'err_sf_proc'),
@@ -56,6 +57,42 @@ class WindowsPipes extends AbstractPipes
                     throw new RuntimeException('A temporary file could not be opened to write the process output to, verify that your TEMP environment variable is writable');
                 }
             }
+=======
+            $pipes = array(
+                Process::STDOUT => Process::OUT,
+                Process::STDERR => Process::ERR,
+            );
+            $tmpCheck = false;
+            $tmpDir = sys_get_temp_dir();
+            $lastError = 'unknown reason';
+            set_error_handler(function ($type, $msg) use (&$lastError) { $lastError = $msg; });
+            for ($i = 0;; ++$i) {
+                foreach ($pipes as $pipe => $name) {
+                    $file = sprintf('%s\\sf_proc_%02X.%s', $tmpDir, $i, $name);
+                    if (file_exists($file) && !unlink($file)) {
+                        continue 2;
+                    }
+                    $h = fopen($file, 'xb');
+                    if (!$h) {
+                        $error = $lastError;
+                        if ($tmpCheck || $tmpCheck = unlink(tempnam(false, 'sf_check_'))) {
+                            continue;
+                        }
+                        restore_error_handler();
+                        throw new RuntimeException(sprintf('A temporary file could not be opened to write the process output: %s', $error));
+                    }
+                    if (!$h || !$this->fileHandles[$pipe] = fopen($file, 'rb')) {
+                        continue 2;
+                    }
+                    if (isset($this->files[$pipe])) {
+                        unlink($this->files[$pipe]);
+                    }
+                    $this->files[$pipe] = $file;
+                }
+                break;
+            }
+            restore_error_handler();
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         }
 
         parent::__construct($input);

@@ -97,7 +97,12 @@ class MemcacheCache extends CacheProvider
      */
     protected function doDelete($id)
     {
+<<<<<<< HEAD
         return $this->memcache->delete($id);
+=======
+        // Memcache::delete() returns false if entry does not exist
+        return $this->memcache->delete($id) || ! $this->doContains($id);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     /**

@@ -16,9 +16,17 @@
 class PHPUnit_Runner_StandardTestSuiteLoader implements PHPUnit_Runner_TestSuiteLoader
 {
     /**
+<<<<<<< HEAD
      * @param  string                      $suiteClassName
      * @param  string                      $suiteClassFile
      * @return ReflectionClass
+=======
+     * @param string $suiteClassName
+     * @param string $suiteClassFile
+     *
+     * @return ReflectionClass
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @throws PHPUnit_Framework_Exception
      */
     public function load($suiteClassName, $suiteClassFile = '')
@@ -105,7 +113,12 @@ class PHPUnit_Runner_StandardTestSuiteLoader implements PHPUnit_Runner_TestSuite
     }
 
     /**
+<<<<<<< HEAD
      * @param  ReflectionClass $aClass
+=======
+     * @param ReflectionClass $aClass
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return ReflectionClass
      */
     public function reload(ReflectionClass $aClass)

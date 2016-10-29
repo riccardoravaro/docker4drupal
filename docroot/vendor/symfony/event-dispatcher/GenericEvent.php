@@ -37,8 +37,13 @@ class GenericEvent extends Event implements \ArrayAccess, \IteratorAggregate
     /**
      * Encapsulate an event with $subject and $args.
      *
+<<<<<<< HEAD
      * @param mixed $subject   The subject of the event, usually an object.
      * @param array $arguments Arguments to store in the event.
+=======
+     * @param mixed $subject   The subject of the event, usually an object
+     * @param array $arguments Arguments to store in the event
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function __construct($subject = null, array $arguments = array())
     {
@@ -49,7 +54,11 @@ class GenericEvent extends Event implements \ArrayAccess, \IteratorAggregate
     /**
      * Getter for subject property.
      *
+<<<<<<< HEAD
      * @return mixed $subject The observer subject.
+=======
+     * @return mixed $subject The observer subject
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getSubject()
     {
@@ -59,11 +68,19 @@ class GenericEvent extends Event implements \ArrayAccess, \IteratorAggregate
     /**
      * Get argument by key.
      *
+<<<<<<< HEAD
      * @param string $key Key.
      *
      * @throws \InvalidArgumentException If key is not found.
      *
      * @return mixed Contents of array key.
+=======
+     * @param string $key Key
+     *
+     * @return mixed Contents of array key
+     *
+     * @throws \InvalidArgumentException If key is not found.
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getArgument($key)
     {
@@ -77,8 +94,13 @@ class GenericEvent extends Event implements \ArrayAccess, \IteratorAggregate
     /**
      * Add argument to event.
      *
+<<<<<<< HEAD
      * @param string $key   Argument name.
      * @param mixed  $value Value.
+=======
+     * @param string $key   Argument name
+     * @param mixed  $value Value
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @return GenericEvent
      */
@@ -102,7 +124,11 @@ class GenericEvent extends Event implements \ArrayAccess, \IteratorAggregate
     /**
      * Set args property.
      *
+<<<<<<< HEAD
      * @param array $args Arguments.
+=======
+     * @param array $args Arguments
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @return GenericEvent
      */
@@ -116,7 +142,11 @@ class GenericEvent extends Event implements \ArrayAccess, \IteratorAggregate
     /**
      * Has argument.
      *
+<<<<<<< HEAD
      * @param string $key Key of arguments array.
+=======
+     * @param string $key Key of arguments array
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @return bool
      */
@@ -128,11 +158,19 @@ class GenericEvent extends Event implements \ArrayAccess, \IteratorAggregate
     /**
      * ArrayAccess for argument getter.
      *
+<<<<<<< HEAD
      * @param string $key Array key.
      *
      * @throws \InvalidArgumentException If key does not exist in $this->args.
      *
      * @return mixed
+=======
+     * @param string $key Array key
+     *
+     * @return mixed
+     *
+     * @throws \InvalidArgumentException If key does not exist in $this->args.
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function offsetGet($key)
     {
@@ -142,8 +180,13 @@ class GenericEvent extends Event implements \ArrayAccess, \IteratorAggregate
     /**
      * ArrayAccess for argument setter.
      *
+<<<<<<< HEAD
      * @param string $key   Array key to set.
      * @param mixed  $value Value.
+=======
+     * @param string $key   Array key to set
+     * @param mixed  $value Value
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function offsetSet($key, $value)
     {
@@ -153,7 +196,11 @@ class GenericEvent extends Event implements \ArrayAccess, \IteratorAggregate
     /**
      * ArrayAccess for unset argument.
      *
+<<<<<<< HEAD
      * @param string $key Array key.
+=======
+     * @param string $key Array key
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function offsetUnset($key)
     {
@@ -165,7 +212,11 @@ class GenericEvent extends Event implements \ArrayAccess, \IteratorAggregate
     /**
      * ArrayAccess has argument.
      *
+<<<<<<< HEAD
      * @param string $key Array key.
+=======
+     * @param string $key Array key
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @return bool
      */

@@ -30,8 +30,13 @@ class ArrayInput extends Input
     /**
      * Constructor.
      *
+<<<<<<< HEAD
      * @param array           $parameters An array of parameters
      * @param InputDefinition $definition A InputDefinition instance
+=======
+     * @param array                $parameters An array of parameters
+     * @param InputDefinition|null $definition A InputDefinition instance
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function __construct(array $parameters, InputDefinition $definition = null)
     {
@@ -41,9 +46,13 @@ class ArrayInput extends Input
     }
 
     /**
+<<<<<<< HEAD
      * Returns the first argument from the raw parameters (not parsed).
      *
      * @return string The value of the first argument or null otherwise
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getFirstArgument()
     {
@@ -57,6 +66,7 @@ class ArrayInput extends Input
     }
 
     /**
+<<<<<<< HEAD
      * Returns true if the raw parameters (not parsed) contain a value.
      *
      * This method is to be used to introspect the input parameters
@@ -65,6 +75,9 @@ class ArrayInput extends Input
      * @param string|array $values The values to look for in the raw parameters (can be an array)
      *
      * @return bool true if the value is contained in the raw parameters
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function hasParameterOption($values)
     {
@@ -84,6 +97,7 @@ class ArrayInput extends Input
     }
 
     /**
+<<<<<<< HEAD
      * Returns the value of a raw option (not parsed).
      *
      * This method is to be used to introspect the input parameters
@@ -93,6 +107,9 @@ class ArrayInput extends Input
      * @param mixed        $default The default value to return if no result is found
      *
      * @return mixed The option value
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getParameterOption($values, $default = false)
     {
@@ -131,7 +148,11 @@ class ArrayInput extends Input
     }
 
     /**
+<<<<<<< HEAD
      * Processes command line arguments.
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     protected function parse()
     {

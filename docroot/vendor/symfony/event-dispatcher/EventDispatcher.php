@@ -171,24 +171,41 @@ class EventDispatcher implements EventDispatcherInterface
      * This method can be overridden to add functionality that is executed
      * for each listener.
      *
+<<<<<<< HEAD
      * @param callable[] $listeners The event listeners.
      * @param string     $eventName The name of the event to dispatch.
      * @param Event      $event     The event object to pass to the event handlers/listeners.
+=======
+     * @param callable[] $listeners The event listeners
+     * @param string     $eventName The name of the event to dispatch
+     * @param Event      $event     The event object to pass to the event handlers/listeners
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     protected function doDispatch($listeners, $eventName, Event $event)
     {
         foreach ($listeners as $listener) {
+<<<<<<< HEAD
             call_user_func($listener, $event, $eventName, $this);
             if ($event->isPropagationStopped()) {
                 break;
             }
+=======
+            if ($event->isPropagationStopped()) {
+                break;
+            }
+            call_user_func($listener, $event, $eventName, $this);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         }
     }
 
     /**
      * Sorts the internal list of listeners for the given event by priority.
      *
+<<<<<<< HEAD
      * @param string $eventName The name of the event.
+=======
+     * @param string $eventName The name of the event
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     private function sortListeners($eventName)
     {

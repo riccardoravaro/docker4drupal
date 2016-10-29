@@ -60,7 +60,13 @@ class ClassCodeGenerator
             $method->returnsReference() ? '&':'',
             $method->getName(),
             implode(', ', $this->generateArguments($method->getArguments())),
+<<<<<<< HEAD
             $method->hasReturnType() ? sprintf(': %s', $method->getReturnType()) : ''
+=======
+            version_compare(PHP_VERSION, '7.0', '>=') && $method->hasReturnType()
+                ? sprintf(': %s', $method->getReturnType())
+                : ''
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         );
         $php .= $method->getCode()."\n";
 
@@ -73,6 +79,7 @@ class ClassCodeGenerator
             $php = '';
 
             if ($hint = $argument->getTypeHint()) {
+<<<<<<< HEAD
                 if ('array' === $hint || 'callable' === $hint) {
                     $php .= $hint;
                 } else {
@@ -83,6 +90,36 @@ class ClassCodeGenerator
             $php .= ' '.($argument->isPassedByReference() ? '&' : '').'$'.$argument->getName();
 
             if ($argument->isOptional()) {
+=======
+                switch ($hint) {
+                    case 'array':
+                    case 'callable':
+                        $php .= $hint;
+                        break;
+
+                    case 'string':
+                    case 'int':
+                    case 'float':
+                    case 'bool':
+                        if (version_compare(PHP_VERSION, '7.0', '>=')) {
+                            $php .= $hint;
+                            break;
+                        }
+                        // Fall-through to default case for PHP 5.x
+
+                    default:
+                        $php .= '\\'.$hint;
+                }
+            }
+
+            $php .= ' '.($argument->isPassedByReference() ? '&' : '');
+
+            $php .= $argument->isVariadic() ? '...' : '';
+
+            $php .= '$'.$argument->getName();
+
+            if ($argument->isOptional() && !$argument->isVariadic()) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                 $php .= ' = '.var_export($argument->getDefault(), true);
             }
 

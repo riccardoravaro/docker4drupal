@@ -130,7 +130,11 @@ class GraphvizDumper extends Dumper
      *
      * @return array An array of edges
      */
+<<<<<<< HEAD
     private function findEdges($id, $arguments, $required, $name)
+=======
+    private function findEdges($id, array $arguments, $required, $name)
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     {
         $edges = array();
         foreach ($arguments as $argument) {
@@ -246,7 +250,11 @@ class GraphvizDumper extends Dumper
      *
      * @return string A comma separated list of attributes
      */
+<<<<<<< HEAD
     private function addAttributes($attributes)
+=======
+    private function addAttributes(array $attributes)
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     {
         $code = array();
         foreach ($attributes as $k => $v) {
@@ -263,7 +271,11 @@ class GraphvizDumper extends Dumper
      *
      * @return string A space separated list of options
      */
+<<<<<<< HEAD
     private function addOptions($options)
+=======
+    private function addOptions(array $options)
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     {
         $code = array();
         foreach ($options as $k => $v) {

@@ -59,7 +59,11 @@ class ChainDecoder implements DecoderInterface
      *
      * @return DecoderInterface
      *
+<<<<<<< HEAD
      * @throws RuntimeException if no decoder is found
+=======
+     * @throws RuntimeException If no decoder is found.
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     private function getDecoder($format)
     {

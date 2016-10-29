@@ -129,6 +129,12 @@ abstract class Constraint
             unset($options['value']);
         }
 
+<<<<<<< HEAD
+=======
+        if (is_array($options)) {
+            reset($options);
+        }
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         if (is_array($options) && count($options) > 0 && is_string(key($options))) {
             foreach ($options as $option => $value) {
                 if (array_key_exists($option, $knownOptions)) {
@@ -207,8 +213,11 @@ abstract class Constraint
      * @throws InvalidOptionsException If an invalid option name is given
      *
      * @internal This method should not be used or overwritten in userland code.
+<<<<<<< HEAD
      *
      * @since 2.6
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function __get($option)
     {
@@ -296,8 +305,11 @@ abstract class Constraint
      * @internal This method may be replaced by an implementation of
      *           {@link \Serializable} in the future. Please don't use or
      *           overwrite it.
+<<<<<<< HEAD
      *
      * @since 2.6
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function __sleep()
     {

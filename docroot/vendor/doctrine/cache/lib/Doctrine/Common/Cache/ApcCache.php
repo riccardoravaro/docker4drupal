@@ -22,6 +22,7 @@ namespace Doctrine\Common\Cache;
 /**
  * APC cache provider.
  *
+<<<<<<< HEAD
  * @link   www.doctrine-project.org
  * @since  2.0
  * @author Benjamin Eberlei <kontakt@beberlei.de>
@@ -29,6 +30,16 @@ namespace Doctrine\Common\Cache;
  * @author Jonathan Wage <jonwage@gmail.com>
  * @author Roman Borschel <roman@code-factory.org>
  * @author David Abdemoulaie <dave@hobodave.com>
+=======
+ * @link       www.doctrine-project.org
+ * @deprecated since version 1.6, use ApcuCache instead
+ * @since      2.0
+ * @author     Benjamin Eberlei <kontakt@beberlei.de>
+ * @author     Guilherme Blanco <guilhermeblanco@hotmail.com>
+ * @author     Jonathan Wage <jonwage@gmail.com>
+ * @author     Roman Borschel <roman@code-factory.org>
+ * @author     David Abdemoulaie <dave@hobodave.com>
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  */
 class ApcCache extends CacheProvider
 {
@@ -53,7 +64,11 @@ class ApcCache extends CacheProvider
      */
     protected function doSave($id, $data, $lifeTime = 0)
     {
+<<<<<<< HEAD
         return (bool) apc_store($id, $data, (int) $lifeTime);
+=======
+        return apc_store($id, $data, $lifeTime);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     /**
@@ -61,7 +76,12 @@ class ApcCache extends CacheProvider
      */
     protected function doDelete($id)
     {
+<<<<<<< HEAD
         return apc_delete($id);
+=======
+        // apc_delete returns false if the id does not exist
+        return apc_delete($id) || ! apc_exists($id);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     /**
@@ -83,6 +103,19 @@ class ApcCache extends CacheProvider
     /**
      * {@inheritdoc}
      */
+<<<<<<< HEAD
+=======
+    protected function doSaveMultiple(array $keysAndValues, $lifetime = 0)
+    {
+        $result = apc_store($keysAndValues, null, $lifetime);
+
+        return empty($result);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     protected function doGetStats()
     {
         $info = apc_cache_info('', true);

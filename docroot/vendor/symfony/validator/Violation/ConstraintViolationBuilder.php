@@ -20,8 +20,11 @@ use Symfony\Component\Validator\Util\PropertyPath;
 /**
  * Default implementation of {@link ConstraintViolationBuilderInterface}.
  *
+<<<<<<< HEAD
  * @since  2.5
  *
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  * @author Bernhard Schussek <bschussek@gmail.com>
  *
  * @internal You should not instantiate or use this class. Code against
@@ -199,7 +202,11 @@ class ConstraintViolationBuilder implements ConstraintViolationBuilderInterface
                     $this->message,
                     $this->plural,
                     $this->parameters,
+<<<<<<< HEAD
                     $this->translationDomain#
+=======
+                    $this->translationDomain
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                 );
             } catch (\InvalidArgumentException $e) {
                 $translatedMessage = $this->translator->trans(

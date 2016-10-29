@@ -11,6 +11,12 @@
 
 namespace Symfony\Component\Console\Input;
 
+<<<<<<< HEAD
+=======
+use Symfony\Component\Console\Exception\InvalidArgumentException;
+use Symfony\Component\Console\Exception\RuntimeException;
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 /**
  * InputInterface is the interface implemented by all input classes.
  *
@@ -58,11 +64,17 @@ interface InputInterface
     public function bind(InputDefinition $definition);
 
     /**
+<<<<<<< HEAD
      * Validates if arguments given are correct.
      *
      * Throws an exception when not enough arguments are given.
      *
      * @throws \RuntimeException
+=======
+     * Validates the input.
+     *
+     * @throws RuntimeException When not enough arguments are given
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function validate();
 
@@ -74,11 +86,21 @@ interface InputInterface
     public function getArguments();
 
     /**
+<<<<<<< HEAD
      * Gets argument by name.
      *
      * @param string $name The name of the argument
      *
      * @return mixed
+=======
+     * Returns the argument value for a given argument name.
+     *
+     * @param string $name The argument name
+     *
+     * @return mixed The argument value
+     *
+     * @throws InvalidArgumentException When argument given doesn't exist
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getArgument($name);
 
@@ -109,11 +131,21 @@ interface InputInterface
     public function getOptions();
 
     /**
+<<<<<<< HEAD
      * Gets an option by name.
      *
      * @param string $name The name of the option
      *
      * @return mixed
+=======
+     * Returns the option value for a given option name.
+     *
+     * @param string $name The option name
+     *
+     * @return mixed The option value
+     *
+     * @throws InvalidArgumentException When option given doesn't exist
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getOption($name);
 

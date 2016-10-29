@@ -48,7 +48,11 @@ class MbString extends AbstractStringWrapper
      */
     public function __construct()
     {
+<<<<<<< HEAD
         if (!extension_loaded('mbstring')) {
+=======
+        if (! extension_loaded('mbstring')) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             throw new Exception\ExtensionNotLoadedException(
                 'PHP extension "mbstring" is required for this wrapper'
             );

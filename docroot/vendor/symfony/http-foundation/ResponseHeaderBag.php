@@ -181,9 +181,15 @@ class ResponseHeaderBag extends HeaderBag
      *
      * @param string $format
      *
+<<<<<<< HEAD
      * @throws \InvalidArgumentException When the $format is invalid
      *
      * @return array
+=======
+     * @return array
+     *
+     * @throws \InvalidArgumentException When the $format is invalid
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getCookies($format = self::COOKIES_FLAT)
     {
@@ -230,7 +236,11 @@ class ResponseHeaderBag extends HeaderBag
      *                                 is semantically equivalent to $filename. If the filename is already ASCII,
      *                                 it can be omitted, or just copied from $filename
      *
+<<<<<<< HEAD
      * @return string A string suitable for use as a Content-Disposition field-value.
+=======
+     * @return string A string suitable for use as a Content-Disposition field-value
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @throws \InvalidArgumentException
      *

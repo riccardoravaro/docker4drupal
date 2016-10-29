@@ -69,6 +69,19 @@ abstract class Client
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Returns whether client automatically follows redirects or not.
+     *
+     * @return bool
+     */
+    public function isFollowingRedirects()
+    {
+        return $this->followRedirects;
+    }
+
+    /**
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * Sets the maximum number of requests that crawler can follow.
      *
      * @param int $maxRedirects
@@ -80,6 +93,19 @@ abstract class Client
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Returns the maximum number of requests that crawler can follow.
+     *
+     * @return int
+     */
+    public function getMaxRedirects()
+    {
+        return $this->maxRedirects;
+    }
+
+    /**
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * Sets the insulated flag.
      *
      * @param bool $insulated Whether to insulate the requests or not
@@ -103,7 +129,10 @@ abstract class Client
     public function setServerParameters(array $server)
     {
         $this->server = array_merge(array(
+<<<<<<< HEAD
             'HTTP_HOST' => 'localhost',
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             'HTTP_USER_AGENT' => 'Symfony2 BrowserKit',
         ), $server);
     }
@@ -129,7 +158,11 @@ abstract class Client
      */
     public function getServerParameter($key, $default = '')
     {
+<<<<<<< HEAD
         return (isset($this->server[$key])) ? $this->server[$key] : $default;
+=======
+        return isset($this->server[$key]) ? $this->server[$key] : $default;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     /**
@@ -266,21 +299,35 @@ abstract class Client
 
         $uri = $this->getAbsoluteUri($uri);
 
+<<<<<<< HEAD
         if (!empty($server['HTTP_HOST'])) {
             $uri = preg_replace('{^(https?\://)'.preg_quote($this->extractHost($uri)).'}', '${1}'.$server['HTTP_HOST'], $uri);
         }
+=======
+        $server = array_merge($this->server, $server);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
         if (isset($server['HTTPS'])) {
             $uri = preg_replace('{^'.parse_url($uri, PHP_URL_SCHEME).'}', $server['HTTPS'] ? 'https' : 'http', $uri);
         }
 
+<<<<<<< HEAD
         $server = array_merge($this->server, $server);
 
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         if (!$this->history->isEmpty()) {
             $server['HTTP_REFERER'] = $this->history->current()->getUri();
         }
 
+<<<<<<< HEAD
         $server['HTTP_HOST'] = $this->extractHost($uri);
+=======
+        if (empty($server['HTTP_HOST'])) {
+            $server['HTTP_HOST'] = $this->extractHost($uri);
+        }
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         $server['HTTPS'] = 'https' == parse_url($uri, PHP_URL_SCHEME);
 
         $this->internalRequest = new Request($uri, $method, $parameters, $files, $this->cookieJar->allValues($uri), $server, $content);
@@ -457,7 +504,11 @@ abstract class Client
         $request = $this->internalRequest;
 
         if (in_array($this->internalResponse->getStatus(), array(302, 303))) {
+<<<<<<< HEAD
             $method = 'get';
+=======
+            $method = 'GET';
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             $files = array();
             $content = null;
         } else {
@@ -466,7 +517,11 @@ abstract class Client
             $content = $request->getContent();
         }
 
+<<<<<<< HEAD
         if ('get' === strtolower($method)) {
+=======
+        if ('GET' === strtoupper($method)) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             // Don't forward parameters for GET request as it should reach the redirection URI
             $parameters = array();
         } else {
@@ -524,9 +579,15 @@ abstract class Client
             return parse_url($currentUri, PHP_URL_SCHEME).':'.$uri;
         }
 
+<<<<<<< HEAD
         // anchor?
         if (!$uri || '#' == $uri[0]) {
             return preg_replace('/#.*?$/', '', $currentUri).$uri;
+=======
+        // anchor or query string parameters?
+        if (!$uri || '#' == $uri[0] || '?' == $uri[0]) {
+            return preg_replace('/[#?].*?$/', '', $currentUri).$uri;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         }
 
         if ('/' !== $uri[0]) {

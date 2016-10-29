@@ -17,8 +17,11 @@ use Symfony\Component\Validator\Exception\ConstraintDefinitionException;
 /**
  * @Annotation
  *
+<<<<<<< HEAD
  * @since  2.5
  *
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
 class Traverse extends Constraint

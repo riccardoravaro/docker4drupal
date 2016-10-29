@@ -170,7 +170,11 @@ class RouteCollectionBuilder
 
     /**
      * Sets a default value that will be added to all embedded routes (unless that
+<<<<<<< HEAD
      * default value is already set.
+=======
+     * default value is already set).
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @param string $key
      * @param mixed  $value
@@ -186,7 +190,11 @@ class RouteCollectionBuilder
 
     /**
      * Sets a requirement that will be added to all embedded routes (unless that
+<<<<<<< HEAD
      * requirement is already set.
+=======
+     * requirement is already set).
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @param string $key
      * @param mixed  $regex
@@ -202,7 +210,11 @@ class RouteCollectionBuilder
 
     /**
      * Sets an opiton that will be added to all embedded routes (unless that
+<<<<<<< HEAD
      * option is already set.
+=======
+     * option is already set).
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @param string $key
      * @param mixed  $value

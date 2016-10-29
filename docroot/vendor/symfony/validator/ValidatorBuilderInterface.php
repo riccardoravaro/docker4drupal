@@ -187,7 +187,11 @@ interface ValidatorBuilderInterface
     /**
      * Builds and returns a new validator object.
      *
+<<<<<<< HEAD
      * @return ValidatorInterface The built validator.
+=======
+     * @return ValidatorInterface The built validator
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getValidator();
 }

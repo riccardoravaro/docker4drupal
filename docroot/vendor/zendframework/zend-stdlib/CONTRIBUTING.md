@@ -237,3 +237,11 @@ repository, we suggest doing some cleanup of these branches.
    ```console
    $ git push {username} :<branchname>
    ```
+<<<<<<< HEAD
+=======
+
+
+## Conduct
+
+Please see our [CONDUCT.md](CONDUCT.md) to understand expected behavior when interacting with others in the project.
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9

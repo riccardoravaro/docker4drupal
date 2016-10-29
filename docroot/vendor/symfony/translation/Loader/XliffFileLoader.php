@@ -160,20 +160,42 @@ class XliffFileLoader implements LoaderInterface
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Validates and parses the given file into a DOMDocument.
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @param string       $file
      * @param \DOMDocument $dom
      * @param string       $schema source of the schema
      *
+<<<<<<< HEAD
+=======
+     * @throws \RuntimeException
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @throws InvalidResourceException
      */
     private function validateSchema($file, \DOMDocument $dom, $schema)
     {
         $internalErrors = libxml_use_internal_errors(true);
 
+<<<<<<< HEAD
         if (!@$dom->schemaValidateSource($schema)) {
             throw new InvalidResourceException(sprintf('Invalid resource provided: "%s"; Errors: %s', $file, implode("\n", $this->getXmlErrors($internalErrors))));
         }
 
+=======
+        $disableEntities = libxml_disable_entity_loader(false);
+
+        if (!@$dom->schemaValidateSource($schema)) {
+            libxml_disable_entity_loader($disableEntities);
+
+            throw new InvalidResourceException(sprintf('Invalid resource provided: "%s"; Errors: %s', $file, implode("\n", $this->getXmlErrors($internalErrors))));
+        }
+
+        libxml_disable_entity_loader($disableEntities);
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         $dom->normalizeDocument();
 
         libxml_clear_errors();

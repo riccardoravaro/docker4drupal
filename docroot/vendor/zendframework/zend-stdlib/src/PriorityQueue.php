@@ -99,7 +99,11 @@ class PriorityQueue implements Countable, IteratorAggregate, Serializable
             unset($this->items[$key]);
             $this->queue = null;
 
+<<<<<<< HEAD
             if (!$this->isEmpty()) {
+=======
+            if (! $this->isEmpty()) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                 $queue = $this->getQueue();
                 foreach ($this->items as $item) {
                     $queue->insert($item['data'], $item['priority']);
@@ -277,7 +281,11 @@ class PriorityQueue implements Countable, IteratorAggregate, Serializable
     {
         if (null === $this->queue) {
             $this->queue = new $this->queueClass();
+<<<<<<< HEAD
             if (!$this->queue instanceof \SplPriorityQueue) {
+=======
+            if (! $this->queue instanceof \SplPriorityQueue) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                 throw new Exception\DomainException(sprintf(
                     'PriorityQueue expects an internal queue of type SplPriorityQueue; received "%s"',
                     get_class($this->queue)

@@ -26,8 +26,11 @@ class ClosureLoader extends Loader
     private $container;
 
     /**
+<<<<<<< HEAD
      * Constructor.
      *
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @param ContainerBuilder $container A ContainerBuilder instance
      */
     public function __construct(ContainerBuilder $container)

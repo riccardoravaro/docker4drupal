@@ -4,7 +4,10 @@
 namespace Egulias\EmailValidator\Parser;
 
 use Egulias\EmailValidator\EmailLexer;
+<<<<<<< HEAD
 use Egulias\EmailValidator\Parser\Parser;
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 use Egulias\EmailValidator\EmailValidator;
 
 class DomainPart extends Parser
@@ -103,6 +106,7 @@ class DomainPart extends Parser
     protected function doParseDomainPart()
     {
         $domain = '';
+<<<<<<< HEAD
         do {
 
             $prev = $this->lexer->getPrevious();
@@ -114,12 +118,40 @@ class DomainPart extends Parser
             if ($this->lexer->token['type'] === EmailLexer::S_OPENPARENTHESIS) {
                 $this->parseComments();
                 $this->lexer->moveNext();
+=======
+        $openedParenthesis = 0;
+        $openBrackets = false;
+        do {
+            $prev = $this->lexer->getPrevious();
+
+            $this->checkNotAllowedChars($this->lexer->token);
+
+            if ($this->lexer->token['type'] === EmailLexer::S_OPENPARENTHESIS) {
+                $this->parseComments();
+                $openedParenthesis += $this->getOpenedParenthesis();
+                $this->lexer->moveNext();
+                $tmpPrev = $this->lexer->getPrevious();
+                if ($tmpPrev['type'] === EmailLexer::S_CLOSEPARENTHESIS) {
+                    $openedParenthesis--;
+                }
+            }
+            if ($this->lexer->token['type'] === EmailLexer::S_CLOSEPARENTHESIS) {
+                if ($openedParenthesis === 0) {
+                    throw new \InvalidArgumentException('ERR_UNOPENEDCOMMENT');
+                } else {
+                    $openedParenthesis--;
+                }
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             }
 
             $this->checkConsecutiveDots();
             $this->checkDomainPartExceptions($prev);
 
+<<<<<<< HEAD
             if ($this->hasBrackets()) {
+=======
+            if ($openBrackets = $this->hasBrackets($openBrackets)) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                 $this->parseDomainLiteral();
             }
 
@@ -136,6 +168,17 @@ class DomainPart extends Parser
         return $domain;
     }
 
+<<<<<<< HEAD
+=======
+    private function checkNotAllowedChars($token)
+    {
+        $notAllowed = array(EmailLexer::S_BACKSLASH => true, EmailLexer::S_SLASH=> true);
+        if (isset($notAllowed[$token['type']])) {
+            throw new \InvalidArgumentException('ERR_DOMAIN_CHAR_NOT_ALLOWED');
+        }
+    }
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     protected function parseDomainLiteral()
     {
         if ($this->lexer->isNextToken(EmailLexer::S_COLON)) {
@@ -180,7 +223,11 @@ class DomainPart extends Parser
             }
 
             if ($this->lexer->isNextToken(EmailLexer::S_CR)) {
+<<<<<<< HEAD
                 throw new \InvalidArgumentException("ERR_CR_NO_LF");
+=======
+                throw new \InvalidArgumentException('ERR_CR_NO_LF');
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             }
             if ($this->lexer->token['type'] === EmailLexer::S_BACKSLASH) {
                 $this->warnings[] = EmailValidator::RFC5322_DOMLIT_OBSDTEXT;
@@ -276,8 +323,17 @@ class DomainPart extends Parser
         }
     }
 
+<<<<<<< HEAD
     protected function hasBrackets()
     {
+=======
+    protected function hasBrackets($openBrackets)
+    {
+        if ($this->lexer->token['type'] === EmailLexer::S_CLOSEBRACKET && !$openBrackets) {
+            throw new \InvalidArgumentException('ERR_EXPECTING_OPENBRACKET');
+        }
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         if ($this->lexer->token['type'] !== EmailLexer::S_OPENBRACKET) {
             return false;
         }

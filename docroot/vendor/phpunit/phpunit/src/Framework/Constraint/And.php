@@ -26,7 +26,12 @@ class PHPUnit_Framework_Constraint_And extends PHPUnit_Framework_Constraint
     protected $lastConstraint = null;
 
     /**
+<<<<<<< HEAD
      * @param  PHPUnit_Framework_Constraint[] $constraints
+=======
+     * @param PHPUnit_Framework_Constraint[] $constraints
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @throws PHPUnit_Framework_Exception
      */
     public function setConstraints(array $constraints)
@@ -55,10 +60,19 @@ class PHPUnit_Framework_Constraint_And extends PHPUnit_Framework_Constraint
      * a boolean value instead: true in case of success, false in case of a
      * failure.
      *
+<<<<<<< HEAD
      * @param  mixed                                        $other        Value or object to evaluate.
      * @param  string                                       $description  Additional information about the test
      * @param  bool                                         $returnResult Whether to return a result or throw an exception
      * @return mixed
+=======
+     * @param mixed  $other        Value or object to evaluate.
+     * @param string $description  Additional information about the test
+     * @param bool   $returnResult Whether to return a result or throw an exception
+     *
+     * @return mixed
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @throws PHPUnit_Framework_ExpectationFailedException
      */
     public function evaluate($other, $description = '', $returnResult = false)
@@ -106,6 +120,10 @@ class PHPUnit_Framework_Constraint_And extends PHPUnit_Framework_Constraint
      * Counts the number of constraint elements.
      *
      * @return int
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since  Method available since Release 3.4.0
      */
     public function count()

@@ -55,10 +55,19 @@ class PHPUnit_Framework_Constraint_TraversableContainsOnly extends PHPUnit_Frame
      * a boolean value instead: true in case of success, false in case of a
      * failure.
      *
+<<<<<<< HEAD
      * @param  mixed                                        $other        Value or object to evaluate.
      * @param  string                                       $description  Additional information about the test
      * @param  bool                                         $returnResult Whether to return a result or throw an exception
      * @return mixed
+=======
+     * @param mixed  $other        Value or object to evaluate.
+     * @param string $description  Additional information about the test
+     * @param bool   $returnResult Whether to return a result or throw an exception
+     *
+     * @return mixed
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @throws PHPUnit_Framework_ExpectationFailedException
      */
     public function evaluate($other, $description = '', $returnResult = false)

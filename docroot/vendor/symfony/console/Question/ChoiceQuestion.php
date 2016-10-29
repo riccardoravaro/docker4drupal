@@ -69,6 +69,19 @@ class ChoiceQuestion extends Question
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Returns whether the choices are multiselect.
+     *
+     * @return bool
+     */
+    public function isMultiselect()
+    {
+        return $this->multiselect;
+    }
+
+    /**
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * Gets the prompt for choices.
      *
      * @return string

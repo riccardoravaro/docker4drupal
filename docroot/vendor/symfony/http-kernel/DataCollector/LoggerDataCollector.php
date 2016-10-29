@@ -69,6 +69,7 @@ class LoggerDataCollector extends DataCollector implements LateDataCollectorInte
     }
 
     /**
+<<<<<<< HEAD
      * Gets the called events.
      *
      * @return array An array of called events
@@ -81,6 +82,8 @@ class LoggerDataCollector extends DataCollector implements LateDataCollectorInte
     }
 
     /**
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * Gets the logs.
      *
      * @return array An array of logs
@@ -95,6 +98,14 @@ class LoggerDataCollector extends DataCollector implements LateDataCollectorInte
         return isset($this->data['priorities']) ? $this->data['priorities'] : array();
     }
 
+<<<<<<< HEAD
+=======
+    public function countErrors()
+    {
+        return isset($this->data['error_count']) ? $this->data['error_count'] : 0;
+    }
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     public function countDeprecations()
     {
         return isset($this->data['deprecation_count']) ? $this->data['deprecation_count'] : 0;
@@ -175,6 +186,13 @@ class LoggerDataCollector extends DataCollector implements LateDataCollectorInte
         }
 
         if (is_object($context)) {
+<<<<<<< HEAD
+=======
+            if ($context instanceof \Exception) {
+                return sprintf('Exception(%s): %s', get_class($context), $context->getMessage());
+            }
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             return sprintf('Object(%s)', get_class($context));
         }
 

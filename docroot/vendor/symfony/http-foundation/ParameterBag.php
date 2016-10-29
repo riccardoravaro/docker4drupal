@@ -248,11 +248,19 @@ class ParameterBag implements \IteratorAggregate, \Countable
     /**
      * Filter key.
      *
+<<<<<<< HEAD
      * @param string $key     Key.
      * @param mixed  $default Default = null.
      * @param int    $filter  FILTER_* constant.
      * @param mixed  $options Filter options.
      * @param bool   $deep    Default = false.
+=======
+     * @param string $key     Key
+     * @param mixed  $default Default = null
+     * @param int    $filter  FILTER_* constant
+     * @param mixed  $options Filter options
+     * @param bool   $deep    Default = false
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @see http://php.net/manual/en/function.filter-var.php
      *

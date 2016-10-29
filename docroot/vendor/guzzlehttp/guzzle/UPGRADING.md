@@ -132,7 +132,11 @@ $handler = GuzzleHttp\HandlerStack::create();
 $handler->push(Middleware::mapRequest(function (RequestInterface $request) {
     // Notice that we have to return a request object
     return $request->withHeader('X-Foo', 'Bar');
+<<<<<<< HEAD
 });
+=======
+}));
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 // Inject the handler into the client
 $client = new GuzzleHttp\Client(['handler' => $handler]);
 ```
@@ -600,7 +604,11 @@ these if needed):
 The following plugins are not part of the core Guzzle package, but are provided
 in separate repositories:
 
+<<<<<<< HEAD
 - `Guzzle\Http\Plugin\BackoffPlugin` has been rewritten to be muchs simpler
+=======
+- `Guzzle\Http\Plugin\BackoffPlugin` has been rewritten to be much simpler
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
   to build custom retry policies using simple functions rather than various
   chained classes. See: https://github.com/guzzle/retry-subscriber
 - `Guzzle\Http\Plugin\Cache\CachePlugin` has moved to
@@ -664,8 +672,13 @@ that contain additional metadata accessible via `getMetadata()`.
 
 The entire concept of the StreamRequestFactory has been removed. The way this
 was used in Guzzle 3 broke the actual interface of sending streaming requests
+<<<<<<< HEAD
 (instead of getting back a Response, you got a StreamInterface). Streeaming
 PHP requests are now implemented throught the `GuzzleHttp\Adapter\StreamAdapter`.
+=======
+(instead of getting back a Response, you got a StreamInterface). Streaming
+PHP requests are now implemented through the `GuzzleHttp\Adapter\StreamAdapter`.
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
 3.6 to 3.7
 ----------

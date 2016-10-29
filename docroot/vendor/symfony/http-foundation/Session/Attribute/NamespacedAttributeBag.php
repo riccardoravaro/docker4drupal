@@ -29,8 +29,13 @@ class NamespacedAttributeBag extends AttributeBag
     /**
      * Constructor.
      *
+<<<<<<< HEAD
      * @param string $storageKey         Session storage key.
      * @param string $namespaceCharacter Namespace character to use in keys.
+=======
+     * @param string $storageKey         Session storage key
+     * @param string $namespaceCharacter Namespace character to use in keys
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function __construct($storageKey = '_sf2_attributes', $namespaceCharacter = '/')
     {

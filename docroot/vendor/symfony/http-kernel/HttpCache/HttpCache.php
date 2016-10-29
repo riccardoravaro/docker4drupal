@@ -153,9 +153,15 @@ class HttpCache implements HttpKernelInterface, TerminableInterface
     /**
      * Gets the Surrogate instance.
      *
+<<<<<<< HEAD
      * @throws \LogicException
      *
      * @return SurrogateInterface A Surrogate instance
+=======
+     * @return SurrogateInterface A Surrogate instance
+     *
+     * @throws \LogicException
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getSurrogate()
     {
@@ -169,10 +175,17 @@ class HttpCache implements HttpKernelInterface, TerminableInterface
     /**
      * Gets the Esi instance.
      *
+<<<<<<< HEAD
      * @throws \LogicException
      *
      * @return Esi An Esi instance
      *
+=======
+     * @return Esi An Esi instance
+     *
+     * @throws \LogicException
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @deprecated since version 2.6, to be removed in 3.0. Use getSurrogate() instead
      */
     public function getEsi()
@@ -374,7 +387,13 @@ class HttpCache implements HttpKernelInterface, TerminableInterface
         $subRequest = clone $request;
 
         // send no head requests because we want content
+<<<<<<< HEAD
         $subRequest->setMethod('GET');
+=======
+        if ('HEAD' === $request->getMethod()) {
+            $subRequest->setMethod('GET');
+        }
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
         // add our cached last-modified validator
         $subRequest->headers->set('if_modified_since', $entry->headers->get('Last-Modified'));
@@ -435,7 +454,13 @@ class HttpCache implements HttpKernelInterface, TerminableInterface
         $subRequest = clone $request;
 
         // send no head requests because we want content
+<<<<<<< HEAD
         $subRequest->setMethod('GET');
+=======
+        if ('HEAD' === $request->getMethod()) {
+            $subRequest->setMethod('GET');
+        }
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 
         // avoid that the backend sends no content
         $subRequest->headers->remove('if_modified_since');
@@ -600,6 +625,12 @@ class HttpCache implements HttpKernelInterface, TerminableInterface
      */
     protected function store(Request $request, Response $response)
     {
+<<<<<<< HEAD
+=======
+        if (!$response->headers->has('Date')) {
+            $response->setDate(\DateTime::createFromFormat('U', time()));
+        }
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         try {
             $this->store->write($request, $response);
 

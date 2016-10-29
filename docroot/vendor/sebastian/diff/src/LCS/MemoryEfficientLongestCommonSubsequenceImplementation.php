@@ -12,6 +12,7 @@ namespace SebastianBergmann\Diff\LCS;
 
 /**
  * Memory-efficient implementation of longest common subsequence calculation.
+<<<<<<< HEAD
  *
  * @package    Diff
  * @author     Sebastian Bergmann <sebastian@phpunit.de>
@@ -19,14 +20,22 @@ namespace SebastianBergmann\Diff\LCS;
  * @copyright  Sebastian Bergmann <sebastian@phpunit.de>
  * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
  * @link       http://www.github.com/sebastianbergmann/diff
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  */
 class MemoryEfficientImplementation implements LongestCommonSubsequence
 {
     /**
      * Calculates the longest common subsequence of two arrays.
      *
+<<<<<<< HEAD
      * @param  array $from
      * @param  array $to
+=======
+     * @param array $from
+     * @param array $to
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return array
      */
     public function calculate(array $from, array $to)
@@ -73,6 +82,10 @@ class MemoryEfficientImplementation implements LongestCommonSubsequence
     /**
      * @param array $from
      * @param array $to
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @return array
      */
     private function length(array $from, array $to)

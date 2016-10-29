@@ -37,7 +37,11 @@ class Esi implements SurrogateInterface
     /**
      * Constructor.
      *
+<<<<<<< HEAD
      * @param array $contentTypes An array of content-type that should be parsed for ESI information.
+=======
+     * @param array $contentTypes An array of content-type that should be parsed for ESI information
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *                            (default: text/html, text/xml, application/xhtml+xml, and application/xml)
      */
     public function __construct(array $contentTypes = array('text/html', 'text/xml', 'application/xhtml+xml', 'application/xml'))

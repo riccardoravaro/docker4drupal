@@ -19,8 +19,11 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
  * You can use a custom factory if you want to customize the execution context
  * that is passed through the validation run.
  *
+<<<<<<< HEAD
  * @since  2.5
  *
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
 interface ExecutionContextFactoryInterface

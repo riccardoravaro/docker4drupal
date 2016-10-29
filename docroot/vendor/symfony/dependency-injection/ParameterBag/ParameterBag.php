@@ -26,8 +26,11 @@ class ParameterBag implements ParameterBagInterface
     protected $resolved = false;
 
     /**
+<<<<<<< HEAD
      * Constructor.
      *
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @param array $parameters An array of parameters
      */
     public function __construct(array $parameters = array())
@@ -56,9 +59,13 @@ class ParameterBag implements ParameterBagInterface
     }
 
     /**
+<<<<<<< HEAD
      * Gets the service container parameters.
      *
      * @return array An array of parameters
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function all()
     {
@@ -66,6 +73,7 @@ class ParameterBag implements ParameterBagInterface
     }
 
     /**
+<<<<<<< HEAD
      * Gets a service container parameter.
      *
      * @param string $name The parameter name
@@ -73,6 +81,9 @@ class ParameterBag implements ParameterBagInterface
      * @return mixed The parameter value
      *
      * @throws ParameterNotFoundException if the parameter is not defined
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function get($name)
     {
@@ -109,11 +120,15 @@ class ParameterBag implements ParameterBagInterface
     }
 
     /**
+<<<<<<< HEAD
      * Returns true if a parameter name is defined.
      *
      * @param string $name The parameter name
      *
      * @return bool true if the parameter name is defined, false otherwise
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function has($name)
     {
@@ -131,7 +146,11 @@ class ParameterBag implements ParameterBagInterface
     }
 
     /**
+<<<<<<< HEAD
      * Replaces parameter placeholders (%name%) by their values for all parameters.
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function resolve()
     {
@@ -266,6 +285,12 @@ class ParameterBag implements ParameterBagInterface
         return $value;
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * {@inheritdoc}
+     */
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     public function unescapeValue($value)
     {
         if (is_string($value)) {

@@ -37,7 +37,11 @@ class MoFileLoader extends FileLoader
     /**
      * The size of the header of a MO file in bytes.
      *
+<<<<<<< HEAD
      * @var int Number of bytes.
+=======
+     * @var int Number of bytes
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     const MO_HEADER_SIZE = 28;
 
@@ -80,7 +84,11 @@ class MoFileLoader extends FileLoader
         $messages = array();
 
         for ($i = 0; $i < $count; ++$i) {
+<<<<<<< HEAD
             $singularId = $pluralId = null;
+=======
+            $pluralId = null;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             $translated = null;
 
             fseek($stream, $offsetId + $i * 8);

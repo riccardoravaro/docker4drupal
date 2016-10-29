@@ -46,7 +46,11 @@ class Escaper
      *
      * @param string $value A PHP value
      *
+<<<<<<< HEAD
      * @return bool True if the value would require double quotes.
+=======
+     * @return bool True if the value would require double quotes
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public static function requiresDoubleQuoting($value)
     {
@@ -70,7 +74,11 @@ class Escaper
      *
      * @param string $value A PHP value
      *
+<<<<<<< HEAD
      * @return bool True if the value would require single quotes.
+=======
+     * @return bool True if the value would require single quotes
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public static function requiresSingleQuoting($value)
     {

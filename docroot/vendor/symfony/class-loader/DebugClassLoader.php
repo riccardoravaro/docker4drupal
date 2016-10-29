@@ -89,7 +89,11 @@ class DebugClassLoader
      */
     public function findFile($class)
     {
+<<<<<<< HEAD
         return $this->classFinder->findFile($class);
+=======
+        return $this->classFinder->findFile($class) ?: null;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     /**

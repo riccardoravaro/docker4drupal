@@ -9,6 +9,7 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
+<<<<<<< HEAD
  * @method ResponseInterface get($uri, array $options = [])
  * @method ResponseInterface head($uri, array $options = [])
  * @method ResponseInterface put($uri, array $options = [])
@@ -21,6 +22,20 @@ use Psr\Http\Message\ResponseInterface;
  * @method Promise\PromiseInterface postAsync($uri, array $options = [])
  * @method Promise\PromiseInterface patchAsync($uri, array $options = [])
  * @method Promise\PromiseInterface deleteAsync($uri, array $options = [])
+=======
+ * @method ResponseInterface get(string|UriInterface $uri, array $options = [])
+ * @method ResponseInterface head(string|UriInterface $uri, array $options = [])
+ * @method ResponseInterface put(string|UriInterface $uri, array $options = [])
+ * @method ResponseInterface post(string|UriInterface $uri, array $options = [])
+ * @method ResponseInterface patch(string|UriInterface $uri, array $options = [])
+ * @method ResponseInterface delete(string|UriInterface $uri, array $options = [])
+ * @method Promise\PromiseInterface getAsync(string|UriInterface $uri, array $options = [])
+ * @method Promise\PromiseInterface headAsync(string|UriInterface $uri, array $options = [])
+ * @method Promise\PromiseInterface putAsync(string|UriInterface $uri, array $options = [])
+ * @method Promise\PromiseInterface postAsync(string|UriInterface $uri, array $options = [])
+ * @method Promise\PromiseInterface patchAsync(string|UriInterface $uri, array $options = [])
+ * @method Promise\PromiseInterface deleteAsync(string|UriInterface $uri, array $options = [])
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
  */
 class Client implements ClientInterface
 {
@@ -145,7 +160,11 @@ class Client implements ClientInterface
             $uri = Psr7\Uri::resolve(Psr7\uri_for($config['base_uri']), $uri);
         }
 
+<<<<<<< HEAD
         return $uri->getScheme() === '' ? $uri->withScheme('http') : $uri;
+=======
+        return $uri->getScheme() === '' && $uri->getHost() !== '' ? $uri->withScheme('http') : $uri;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     /**

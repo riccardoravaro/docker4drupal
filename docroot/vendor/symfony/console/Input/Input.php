@@ -38,7 +38,11 @@ abstract class Input implements InputInterface
     /**
      * Constructor.
      *
+<<<<<<< HEAD
      * @param InputDefinition $definition A InputDefinition instance
+=======
+     * @param InputDefinition|null $definition A InputDefinition instance
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function __construct(InputDefinition $definition = null)
     {
@@ -51,9 +55,13 @@ abstract class Input implements InputInterface
     }
 
     /**
+<<<<<<< HEAD
      * Binds the current Input instance with the given arguments and options.
      *
      * @param InputDefinition $definition A InputDefinition instance
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function bind(InputDefinition $definition)
     {
@@ -70,9 +78,13 @@ abstract class Input implements InputInterface
     abstract protected function parse();
 
     /**
+<<<<<<< HEAD
      * Validates the input.
      *
      * @throws RuntimeException When not enough arguments are given
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function validate()
     {
@@ -89,9 +101,13 @@ abstract class Input implements InputInterface
     }
 
     /**
+<<<<<<< HEAD
      * Checks if the input is interactive.
      *
      * @return bool Returns true if the input is interactive
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function isInteractive()
     {
@@ -99,9 +115,13 @@ abstract class Input implements InputInterface
     }
 
     /**
+<<<<<<< HEAD
      * Sets the input interactivity.
      *
      * @param bool $interactive If the input should be interactive
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function setInteractive($interactive)
     {
@@ -109,9 +129,13 @@ abstract class Input implements InputInterface
     }
 
     /**
+<<<<<<< HEAD
      * Returns the argument values.
      *
      * @return array An array of argument values
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getArguments()
     {
@@ -119,6 +143,7 @@ abstract class Input implements InputInterface
     }
 
     /**
+<<<<<<< HEAD
      * Returns the argument value for a given argument name.
      *
      * @param string $name The argument name
@@ -126,6 +151,9 @@ abstract class Input implements InputInterface
      * @return mixed The argument value
      *
      * @throws InvalidArgumentException When argument given doesn't exist
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getArgument($name)
     {
@@ -137,12 +165,16 @@ abstract class Input implements InputInterface
     }
 
     /**
+<<<<<<< HEAD
      * Sets an argument value by name.
      *
      * @param string $name  The argument name
      * @param string $value The argument value
      *
      * @throws InvalidArgumentException When argument given doesn't exist
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function setArgument($name, $value)
     {
@@ -154,11 +186,15 @@ abstract class Input implements InputInterface
     }
 
     /**
+<<<<<<< HEAD
      * Returns true if an InputArgument object exists by name or position.
      *
      * @param string|int $name The InputArgument name or position
      *
      * @return bool true if the InputArgument object exists, false otherwise
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function hasArgument($name)
     {
@@ -166,9 +202,13 @@ abstract class Input implements InputInterface
     }
 
     /**
+<<<<<<< HEAD
      * Returns the options values.
      *
      * @return array An array of option values
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getOptions()
     {
@@ -176,6 +216,7 @@ abstract class Input implements InputInterface
     }
 
     /**
+<<<<<<< HEAD
      * Returns the option value for a given option name.
      *
      * @param string $name The option name
@@ -183,6 +224,9 @@ abstract class Input implements InputInterface
      * @return mixed The option value
      *
      * @throws InvalidArgumentException When option given doesn't exist
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function getOption($name)
     {
@@ -194,12 +238,16 @@ abstract class Input implements InputInterface
     }
 
     /**
+<<<<<<< HEAD
      * Sets an option value by name.
      *
      * @param string      $name  The option name
      * @param string|bool $value The option value
      *
      * @throws InvalidArgumentException When option given doesn't exist
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function setOption($name, $value)
     {
@@ -211,11 +259,15 @@ abstract class Input implements InputInterface
     }
 
     /**
+<<<<<<< HEAD
      * Returns true if an InputOption object exists by name.
      *
      * @param string $name The InputOption name
      *
      * @return bool true if the InputOption object exists, false otherwise
+=======
+     * {@inheritdoc}
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function hasOption($name)
     {

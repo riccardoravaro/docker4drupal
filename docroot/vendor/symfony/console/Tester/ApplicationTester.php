@@ -37,7 +37,11 @@ class ApplicationTester
     /**
      * Constructor.
      *
+<<<<<<< HEAD
      * @param Application $application An Application instance to test.
+=======
+     * @param Application $application An Application instance to test
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      */
     public function __construct(Application $application)
     {

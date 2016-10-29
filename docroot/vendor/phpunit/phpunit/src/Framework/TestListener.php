@@ -48,6 +48,10 @@ interface PHPUnit_Framework_TestListener
      * @param PHPUnit_Framework_Test $test
      * @param Exception              $e
      * @param float                  $time
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since  Method available since Release 4.0.0
      */
     public function addRiskyTest(PHPUnit_Framework_Test $test, Exception $e, $time);
@@ -58,6 +62,10 @@ interface PHPUnit_Framework_TestListener
      * @param PHPUnit_Framework_Test $test
      * @param Exception              $e
      * @param float                  $time
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since  Method available since Release 3.0.0
      */
     public function addSkippedTest(PHPUnit_Framework_Test $test, Exception $e, $time);
@@ -66,6 +74,10 @@ interface PHPUnit_Framework_TestListener
      * A test suite started.
      *
      * @param PHPUnit_Framework_TestSuite $suite
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since  Method available since Release 2.2.0
      */
     public function startTestSuite(PHPUnit_Framework_TestSuite $suite);
@@ -74,6 +86,10 @@ interface PHPUnit_Framework_TestListener
      * A test suite ended.
      *
      * @param PHPUnit_Framework_TestSuite $suite
+<<<<<<< HEAD
+=======
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @since  Method available since Release 2.2.0
      */
     public function endTestSuite(PHPUnit_Framework_TestSuite $suite);

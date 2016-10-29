@@ -219,7 +219,11 @@ class XmlFileLoader extends FileLoader
      * @param \DOMElement $node Element to parse that contains the configs
      * @param string      $path Full path of the XML file being processed
      *
+<<<<<<< HEAD
      * @return array An array with the defaults as first item, requirements as second and options as third.
+=======
+     * @return array An array with the defaults as first item, requirements as second and options as third
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @throws \InvalidArgumentException When the XML is invalid
      */

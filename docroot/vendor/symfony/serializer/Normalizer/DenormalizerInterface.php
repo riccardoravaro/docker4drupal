@@ -33,9 +33,15 @@ interface DenormalizerInterface
     /**
      * Checks whether the given class is supported for denormalization by this normalizer.
      *
+<<<<<<< HEAD
      * @param mixed  $data   Data to denormalize from.
      * @param string $type   The class to which the data should be denormalized.
      * @param string $format The format being deserialized from.
+=======
+     * @param mixed  $data   Data to denormalize from
+     * @param string $type   The class to which the data should be denormalized
+     * @param string $format The format being deserialized from
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @return bool
      */

@@ -6,11 +6,18 @@ php:
   - 5.5
   - 5.6
   - 7.0
+<<<<<<< HEAD
+=======
+  - 7.1
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
   - hhvm
 
 before_script:
   - curl --version
+<<<<<<< HEAD
   - composer self-update
+=======
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
   - composer install --no-interaction --prefer-source --dev
   - ~/.nvm/nvm.sh install v0.6.14
   - ~/.nvm/nvm.sh run v0.6.14

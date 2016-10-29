@@ -28,6 +28,18 @@ class ControllerResolver implements ControllerResolverInterface
     private $logger;
 
     /**
+<<<<<<< HEAD
+=======
+     * If the ...$arg functionality is available.
+     *
+     * Requires at least PHP 5.6.0 or HHVM 3.9.1
+     *
+     * @var bool
+     */
+    private $supportsVariadic;
+
+    /**
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * Constructor.
      *
      * @param LoggerInterface $logger A LoggerInterface instance
@@ -35,6 +47,11 @@ class ControllerResolver implements ControllerResolverInterface
     public function __construct(LoggerInterface $logger = null)
     {
         $this->logger = $logger;
+<<<<<<< HEAD
+=======
+
+        $this->supportsVariadic = method_exists('ReflectionParameter', 'isVariadic');
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     }
 
     /**
@@ -99,13 +116,27 @@ class ControllerResolver implements ControllerResolverInterface
         return $this->doGetArguments($request, $controller, $r->getParameters());
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * @param Request                $request
+     * @param callable               $controller
+     * @param \ReflectionParameter[] $parameters
+     *
+     * @return array The arguments to use when calling the action
+     */
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     protected function doGetArguments(Request $request, $controller, array $parameters)
     {
         $attributes = $request->attributes->all();
         $arguments = array();
         foreach ($parameters as $param) {
             if (array_key_exists($param->name, $attributes)) {
+<<<<<<< HEAD
                 if (PHP_VERSION_ID >= 50600 && $param->isVariadic() && is_array($attributes[$param->name])) {
+=======
+                if ($this->supportsVariadic && $param->isVariadic() && is_array($attributes[$param->name])) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                     $arguments = array_merge($arguments, array_values($attributes[$param->name]));
                 } else {
                     $arguments[] = $attributes[$param->name];
@@ -114,6 +145,11 @@ class ControllerResolver implements ControllerResolverInterface
                 $arguments[] = $request;
             } elseif ($param->isDefaultValueAvailable()) {
                 $arguments[] = $param->getDefaultValue();
+<<<<<<< HEAD
+=======
+            } elseif ($param->allowsNull()) {
+                $arguments[] = null;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             } else {
                 if (is_array($controller)) {
                     $repr = sprintf('%s::%s()', get_class($controller[0]), $controller[1]);

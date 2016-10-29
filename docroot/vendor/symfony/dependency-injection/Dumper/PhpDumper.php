@@ -144,6 +144,10 @@ class PhpDumper extends Dumper
         if ($this->container->isFrozen()) {
             $code .= $this->addFrozenConstructor();
             $code .= $this->addFrozenCompile();
+<<<<<<< HEAD
+=======
+            $code .= $this->addIsFrozenMethod();
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         } else {
             $code .= $this->addConstructor();
         }
@@ -374,7 +378,11 @@ class PhpDumper extends Dumper
      * @throws InvalidArgumentException
      * @throws RuntimeException
      */
+<<<<<<< HEAD
     private function addServiceInstance($id, $definition)
+=======
+    private function addServiceInstance($id, Definition $definition)
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     {
         $class = $definition->getClass();
 
@@ -424,7 +432,11 @@ class PhpDumper extends Dumper
      *
      * @return bool
      */
+<<<<<<< HEAD
     private function isSimpleInstance($id, $definition)
+=======
+    private function isSimpleInstance($id, Definition $definition)
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     {
         foreach (array_merge(array($definition), $this->getInlinedDefinitions($definition)) as $sDefinition) {
             if ($definition !== $sDefinition && !$this->hasReference($id, $sDefinition->getMethodCalls())) {
@@ -448,7 +460,11 @@ class PhpDumper extends Dumper
      *
      * @return string
      */
+<<<<<<< HEAD
     private function addServiceMethodCalls($id, $definition, $variableName = 'instance')
+=======
+    private function addServiceMethodCalls($id, Definition $definition, $variableName = 'instance')
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     {
         $calls = '';
         foreach ($definition->getMethodCalls() as $call) {
@@ -463,7 +479,11 @@ class PhpDumper extends Dumper
         return $calls;
     }
 
+<<<<<<< HEAD
     private function addServiceProperties($id, $definition, $variableName = 'instance')
+=======
+    private function addServiceProperties($id, Definition $definition, $variableName = 'instance')
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     {
         $code = '';
         foreach ($definition->getProperties() as $name => $value) {
@@ -483,7 +503,11 @@ class PhpDumper extends Dumper
      *
      * @throws ServiceCircularReferenceException when the container contains a circular reference
      */
+<<<<<<< HEAD
     private function addServiceInlinedDefinitionsSetup($id, $definition)
+=======
+    private function addServiceInlinedDefinitionsSetup($id, Definition $definition)
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     {
         $this->referenceVariables[$id] = new Variable('instance');
 
@@ -527,7 +551,11 @@ class PhpDumper extends Dumper
      *
      * @return string
      */
+<<<<<<< HEAD
     private function addServiceConfigurator($id, $definition, $variableName = 'instance')
+=======
+    private function addServiceConfigurator($id, Definition $definition, $variableName = 'instance')
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     {
         if (!$callable = $definition->getConfigurator()) {
             return '';
@@ -559,7 +587,11 @@ class PhpDumper extends Dumper
      *
      * @return string
      */
+<<<<<<< HEAD
     private function addService($id, $definition)
+=======
+    private function addService($id, Definition $definition)
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     {
         $this->definitionVariables = new \SplObjectStorage();
         $this->referenceVariables = array();
@@ -570,6 +602,7 @@ class PhpDumper extends Dumper
         if ($definition->isSynthetic()) {
             $return[] = '@throws RuntimeException always since this service is expected to be injected dynamically';
         } elseif ($class = $definition->getClass()) {
+<<<<<<< HEAD
             $return[] = sprintf('@return %s A %s instance.', 0 === strpos($class, '%') ? 'object' : '\\'.ltrim($class, '\\'), ltrim($class, '\\'));
         } elseif ($definition->getFactory()) {
             $factory = $definition->getFactory();
@@ -586,6 +619,24 @@ class PhpDumper extends Dumper
             $return[] = sprintf('@return object An instance returned by %s::%s().', $definition->getFactoryClass(false), $definition->getFactoryMethod(false));
         } elseif ($definition->getFactoryService(false)) {
             $return[] = sprintf('@return object An instance returned by %s::%s().', $definition->getFactoryService(false), $definition->getFactoryMethod(false));
+=======
+            $return[] = sprintf('@return %s A %s instance', 0 === strpos($class, '%') ? 'object' : '\\'.ltrim($class, '\\'), ltrim($class, '\\'));
+        } elseif ($definition->getFactory()) {
+            $factory = $definition->getFactory();
+            if (is_string($factory)) {
+                $return[] = sprintf('@return object An instance returned by %s()', $factory);
+            } elseif (is_array($factory) && (is_string($factory[0]) || $factory[0] instanceof Definition || $factory[0] instanceof Reference)) {
+                if (is_string($factory[0]) || $factory[0] instanceof Reference) {
+                    $return[] = sprintf('@return object An instance returned by %s::%s()', (string) $factory[0], $factory[1]);
+                } elseif ($factory[0] instanceof Definition) {
+                    $return[] = sprintf('@return object An instance returned by %s::%s()', $factory[0]->getClass(), $factory[1]);
+                }
+            }
+        } elseif ($definition->getFactoryClass(false)) {
+            $return[] = sprintf('@return object An instance returned by %s::%s()', $definition->getFactoryClass(false), $definition->getFactoryMethod(false));
+        } elseif ($definition->getFactoryService(false)) {
+            $return[] = sprintf('@return object An instance returned by %s::%s()', $definition->getFactoryService(false), $definition->getFactoryMethod(false));
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         }
 
         $scope = $definition->getScope(false);
@@ -981,6 +1032,29 @@ EOF;
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Adds the isFrozen method for a frozen container.
+     *
+     * @return string
+     */
+    private function addIsFrozenMethod()
+    {
+        return <<<EOF
+
+    /*{$this->docStar}
+     * {@inheritdoc}
+     */
+    public function isFrozen()
+    {
+        return true;
+    }
+
+EOF;
+    }
+
+    /**
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * Adds the methodMap property definition.
      *
      * @return string
@@ -1123,7 +1197,11 @@ EOF;
      *
      * @throws InvalidArgumentException
      */
+<<<<<<< HEAD
     private function exportParameters($parameters, $path = '', $indent = 12)
+=======
+    private function exportParameters(array $parameters, $path = '', $indent = 12)
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
     {
         $php = array();
         foreach ($parameters as $key => $value) {
@@ -1288,7 +1366,11 @@ EOF;
                     return true;
                 }
 
+<<<<<<< HEAD
                 if ($deep && !isset($visited[$argumentId])) {
+=======
+                if ($deep && !isset($visited[$argumentId]) && 'service_container' !== $argumentId) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
                     $visited[$argumentId] = true;
 
                     $service = $this->container->getDefinition($argumentId);

@@ -1,11 +1,31 @@
 language: php
 
+<<<<<<< HEAD
+=======
+sudo: false
+
+cache:
+  directory:
+    - $HOME/.composer/cache
+
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
 php:
   - 5.3
   - 5.4
   - 5.5
   - 5.6
+<<<<<<< HEAD
   - hhvm
 
 install:
     - composer --prefer-source install
+=======
+  - 7.0
+  - hhvm
+
+install:
+  - composer install -n
+
+script:
+  - phpunit
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9

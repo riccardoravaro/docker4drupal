@@ -60,8 +60,13 @@ class XcacheClassLoader
     /**
      * Constructor.
      *
+<<<<<<< HEAD
      * @param string $prefix    The XCache namespace prefix to use.
      * @param object $decorated A class loader object that implements the findFile() method.
+=======
+     * @param string $prefix    The XCache namespace prefix to use
+     * @param object $decorated A class loader object that implements the findFile() method
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      *
      * @throws \RuntimeException
      * @throws \InvalidArgumentException
@@ -126,7 +131,11 @@ class XcacheClassLoader
         if (xcache_isset($this->prefix.$class)) {
             $file = xcache_get($this->prefix.$class);
         } else {
+<<<<<<< HEAD
             $file = $this->decorated->findFile($class);
+=======
+            $file = $this->decorated->findFile($class) ?: null;
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             xcache_set($this->prefix.$class, $file);
         }
 

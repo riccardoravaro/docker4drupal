@@ -45,16 +45,27 @@ class Debug
             error_reporting(-1);
         }
 
+<<<<<<< HEAD
         if ('cli' !== php_sapi_name()) {
+=======
+        if ('cli' !== PHP_SAPI) {
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             ini_set('display_errors', 0);
             ExceptionHandler::register();
         } elseif ($displayErrors && (!ini_get('log_errors') || ini_get('error_log'))) {
             // CLI - display errors only if they're not already logged to STDERR
             ini_set('display_errors', 1);
         }
+<<<<<<< HEAD
         $handler = ErrorHandler::register();
         if (!$displayErrors) {
             $handler->throwAt(0, true);
+=======
+        if ($displayErrors) {
+            ErrorHandler::register(new ErrorHandler(new BufferingLogger()));
+        } else {
+            ErrorHandler::register()->throwAt(0, true);
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
         }
 
         DebugClassLoader::enable();

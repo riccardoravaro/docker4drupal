@@ -36,10 +36,18 @@ class PHPUnit_Util_ErrorHandler
     }
 
     /**
+<<<<<<< HEAD
      * @param  int                     $errno
      * @param  string                  $errstr
      * @param  string                  $errfile
      * @param  int                     $errline
+=======
+     * @param int    $errno
+     * @param string $errstr
+     * @param string $errfile
+     * @param int    $errline
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @throws PHPUnit_Framework_Error
      */
     public static function handleError($errno, $errstr, $errfile, $errline)
@@ -87,7 +95,13 @@ class PHPUnit_Util_ErrorHandler
     /**
      * Registers an error handler and returns a function that will restore
      * the previous handler when invoked
+<<<<<<< HEAD
      * @param  int       $severity PHP predefined error constant
+=======
+     *
+     * @param int $severity PHP predefined error constant
+     *
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
      * @throws Exception if event of specified severity is emitted
      */
     public static function handleErrorOnce($severity = E_WARNING)

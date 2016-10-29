@@ -126,14 +126,22 @@ class DataCollectorTranslator implements TranslatorInterface, TranslatorBagInter
         } elseif ($catalogue->has($id, $domain)) {
             $state = self::MESSAGE_EQUALS_FALLBACK;
 
+<<<<<<< HEAD
             $fallbackCatalogue = $catalogue->getFallBackCatalogue();
+=======
+            $fallbackCatalogue = $catalogue->getFallbackCatalogue();
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             while ($fallbackCatalogue) {
                 if ($fallbackCatalogue->defines($id, $domain)) {
                     $locale = $fallbackCatalogue->getLocale();
                     break;
                 }
 
+<<<<<<< HEAD
                 $fallbackCatalogue = $fallbackCatalogue->getFallBackCatalogue();
+=======
+                $fallbackCatalogue = $fallbackCatalogue->getFallbackCatalogue();
+>>>>>>> ea75da0d6d82e55b23a2a2f5ed629e3b52ee75d9
             }
         } else {
             $state = self::MESSAGE_MISSING;
